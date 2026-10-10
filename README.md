@@ -23,11 +23,11 @@ Requires Python 3.12 and PowerShell. Clone the repository, then:
 
 ```powershell
 Set-Location 'C:\projekty\region-comparison'
-.\scripts\bootstrap.ps1
-.\scripts\run-demo.ps1
+powershell -NoProfile -ExecutionPolicy RemoteSigned -File .\scripts\bootstrap.ps1
+powershell -NoProfile -ExecutionPolicy RemoteSigned -File .\scripts\run-demo.ps1
 ```
 
-Open http://localhost:8503. No Docker, database or GUS API key is needed. The first dependency installation needs PyPI access; the demo then uses only committed data. If the port is occupied, use `run-demo.ps1 -Port 8505`. See [Windows instructions](docs/windows-setup.md) for custom Python paths and troubleshooting. Scripts preserve existing `.env` files and do not change global settings.
+Open http://localhost:8503. No Docker, database or GUS API key is needed. The first dependency installation needs PyPI access; the demo then uses only committed data. RemoteSigned applies only to the launched PowerShell process and does not override Group Policy or change persistent settings. If the port is occupied, pass `-Port 8505` to run-demo.ps1. See [Windows instructions](docs/windows-setup.md) for custom Python paths and troubleshooting. Scripts preserve existing `.env` files.
 
 ## Full PostgreSQL path
 
@@ -65,8 +65,8 @@ Modules separate configuration, ingestion, validation, storage, metrics, scoring
 .\.venv\Scripts\python.exe -m region_comparison discover
 .\.venv\Scripts\python.exe -m region_comparison validate
 .\.venv\Scripts\python.exe -m region_comparison report --output docs/findings.md
-.\scripts\check.ps1
-.\scripts\build-review-bundle.ps1
+powershell -NoProfile -ExecutionPolicy RemoteSigned -File .\scripts\check.ps1
+powershell -NoProfile -ExecutionPolicy RemoteSigned -File .\scripts\build-review-bundle.ps1
 ```
 
 `discover` reads verified committed metadata; `discover --live` explicitly rechecks the seven source IDs. `fetch --output data/raw/new-snapshot` performs a resumable, rate-limited refresh of the pinned source scope; `load --snapshot data/raw/new-snapshot` requires DATABASE_URL and activates only validated complete snapshots. Optional GUS_CLIENT_ID is sent in X-ClientId, never the URL. No normal CI test calls GUS.

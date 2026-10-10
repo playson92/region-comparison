@@ -5,6 +5,7 @@ import json
 import os
 from pathlib import Path
 
+import httpx
 import pandas as pd
 import pytest
 from pandas.testing import assert_frame_equal
@@ -183,12 +184,47 @@ def test_new_definition_is_scoped_to_its_snapshot(tmp_path, database_url):
 
 
 @pytest.mark.postgres
-def test_real_snapshot_postgres_and_offline_have_identical_metrics_scores(database_url):
+@pytest.mark.parametrize("omit_registered_unit", [False, True])
+def test_real_snapshot_postgres_and_offline_have_identical_metrics_scores(
+    database_url, tmp_path, omit_registered_unit
+):
+    from region_comparison.config import read_indicators
     from region_comparison.exports import dataset_fingerprint
+    from region_comparison.ingestion import BDLClient, fetch_snapshot
     from region_comparison.metrics import build_metrics
     from region_comparison.scoring import evaluate
 
     sample = Path(__file__).resolve().parents[1] / "data" / "sample"
+    if omit_registered_unit:
+        original = load_snapshot(sample)
+        configuration = read_indicators()
+        configuration.update(
+            units=original.units.to_dict(orient="records"), attributes=original.attributes
+        )
+
+        def handler(request):
+            endpoint = request.url.path.rsplit("/api/v1/", 1)[-1]
+            if endpoint == "units":
+                filename = f"units-page-{request.url.params['page']}.json"
+            elif endpoint == "attributes":
+                filename = "attributes.json"
+            elif endpoint.startswith("variables/"):
+                filename = f"variable-{endpoint.split('/')[-1]}.json"
+            else:
+                filename = f"data-{endpoint.split('/')[-1]}-page-{request.url.params['page']}.json"
+            body = json.loads((sample / "source_responses" / filename).read_text(encoding="utf-8"))
+            if endpoint == "data/by-variable/453372":
+                body["totalRecords"] -= 1
+                body["results"] = [row for row in body["results"] if row["id"] != "030210564011"]
+            return httpx.Response(200, json=body)
+
+        with BDLClient(
+            tmp_path / "cache",
+            transport=httpx.MockTransport(handler),
+            rate_limits=((1, 10000), (60, 10000)),
+        ) as client:
+            fetched = fetch_snapshot(configuration, tmp_path / "omitted-unit", client)
+        sample = fetched
     import_snapshot(database_url, sample)
     offline, postgres = load_snapshot(sample), load_database(database_url)
     assert offline.attributes == postgres.attributes
@@ -200,7 +236,23 @@ def test_real_snapshot_postgres_and_offline_have_identical_metrics_scores(databa
         check_dtype=False,
     )
     assert dataset_fingerprint(offline) == dataset_fingerprint(postgres)
+    for column in ("raw_value", "raw_attr_id"):
+        key = ["unit_id", "year", "indicator_id"]
+        pd.testing.assert_series_equal(
+            offline.observations.set_index(key).sort_index()[column],
+            postgres.observations.set_index(key).sort_index()[column],
+            check_dtype=False,
+        )
+    if omit_registered_unit:
+        missing = offline.observations[
+            (offline.observations.unit_id == "030210564011")
+            & (offline.observations.indicator_id == "453372")
+        ]
+        assert len(missing) == 3
+        assert missing.raw_value.isna().all() and missing.raw_attr_id.isna().all()
     left, right = build_metrics(offline), build_metrics(postgres)
     assert_frame_equal(left, right, check_like=True, check_dtype=False)
     for year in offline.years:
         assert_frame_equal(evaluate(left, year).frame, evaluate(right, year).frame, check_like=True)
+        if omit_registered_unit:
+            assert "030210564011" not in evaluate(left, year).cohort_ids

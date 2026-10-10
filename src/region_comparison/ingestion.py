@@ -494,23 +494,22 @@ def fetch_snapshot(
                 if uid in live_units_by_id
                 and str(live_units_by_id[uid].get("kind")) in {"1", "2", "3"}
             }
-            if current_full_units != set(manifest["unit_ids"]):
+            if not current_full_units.issubset(set(manifest["unit_ids"])) or not set(
+                by_unit
+            ).issubset(live_units_by_id):
                 raise BDLError(
                     f"Variable {iid} has changed regional scope; repeat source discovery."
                 )
             for unit in units:
                 uid = str(unit["bdl_unit_id"])
-                if uid not in by_unit:
-                    raise PaginationError(
-                        f"Required complete gmina {uid} missing from variable {iid} response."
-                    )
-                values = by_unit[uid].get("values", [])
+                source_unit = by_unit.get(uid)
+                values = [] if source_unit is None else source_unit.get("values", [])
                 by_year = {int(v["year"]): v for v in values}
                 if len(by_year) != len(values):
                     raise PaginationError(f"Repeated observation year for {uid}/{iid}.")
                 for year in config["years"]:
                     value = by_year.get(int(year))
-                    # An absent year in a fully retrieved unit result is source missingness.
+                    # A missing unit/year after verified pagination is authentic source missingness.
                     raw, attr = (
                         (None, None)
                         if value is None
@@ -525,7 +524,14 @@ def fetch_snapshot(
                             "raw_attr_id": attr,
                             **interpret_observation(raw, attr, attributes),
                             "source_file": source_file,
-                            "source_record": f"{uid}/{year}",
+                            "source_record": f"{uid}/{year}"
+                            + (
+                                " (unit absent in complete response)"
+                                if source_unit is None
+                                else " (year absent in complete unit response)"
+                                if value is None
+                                else ""
+                            ),
                         }
                     )
         pd.DataFrame(observations).to_csv(path / "observations.csv", index=False, encoding="utf-8")

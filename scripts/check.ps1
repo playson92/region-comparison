@@ -5,6 +5,7 @@ $venvPython = Join-Path $projectRoot '.venv\Scripts\python.exe'
 $testTemp = Join-Path $projectRoot ('.local\pytest-' + [guid]::NewGuid().ToString('N'))
 Push-Location -LiteralPath $projectRoot
 try {
+    New-Item -ItemType Directory -Path (Split-Path -Parent $testTemp) -Force | Out-Null
     & $venvPython -m ruff check .
     if ($LASTEXITCODE -ne 0) { throw 'Ruff lint failed.' }
     & $venvPython -m ruff format --check .

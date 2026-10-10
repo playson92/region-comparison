@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 
 import httpx
+import pandas as pd
 import pytest
 from pandas.testing import assert_series_equal
 
@@ -339,3 +340,150 @@ def test_partial_fetch_resumes_verified_pages_instead_of_repeating_requests(tmp_
         fetch_snapshot(config, target, client)
     assert load_snapshot(target).manifest["started_at"] == started
     assert len(calls) == 32
+
+
+@pytest.mark.parametrize("omission", ["whole_unit", "one_year"])
+def test_complete_recorded_response_with_source_omission_remains_complete(tmp_path, omission):
+    """Controlled omissions in recorded replies test missingness without changing official fixtures."""
+    from region_comparison.config import read_indicators
+    from region_comparison.storage import load_snapshot
+    from region_comparison.validation import validate_dataset
+
+    sample = Path(__file__).resolve().parents[1] / "data" / "sample"
+    original = load_snapshot(sample)
+    config = read_indicators()
+    config.update(units=original.units.to_dict(orient="records"), attributes=original.attributes)
+    uid, iid = "030210564011", "453372"
+    good = _real_fixture_handler(sample, [])
+
+    def handler(request):
+        response = good(request)
+        if request.url.path.endswith(f"data/by-variable/{iid}"):
+            body = response.json()
+            if omission == "whole_unit":
+                body["totalRecords"] -= 1
+                body["results"] = [record for record in body["results"] if record["id"] != uid]
+            else:
+                for record in body["results"]:
+                    if record["id"] == uid:
+                        record["values"] = [
+                            value for value in record["values"] if int(value["year"]) != 2024
+                        ]
+            return httpx.Response(200, json=body)
+        return response
+
+    target = tmp_path / "omission"
+    with make_client(tmp_path / "cache", handler) as client:
+        fetch_snapshot(config, target, client)
+    result = load_snapshot(target)
+    report = validate_dataset(result)
+    assert report.valid
+    assert result.manifest["state"] == "complete"
+    assert result.manifest["pages_expected"] == result.manifest["pages_received"] == 21
+    assert result.manifest["records_expected"] == result.manifest["records_received"]
+    assert len(result.units) == 169 and len(result.observations) == 3549
+    raw = pd.read_csv(target / "observations.csv", dtype={"unit_id": str, "indicator_id": str})
+    missing = raw[
+        (raw.unit_id == uid) & (raw.indicator_id == iid) & (raw.quality_status == "missing")
+    ]
+    assert len(missing) == (3 if omission == "whole_unit" else 1)
+    assert missing.raw_value.isna().all()
+    assert missing.raw_attr_id.isna().all()
+    assert missing.semantic_value.isna().all()
+    assert set(missing.reason_code) == {"source_value_missing"}
+    phrase = (
+        "unit absent in complete response"
+        if omission == "whole_unit"
+        else "year absent in complete unit response"
+    )
+    assert missing.source_record.str.contains(phrase, regex=False).all()
+    assert report.counts["admissible_observations"] == 3549 - len(missing)
+    loaded_missing = result.observations[result.observations.quality_status == "missing"]
+    assert loaded_missing.raw_value.isna().all()
+    assert loaded_missing.raw_attr_id.isna().all()
+
+
+def test_recorded_response_with_missing_page_remains_partial(tmp_path):
+    from region_comparison.config import read_indicators
+    from region_comparison.storage import load_snapshot
+
+    sample = Path(__file__).resolve().parents[1] / "data" / "sample"
+    original = load_snapshot(sample)
+    config = read_indicators()
+    config.update(units=original.units.to_dict(orient="records"), attributes=original.attributes)
+    good = _real_fixture_handler(sample, [])
+
+    def handler(request):
+        response = good(request)
+        if "data/by-variable/453372" in request.url.path and request.url.params["page"] == "2":
+            body = response.json()
+            body["results"] = []  # totalRecords still promises 285 records.
+            return httpx.Response(200, json=body)
+        return response
+
+    target = tmp_path / "missing-page"
+    with (
+        make_client(tmp_path / "cache", handler) as client,
+        pytest.raises(PaginationError, match="Incomplete"),
+    ):
+        fetch_snapshot(config, target, client)
+    manifest = json.loads((target / "manifest.json").read_text())
+    assert manifest["state"] == "partial"
+    assert manifest["finished_at"] is None
+    assert "PaginationError" in manifest["errors"][0]
+
+
+@pytest.mark.parametrize("change", ["extra_observed_unit", "registry_kind_change"])
+def test_recorded_source_omissions_do_not_allow_real_territorial_scope_changes(tmp_path, change):
+    from region_comparison.config import read_indicators
+    from region_comparison.storage import load_snapshot
+
+    sample = Path(__file__).resolve().parents[1] / "data" / "sample"
+    original = load_snapshot(sample)
+    config = read_indicators()
+    config.update(units=original.units.to_dict(orient="records"), attributes=original.attributes)
+    expected = set(original.units.bdl_unit_id)
+    registry = []
+    for page in range(3):
+        registry.extend(
+            json.loads(
+                (sample / "source_responses" / f"units-page-{page}.json").read_text(
+                    encoding="utf-8"
+                )
+            )["results"]
+        )
+    historical = next(
+        unit
+        for unit in registry
+        if str(unit["kind"]) in {"1", "2", "3"} and unit["id"] not in expected
+    )
+    good = _real_fixture_handler(sample, [])
+
+    def handler(request):
+        response = good(request)
+        body = response.json()
+        if change == "registry_kind_change" and request.url.path.endswith("/units"):
+            for unit in body["results"]:
+                if unit["id"] == "030210564011":
+                    unit["kind"] = "2"
+        if change == "extra_observed_unit" and request.url.path.endswith("data/by-variable/453371"):
+            body["totalRecords"] += 1
+            if request.url.params["page"] == "2":
+                body["results"].append(
+                    {
+                        "id": historical["id"],
+                        "name": historical["name"],
+                        "values": [
+                            {"year": str(year), "val": 2, "attrId": 1} for year in config["years"]
+                        ],
+                    }
+                )
+        return httpx.Response(200, json=body)
+
+    target = tmp_path / "changed-scope"
+    with (
+        make_client(tmp_path / "cache", handler) as client,
+        pytest.raises(BDLError, match="changed"),
+    ):
+        fetch_snapshot(config, target, client)
+    assert json.loads((target / "manifest.json").read_text())["state"] == "partial"

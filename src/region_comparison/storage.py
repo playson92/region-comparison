@@ -85,6 +85,8 @@ def load_snapshot(path: str | Path, *, allow_partial: bool = False) -> Dataset:
     )
     observations["semantic_value"] = pd.to_numeric(observations["semantic_value"], errors="raise")
     observations["year"] = pd.to_numeric(observations["year"], errors="raise").astype(int)
+    for column in ("raw_value", "raw_attr_id"):
+        observations[column] = observations[column].where(observations[column] != "", None)
     return Dataset(
         manifest,
         units,

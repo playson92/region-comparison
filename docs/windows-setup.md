@@ -4,16 +4,16 @@ Wymagania demo: Python 3.12, Git i PowerShell. Nie wymaga WSL, Docker ani Postgr
 
 ```powershell
 Set-Location 'C:\projekty\region-comparison'
-.\scripts\bootstrap.ps1
-.\scripts\run-demo.ps1
+powershell -NoProfile -ExecutionPolicy RemoteSigned -File .\scripts\bootstrap.ps1
+powershell -NoProfile -ExecutionPolicy RemoteSigned -File .\scripts\run-demo.ps1
 ```
 
-Otwórz http://localhost:8503. Pierwsza instalacja wymaga dostępu do PyPI; późniejsze uruchomienia aplikacji korzystają z wersjonowanego snapshotu bez sieci GUS. Interpreter `.venv` jest używany bez aktywacji.
+Otwórz http://localhost:8503. RemoteSigned dotyczy wyłącznie nowego procesu PowerShell, nie zmienia ustawień użytkownika/systemu i nie ma pierwszeństwa przed Group Policy. Przy zezwoleniu na skrypty w bieżącej sesji można też wywołać je bezpośrednio. Pierwsza instalacja wymaga dostępu do PyPI; późniejsze uruchomienia aplikacji korzystają z wersjonowanego snapshotu bez sieci GUS. Interpreter `.venv` jest używany bez aktywacji.
 
 Jeżeli `py` nie jest dostępne, wskaż interpreter Python 3.12:
 
 ```powershell
-.\scripts\bootstrap.ps1 -Python 'C:\path with spaces\Python312\python.exe'
+powershell -NoProfile -ExecutionPolicy RemoteSigned -File .\scripts\bootstrap.ps1 -Python 'C:\path with spaces\Python312\python.exe'
 ```
 
 Pełny tryb wymaga działającego Docker Desktop z backendem Linux. Nie instalujemy ani nie przełączamy backendu automatycznie.
@@ -26,12 +26,12 @@ docker compose ps
 Otwórz http://localhost:8602. Baza dostępna jest lokalnie na porcie 55432. Zwykłe zatrzymanie: `docker compose down`, bez `-v`, aby zachować dane. Nie trzeba tworzyć `.env`; wartości domyślne są jawnie przeznaczone do lokalnego demo. Własny `.env` pozostaje poza Git i nie jest nadpisywany przez skrypty.
 
 ```powershell
-.\scripts\check.ps1
+powershell -NoProfile -ExecutionPolicy RemoteSigned -File .\scripts\check.ps1
 $env:TEST_DATABASE_URL = 'postgresql+psycopg://region:region_demo_local_only@127.0.0.1:55432/region_test'
-.\scripts\check.ps1 -Postgres
+powershell -NoProfile -ExecutionPolicy RemoteSigned -File .\scripts\check.ps1 -Postgres
 .\.venv\Scripts\python.exe -m region_comparison doctor
 .\.venv\Scripts\python.exe -m region_comparison report --output docs/findings.md
-.\scripts\build-review-bundle.ps1
+powershell -NoProfile -ExecutionPolicy RemoteSigned -File .\scripts\build-review-bundle.ps1
 ```
 
 Przed integracją utwórz dedykowaną bazę `region_test`; nigdy nie ustawiaj TEST_DATABASE_URL na produkcję. Normalne testy offline celowo nie wybierają grupy `postgres`; nie jest to dowód zaliczenia integracji.
@@ -39,7 +39,7 @@ Przed integracją utwórz dedykowaną bazę `region_test`; nigdy nie ustawiaj TE
 Odświeżenie źródła jest świadomą operacją:
 
 ```powershell
-.\scripts\refresh-data.ps1 -Destination 'data/raw/new-snapshot'
+powershell -NoProfile -ExecutionPolicy RemoteSigned -File .\scripts\refresh-data.ps1 -Destination 'data/raw/new-snapshot'
 .\.venv\Scripts\python.exe -m region_comparison load --snapshot 'data/raw/new-snapshot'
 ```
 
