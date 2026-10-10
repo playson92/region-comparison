@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-10",
+  "snapshot_id": "bdl-dolnoslaskie-2023-2025-20261010",
+  "methodology_version": "1.0.0",
+  "source": {"status": "PASS", "municipalities": 169, "years": [2023, 2024, 2025], "source_cells": 3549, "admissible_cells": 3549, "ratio_checks": 507, "age_sum_checks": 9},
+  "local_tests": {"status": "PASS", "passed": 83, "failed": 0, "skipped": 0, "postgres_tests": 5, "ui_tests": 10, "seconds": 35.98, "command": "python -m pytest --basetemp .pytest-temp-final -q", "database": "dedicated region_test / PostgreSQL 17.7"},
+  "ruff": {"lint": "PASS", "format": "PASS"},
+  "browser": {"status": "PASS", "tool": "installed Microsoft Edge / Playwright", "evidence": "docs/images/browser-check.json", "page_errors": 0, "exceptions": 0, "failed_requests": 0, "real_charts": true, "weight_change": true, "mobile": true},
+  "snapshot_postgres_equivalence": {"status": "PASS", "includes": "all unit metadata, source observations, metrics, scores and export content fingerprint"},
+  "docker": {"status": "IN_PROGRESS", "application_port": 8602, "database_port": 55432},
+  "clean_clone": {"status": "IN_PROGRESS"},
+  "github_ci": {"status": "IN_PROGRESS"},
+  "review": {"status": "IN_PROGRESS", "type": "separate agent implementation review; source author is not independent of source discovery"}
+}
