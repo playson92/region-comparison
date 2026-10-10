@@ -1,0 +1,12 @@
+{
+  "url": "https://bdl.stat.gov.pl/api/v1/subjects/P3447?format=json",
+  "retrieved_at_utc": "2026-10-10T20:11:16.1221584Z",
+  "status_code": 200,
+  "content_type": "application/json; charset=utf-8",
+  "sha256": "534e4e9606ed7949f85c94dd5bfe3d68ea53fb802af522bbf187454b95a2e0d0",
+  "params": {
+    "format": [
+      "json"
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+* text=auto
+*.py text eol=lf
+*.sql text eol=lf
+*.yml text eol=lf
+*.json text eol=lf
+*.toml text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.ps1 text eol=crlf
+*.png binary
+*.zip binary
+# Snapshot hashes identify original bytes, including original response line endings.
+data/sample/** -text
+config/indicators.yml -text

@@ -1,0 +1,29 @@
+{
+  "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/1649554?format=json&unit-parent-id=030200000000&unit-level=6&year=2023&year=2024&year=2025&page-size=100&page=2",
+  "retrieved_at_utc": "2026-10-10T20:12:37.9395614Z",
+  "status_code": 200,
+  "content_type": "application/json; charset=utf-8",
+  "sha256": "6ab82a7393f7d137cb7a6668695f12eb829e57aecdaaa1123012299dac324ff9",
+  "params": {
+    "format": [
+      "json"
+    ],
+    "unit-parent-id": [
+      "030200000000"
+    ],
+    "unit-level": [
+      "6"
+    ],
+    "year": [
+      "2023",
+      "2024",
+      "2025"
+    ],
+    "page-size": [
+      "100"
+    ],
+    "page": [
+      "2"
+    ]
+  }
+}

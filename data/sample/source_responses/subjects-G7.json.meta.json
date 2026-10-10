@@ -1,0 +1,12 @@
+{
+  "url": "https://bdl.stat.gov.pl/api/v1/subjects/G7?format=json",
+  "retrieved_at_utc": "2026-10-10T20:13:39.6170922Z",
+  "status_code": 200,
+  "content_type": "application/json; charset=utf-8",
+  "sha256": "5f6601609f53fadc016e5f509361c33fa2af3c24eb5d336107a6c93f2ff24b9d",
+  "params": {
+    "format": [
+      "json"
+    ]
+  }
+}

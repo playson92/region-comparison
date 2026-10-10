@@ -1,0 +1,479 @@
+{
+  "config_version": "1.0.0",
+  "region_id": "030200000000",
+  "region_name": "Dolnośląskie",
+  "years": [
+    2023,
+    2024,
+    2025
+  ],
+  "unit_level": 6,
+  "accepted_kinds": [
+    "1",
+    "2",
+    "3"
+  ],
+  "unit_registry": "data/sample/units.json",
+  "attributes_path": "data/sample/attributes.json",
+  "indicators": [
+    {
+      "indicator_id": "453371",
+      "id": "453371",
+      "metric_id": "population_total",
+      "kind": "source",
+      "label": "Ludność ogółem",
+      "name": "ogółem / ogółem / ogółem",
+      "original_name": "ogółem / ogółem / ogółem",
+      "source_dimensions": {
+        "n1": "ogółem",
+        "n2": "ogółem",
+        "n3": "ogółem"
+      },
+      "subject_id": "P3447",
+      "topic_path": [
+        "K3",
+        "G7",
+        "P3447"
+      ],
+      "definition": "Ludność ogółem; all ages; both sexes; full municipality; year-end stock.",
+      "unit": "osoby",
+      "measure_unit_id": 26,
+      "original_unit": "osoba",
+      "age_scope": "all ages",
+      "sex_scope": "both sexes",
+      "facility_scope": "none",
+      "territorial_basis": "residents",
+      "reference_period": "31 December",
+      "years": [
+        2023,
+        2024,
+        2025
+      ],
+      "source_available_years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "level": 6,
+      "definition_version": "gus-bdl-2026-10-10",
+      "source_url": "https://bdl.stat.gov.pl/api/v1/variables/453371?format=json",
+      "metadata_url": "https://bdl.stat.gov.pl/bdl/metadane/cechy/3447",
+      "attribute_policy": "bdl-attributes-v1; accept only unflagged 0/1 or verified significant zero 94 for scoring",
+      "rationale": "demographic context",
+      "source_file": "source_responses/variable-453371.json"
+    },
+    {
+      "indicator_id": "453372",
+      "id": "453372",
+      "metric_id": "children_0_2",
+      "kind": "source",
+      "label": "Dzieci w wieku 0–2 lata",
+      "name": "0-2 / ogółem / ogółem",
+      "original_name": "0-2 / ogółem / ogółem",
+      "source_dimensions": {
+        "n1": "0-2",
+        "n2": "ogółem",
+        "n3": "ogółem"
+      },
+      "subject_id": "P3447",
+      "topic_path": [
+        "K3",
+        "G7",
+        "P3447"
+      ],
+      "definition": "Dzieci w wieku 0–2 lata; 0–2 inclusive; excludes age 3; both sexes; full municipality; year-end stock.",
+      "unit": "osoby",
+      "measure_unit_id": 26,
+      "original_unit": "osoba",
+      "age_scope": "0–2 inclusive; excludes age 3",
+      "sex_scope": "both sexes",
+      "facility_scope": "none",
+      "territorial_basis": "residents",
+      "reference_period": "31 December",
+      "years": [
+        2023,
+        2024,
+        2025
+      ],
+      "source_available_years": [
+        2003,
+        2004,
+        2005,
+        2006,
+        2007,
+        2008,
+        2009,
+        2010,
+        2011,
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "level": 6,
+      "definition_version": "gus-bdl-2026-10-10",
+      "source_url": "https://bdl.stat.gov.pl/api/v1/variables/453372?format=json",
+      "metadata_url": "https://bdl.stat.gov.pl/bdl/metadane/cechy/3447",
+      "attribute_policy": "bdl-attributes-v1; accept only unflagged 0/1 or verified significant zero 94 for scoring",
+      "rationale": "demographic context",
+      "source_file": "source_responses/variable-453372.json"
+    },
+    {
+      "indicator_id": "1649554",
+      "id": "1649554",
+      "metric_id": "care_places",
+      "kind": "source",
+      "label": "Miejsca w żłobkach i klubach",
+      "name": "miejsca ogółem (łącznie z klubami dziecięcymi)",
+      "original_name": "miejsca ogółem (łącznie z klubami dziecięcymi)",
+      "source_dimensions": {
+        "n1": "miejsca ogółem (łącznie z klubami dziecięcymi)"
+      },
+      "subject_id": "P3219",
+      "topic_path": [
+        "K22",
+        "G266",
+        "P3219"
+      ],
+      "definition": "Miejsca w żłobkach i klubach; facility capacity; not age-specific enrolment; both sexes; full municipality; year-end stock.",
+      "unit": "miejsca",
+      "measure_unit_id": 64,
+      "original_unit": "msc.",
+      "age_scope": "facility capacity; not age-specific enrolment",
+      "sex_scope": "both sexes",
+      "facility_scope": "nurseries and children's clubs",
+      "territorial_basis": "location of facility, not residence of attendees",
+      "reference_period": "31 December",
+      "years": [
+        2023,
+        2024,
+        2025
+      ],
+      "source_available_years": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "level": 6,
+      "definition_version": "gus-bdl-2026-10-10",
+      "source_url": "https://bdl.stat.gov.pl/api/v1/variables/1649554?format=json",
+      "metadata_url": "https://bdl.stat.gov.pl/bdl/metadane/cechy/3219",
+      "attribute_policy": "bdl-attributes-v1; accept only unflagged 0/1 or verified significant zero 94 for scoring",
+      "rationale": "institutional care profile",
+      "source_file": "source_responses/variable-1649554.json"
+    },
+    {
+      "indicator_id": "1649557",
+      "id": "1649557",
+      "metric_id": "children_in_care",
+      "kind": "source",
+      "label": "Dzieci w placówkach · 31 grudnia",
+      "name": "dzieci ogółem (łącznie z klubami dziecięcymi) stan w dniu 31 grudnia",
+      "original_name": "dzieci ogółem (łącznie z klubami dziecięcymi) stan w dniu 31 grudnia",
+      "source_dimensions": {
+        "n1": "dzieci ogółem (łącznie z klubami dziecięcymi) stan w dniu 31 grudnia"
+      },
+      "subject_id": "P3219",
+      "topic_path": [
+        "K22",
+        "G266",
+        "P3219"
+      ],
+      "definition": "Dzieci w placówkach · 31 grudnia; all attendees; not restricted to ages 0–2; both sexes; full municipality; year-end stock.",
+      "unit": "osoby",
+      "measure_unit_id": 26,
+      "original_unit": "osoba",
+      "age_scope": "all attendees; not restricted to ages 0–2",
+      "sex_scope": "both sexes",
+      "facility_scope": "nurseries and children's clubs",
+      "territorial_basis": "location of facility, not residence of attendees",
+      "reference_period": "31 December",
+      "years": [
+        2023,
+        2024,
+        2025
+      ],
+      "source_available_years": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "level": 6,
+      "definition_version": "gus-bdl-2026-10-10",
+      "source_url": "https://bdl.stat.gov.pl/api/v1/variables/1649557?format=json",
+      "metadata_url": "https://bdl.stat.gov.pl/bdl/metadane/cechy/3219",
+      "attribute_policy": "bdl-attributes-v1; accept only unflagged 0/1 or verified significant zero 94 for scoring",
+      "rationale": "institutional care profile",
+      "source_file": "source_responses/variable-1649557.json"
+    },
+    {
+      "indicator_id": "377234",
+      "id": "377234",
+      "metric_id": "nurseries",
+      "kind": "source",
+      "label": "Żłobki",
+      "name": "żłobki",
+      "original_name": "żłobki",
+      "source_dimensions": {
+        "n1": "żłobki"
+      },
+      "subject_id": "P3219",
+      "topic_path": [
+        "K22",
+        "G266",
+        "P3219"
+      ],
+      "definition": "Żłobki; not applicable; both sexes; full municipality; year-end stock.",
+      "unit": "placówki",
+      "measure_unit_id": 35,
+      "original_unit": "ob.",
+      "age_scope": "not applicable",
+      "sex_scope": "both sexes",
+      "facility_scope": "nurseries",
+      "territorial_basis": "location of facility, not residence of attendees",
+      "reference_period": "31 December",
+      "years": [
+        2023,
+        2024,
+        2025
+      ],
+      "source_available_years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "level": 6,
+      "definition_version": "gus-bdl-2026-10-10",
+      "source_url": "https://bdl.stat.gov.pl/api/v1/variables/377234?format=json",
+      "metadata_url": "https://bdl.stat.gov.pl/bdl/metadane/cechy/3219",
+      "attribute_policy": "bdl-attributes-v1; accept only unflagged 0/1 or verified significant zero 94 for scoring",
+      "rationale": "institutional care profile",
+      "source_file": "source_responses/variable-377234.json"
+    },
+    {
+      "indicator_id": "377225",
+      "id": "377225",
+      "metric_id": "child_clubs",
+      "kind": "source",
+      "label": "Kluby dziecięce",
+      "name": "kluby dziecięce",
+      "original_name": "kluby dziecięce",
+      "source_dimensions": {
+        "n1": "kluby dziecięce"
+      },
+      "subject_id": "P3219",
+      "topic_path": [
+        "K22",
+        "G266",
+        "P3219"
+      ],
+      "definition": "Kluby dziecięce; not applicable; both sexes; full municipality; year-end stock.",
+      "unit": "placówki",
+      "measure_unit_id": 35,
+      "original_unit": "ob.",
+      "age_scope": "not applicable",
+      "sex_scope": "both sexes",
+      "facility_scope": "children's clubs",
+      "territorial_basis": "location of facility, not residence of attendees",
+      "reference_period": "31 December",
+      "years": [
+        2023,
+        2024,
+        2025
+      ],
+      "source_available_years": [
+        2012,
+        2013,
+        2014,
+        2015,
+        2016,
+        2017,
+        2018,
+        2019,
+        2020,
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "level": 6,
+      "definition_version": "gus-bdl-2026-10-10",
+      "source_url": "https://bdl.stat.gov.pl/api/v1/variables/377225?format=json",
+      "metadata_url": "https://bdl.stat.gov.pl/bdl/metadane/cechy/3219",
+      "attribute_policy": "bdl-attributes-v1; accept only unflagged 0/1 or verified significant zero 94 for scoring",
+      "rationale": "institutional care profile",
+      "source_file": "source_responses/variable-377225.json"
+    },
+    {
+      "indicator_id": "1649860",
+      "id": "1649860",
+      "metric_id": "gus_places_per_1000",
+      "kind": "source",
+      "label": "Miejsca na 1000 dzieci · GUS",
+      "name": "miejsca w żłobkach i klubach dziecięcych na 1000 dzieci w wieku do lat 3",
+      "original_name": "miejsca w żłobkach i klubach dziecięcych na 1000 dzieci w wieku do lat 3",
+      "source_dimensions": {
+        "n1": "miejsca w żłobkach i klubach dziecięcych na 1000 dzieci w wieku do lat 3"
+      },
+      "subject_id": "P3227",
+      "topic_path": [
+        "K22",
+        "G266",
+        "P3227"
+      ],
+      "definition": "Miejsca na 1000 dzieci · GUS; denominator ages 0–2; capacity numerator not age-specific; both sexes; full municipality; year-end stock.",
+      "unit": "miejsca / 1000 dzieci",
+      "measure_unit_id": 1,
+      "original_unit": "-",
+      "age_scope": "denominator ages 0–2; capacity numerator not age-specific",
+      "sex_scope": "both sexes",
+      "facility_scope": "nurseries and children's clubs",
+      "territorial_basis": "location of facility, not residence of attendees",
+      "reference_period": "31 December",
+      "years": [
+        2023,
+        2024,
+        2025
+      ],
+      "source_available_years": [
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "level": 6,
+      "definition_version": "gus-bdl-2026-10-10",
+      "source_url": "https://bdl.stat.gov.pl/api/v1/variables/1649860?format=json",
+      "metadata_url": "https://bdl.stat.gov.pl/bdl/metadane/cechy/3227",
+      "attribute_policy": "bdl-attributes-v1; accept only unflagged 0/1 or verified significant zero 94 for scoring",
+      "rationale": "independent rounded cross-check of the local ratio",
+      "source_file": "source_responses/variable-1649860.json"
+    }
+  ],
+  "derived": [
+    {
+      "metric_id": "children_share_pct",
+      "kind": "derived",
+      "label": "Udział dzieci 0–2",
+      "formula": "100 * children_0_2 / population_total",
+      "input_ids": [
+        "453372",
+        "453371"
+      ],
+      "numerator": "453372",
+      "denominator": "453371",
+      "unit": "%",
+      "age_scope": "0–2 inclusive",
+      "facility_scope": "none",
+      "reference_period": "31 December",
+      "direction": "higher indicates stronger demographic signal",
+      "missing_policy": "Require every input semantically valid; nonpositive denominator is NULL; never impute or clamp ratios.",
+      "years": [
+        2023,
+        2024,
+        2025
+      ],
+      "level": 6,
+      "definition_version": "region-comparison-v1"
+    },
+    {
+      "metric_id": "care_facilities",
+      "kind": "derived",
+      "label": "Placówki opieki łącznie",
+      "formula": "nurseries + child_clubs",
+      "input_ids": [
+        "377234",
+        "377225"
+      ],
+      "numerator": [
+        "377234",
+        "377225"
+      ],
+      "denominator": null,
+      "unit": "placówki",
+      "age_scope": "not applicable",
+      "facility_scope": "nurseries and children's clubs; excludes day carers",
+      "reference_period": "31 December",
+      "direction": "profile only",
+      "missing_policy": "Require every input semantically valid; nonpositive denominator is NULL; never impute or clamp ratios.",
+      "years": [
+        2023,
+        2024,
+        2025
+      ],
+      "level": 6,
+      "definition_version": "region-comparison-v1"
+    },
+    {
+      "metric_id": "places_per_1000",
+      "kind": "derived",
+      "label": "Miejsca na 1000 dzieci 0–2",
+      "formula": "1000 * care_places / children_0_2",
+      "input_ids": [
+        "1649554",
+        "453372"
+      ],
+      "numerator": "1649554",
+      "denominator": "453372",
+      "unit": "miejsca / 1000 dzieci",
+      "age_scope": "denominator 0–2 inclusive; numerator overall capacity",
+      "facility_scope": "nurseries and children's clubs; excludes day carers",
+      "reference_period": "31 December",
+      "direction": "lower indicates stronger comparative signal",
+      "cross_check_id": "1649860",
+      "cross_check_absolute_tolerance": 0.500000001,
+      "missing_policy": "Require every input semantically valid; nonpositive denominator is NULL; never impute or clamp ratios.",
+      "years": [
+        2023,
+        2024,
+        2025
+      ],
+      "level": 6,
+      "definition_version": "region-comparison-v1"
+    }
+  ]
+}

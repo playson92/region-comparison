@@ -1,0 +1,12 @@
+{
+  "url": "https://bdl.stat.gov.pl/api/v1/subjects/P1341?format=json",
+  "retrieved_at_utc": "2026-10-10T20:11:16.5902469Z",
+  "status_code": 200,
+  "content_type": "application/json; charset=utf-8",
+  "sha256": "00073e6773825c35f3399d10d251d6cbc2ee79b001117937d5af35dbda3d8760",
+  "params": {
+    "format": [
+      "json"
+    ]
+  }
+}

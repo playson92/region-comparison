@@ -20,3 +20,4 @@ review-bundle/
 .local/
 playwright-report/
 test-results/
+.pytest-temp*/

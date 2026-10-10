@@ -1,0 +1,12 @@
+{
+  "url": "https://bdl.stat.gov.pl/api/v1/subjects/K3?format=json",
+  "retrieved_at_utc": "2026-10-10T20:11:19.0391491Z",
+  "status_code": 200,
+  "content_type": "application/json; charset=utf-8",
+  "sha256": "9b84cda7f7986424786ee7846c55a4e5d18b93f0b734b89f697e0df1e3e27065",
+  "params": {
+    "format": [
+      "json"
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=80", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "region-comparison"
+version = "0.1.0"
+description = "Reproducible municipal demographics and childcare comparison for Lower Silesia"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = "MIT"
+authors = [{name = "Jonatan Tomaszewicz"}]
+dependencies = ["streamlit>=1.57,<2", "plotly>=6,<7", "pandas>=2.2,<3", "httpx>=0.28,<1", "SQLAlchemy>=2,<3", "psycopg[binary]>=3.2,<4", "PyYAML>=6,<7"]
+
+[project.optional-dependencies]
+dev = ["pytest>=9,<10", "ruff>=0.15,<1", "playwright>=1.55,<2"]
+
+[project.scripts]
+region-comparison = "region_comparison.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = ["-ra", "--strict-config", "--strict-markers"]
+markers = ["postgres: requires TEST_DATABASE_URL with a dedicated PostgreSQL database", "live: explicitly enabled live source check"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+src = ["src", "tests"]
+extend-exclude = ["data", ".venv", ".local"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "B", "UP"]
+
+[tool.ruff.format]
+line-ending = "lf"

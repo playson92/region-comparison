@@ -1,0 +1,29 @@
+{
+  "url": "https://bdl.stat.gov.pl/api/v1/data/by-unit/030210423052?format=json&var-id=71&var-id=72&var-id=73&var-id=453372&var-id=1649554&var-id=1649557&var-id=1649860&year=2023&year=2024&year=2025&page-size=100",
+  "retrieved_at_utc": "2026-10-10T20:13:31.1239528Z",
+  "status_code": 200,
+  "content_type": "application/json; charset=utf-8",
+  "sha256": "320cc2df61b152358c8daff821be562441d7436d33a0a6c51bc50f08523b4c7c",
+  "params": {
+    "format": [
+      "json"
+    ],
+    "var-id": [
+      "71",
+      "72",
+      "73",
+      "453372",
+      "1649554",
+      "1649557",
+      "1649860"
+    ],
+    "year": [
+      "2023",
+      "2024",
+      "2025"
+    ],
+    "page-size": [
+      "100"
+    ]
+  }
+}
