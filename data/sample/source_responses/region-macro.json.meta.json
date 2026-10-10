@@ -1,0 +1,12 @@
+{
+  "url": "https://bdl.stat.gov.pl/api/v1/units/030000000000?format=json",
+  "retrieved_at_utc": "2026-10-10T20:13:42.9769019Z",
+  "status_code": 200,
+  "content_type": "application/json; charset=utf-8",
+  "sha256": "3bb991edc14dd04f10e672a176e021585699caf376c62de45ff78f5818f882d1",
+  "params": {
+    "format": [
+      "json"
+    ]
+  }
+}

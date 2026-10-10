@@ -1,0 +1,1094 @@
+{
+  "manifest_schema_version": "1.0",
+  "snapshot_id": "bdl-dolnoslaskie-2023-2025-20261010",
+  "state": "complete",
+  "status": "complete",
+  "started_at_utc": "2026-10-10T20:10:09.5436208Z",
+  "completed_at_utc": "2026-10-10T20:15:49.6403425Z",
+  "assembled_at_utc": "2026-10-10T20:19:36.419108+00:00",
+  "region_id": "030200000000",
+  "years": [
+    2023,
+    2024,
+    2025
+  ],
+  "unit_ids": [
+    "030210101011",
+    "030210101022",
+    "030210101032",
+    "030210101043",
+    "030210101052",
+    "030210101062",
+    "030210105011",
+    "030210105023",
+    "030210105032",
+    "030210105042",
+    "030210105052",
+    "030210105062",
+    "030210106011",
+    "030210106021",
+    "030210106031",
+    "030210106041",
+    "030210106052",
+    "030210106062",
+    "030210106072",
+    "030210106082",
+    "030210106092",
+    "030210107011",
+    "030210107022",
+    "030210107033",
+    "030210107042",
+    "030210110011",
+    "030210110021",
+    "030210110033",
+    "030210110042",
+    "030210110053",
+    "030210110062",
+    "030210110072",
+    "030210112013",
+    "030210112023",
+    "030210112033",
+    "030210112043",
+    "030210112053",
+    "030210125011",
+    "030210125021",
+    "030210125033",
+    "030210125043",
+    "030210125052",
+    "030210125063",
+    "030210125072",
+    "030210126011",
+    "030210126021",
+    "030210126032",
+    "030210126043",
+    "030210126052",
+    "030210126062",
+    "030210161011",
+    "030210203011",
+    "030210203022",
+    "030210203032",
+    "030210203042",
+    "030210203052",
+    "030210203062",
+    "030210204013",
+    "030210204022",
+    "030210204032",
+    "030210204043",
+    "030210209011",
+    "030210209022",
+    "030210209032",
+    "030210209042",
+    "030210209052",
+    "030210209062",
+    "030210209073",
+    "030210209082",
+    "030210211011",
+    "030210211022",
+    "030210211032",
+    "030210211043",
+    "030210216013",
+    "030210216022",
+    "030210216032",
+    "030210216043",
+    "030210216053",
+    "030210216062",
+    "030210262011",
+    "030210302011",
+    "030210302021",
+    "030210302033",
+    "030210302041",
+    "030210302052",
+    "030210302062",
+    "030210302073",
+    "030210308011",
+    "030210308021",
+    "030210308031",
+    "030210308041",
+    "030210308051",
+    "030210308063",
+    "030210308072",
+    "030210308083",
+    "030210308092",
+    "030210308103",
+    "030210308112",
+    "030210308123",
+    "030210308133",
+    "030210308143",
+    "030210319011",
+    "030210319021",
+    "030210319032",
+    "030210319043",
+    "030210319052",
+    "030210319063",
+    "030210319072",
+    "030210319083",
+    "030210321011",
+    "030210321021",
+    "030210321031",
+    "030210321042",
+    "030210321053",
+    "030210321063",
+    "030210321072",
+    "030210321082",
+    "030210324013",
+    "030210324022",
+    "030210324033",
+    "030210324042",
+    "030210324053",
+    "030210324063",
+    "030210324073",
+    "030210365011",
+    "030210413012",
+    "030210413022",
+    "030210413033",
+    "030210414011",
+    "030210414023",
+    "030210414032",
+    "030210414042",
+    "030210414053",
+    "030210414062",
+    "030210414073",
+    "030210414083",
+    "030210415011",
+    "030210415022",
+    "030210415033",
+    "030210415042",
+    "030210417012",
+    "030210417022",
+    "030210417032",
+    "030210417043",
+    "030210417053",
+    "030210418012",
+    "030210418022",
+    "030210418033",
+    "030210418043",
+    "030210418052",
+    "030210420013",
+    "030210420023",
+    "030210420033",
+    "030210420042",
+    "030210420052",
+    "030210420063",
+    "030210422013",
+    "030210422022",
+    "030210422033",
+    "030210423012",
+    "030210423022",
+    "030210423032",
+    "030210423043",
+    "030210423052",
+    "030210423062",
+    "030210423073",
+    "030210423083",
+    "030210423092",
+    "030210564011"
+  ],
+  "unit_count": 169,
+  "indicator_ids": [
+    "453371",
+    "453372",
+    "1649554",
+    "1649557",
+    "377234",
+    "377225",
+    "1649860"
+  ],
+  "indicator_count": 7,
+  "expected_observation_count": 3549,
+  "received_observation_count": 3549,
+  "source_page_count": 21,
+  "source_pages": [
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/453371?format=json&unit-parent-id=030200000000&unit-level=6&year=2023&year=2024&year=2025&page-size=100&page=0",
+      "retrieved_at_utc": "2026-10-10T20:12:19.9604325Z",
+      "status_code": 200,
+      "content_type": "application/json; charset=utf-8",
+      "sha256": "b415e6fc477e55c6d78bf17e9dd8e7a746832b71296962d45401f7a15504db26",
+      "params": {
+        "format": [
+          "json"
+        ],
+        "unit-parent-id": [
+          "030200000000"
+        ],
+        "unit-level": [
+          "6"
+        ],
+        "year": [
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "page-size": [
+          "100"
+        ],
+        "page": [
+          "0"
+        ]
+      },
+      "file": "source_responses/data-453371-page-0.json",
+      "page": 0,
+      "records_expected_total": 285,
+      "records_received": 100,
+      "variable_id": "453371"
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/453371?format=json&unit-parent-id=030200000000&unit-level=6&year=2023&year=2024&year=2025&page-size=100&page=1",
+      "retrieved_at_utc": "2026-10-10T20:12:23.5577351Z",
+      "status_code": 200,
+      "content_type": "application/json; charset=utf-8",
+      "sha256": "e93effdafbd941a1ea05f6337089b627ab8464f08fc05f56bf1aefff00a49605",
+      "params": {
+        "format": [
+          "json"
+        ],
+        "unit-parent-id": [
+          "030200000000"
+        ],
+        "unit-level": [
+          "6"
+        ],
+        "year": [
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "page-size": [
+          "100"
+        ],
+        "page": [
+          "1"
+        ]
+      },
+      "file": "source_responses/data-453371-page-1.json",
+      "page": 1,
+      "records_expected_total": 285,
+      "records_received": 100,
+      "variable_id": "453371"
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/453371?format=json&unit-parent-id=030200000000&unit-level=6&year=2023&year=2024&year=2025&page-size=100&page=2",
+      "retrieved_at_utc": "2026-10-10T20:12:26.0472458Z",
+      "status_code": 200,
+      "content_type": "application/json; charset=utf-8",
+      "sha256": "d976782e8af3395e32a2bd6e0824e069c0b16a24689a05641b0179c83645c65d",
+      "params": {
+        "format": [
+          "json"
+        ],
+        "unit-parent-id": [
+          "030200000000"
+        ],
+        "unit-level": [
+          "6"
+        ],
+        "year": [
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "page-size": [
+          "100"
+        ],
+        "page": [
+          "2"
+        ]
+      },
+      "file": "source_responses/data-453371-page-2.json",
+      "page": 2,
+      "records_expected_total": 285,
+      "records_received": 85,
+      "variable_id": "453371"
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/453372?format=json&unit-parent-id=030200000000&unit-level=6&year=2023&year=2024&year=2025&page-size=100&page=0",
+      "retrieved_at_utc": "2026-10-10T20:11:54.9219086Z",
+      "status_code": 200,
+      "content_type": "application/json; charset=utf-8",
+      "sha256": "b948039d1d838b0c7b7280d42d60bb589a5a00c129682cfbdd48b3257c2a2664",
+      "params": {
+        "format": [
+          "json"
+        ],
+        "unit-parent-id": [
+          "030200000000"
+        ],
+        "unit-level": [
+          "6"
+        ],
+        "year": [
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "page-size": [
+          "100"
+        ],
+        "page": [
+          "0"
+        ]
+      },
+      "file": "source_responses/data-453372-page-0.json",
+      "page": 0,
+      "records_expected_total": 285,
+      "records_received": 100,
+      "variable_id": "453372"
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/453372?format=json&unit-parent-id=030200000000&unit-level=6&year=2023&year=2024&year=2025&page-size=100&page=1",
+      "retrieved_at_utc": "2026-10-10T20:12:29.8378485Z",
+      "status_code": 200,
+      "content_type": "application/json; charset=utf-8",
+      "sha256": "43678743d68a2e525bd653c630997cb918955dcd559f9e60a95ffc508bb36dd0",
+      "params": {
+        "format": [
+          "json"
+        ],
+        "unit-parent-id": [
+          "030200000000"
+        ],
+        "unit-level": [
+          "6"
+        ],
+        "year": [
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "page-size": [
+          "100"
+        ],
+        "page": [
+          "1"
+        ]
+      },
+      "file": "source_responses/data-453372-page-1.json",
+      "page": 1,
+      "records_expected_total": 285,
+      "records_received": 100,
+      "variable_id": "453372"
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/453372?format=json&unit-parent-id=030200000000&unit-level=6&year=2023&year=2024&year=2025&page-size=100&page=2",
+      "retrieved_at_utc": "2026-10-10T20:12:33.4931461Z",
+      "status_code": 200,
+      "content_type": "application/json; charset=utf-8",
+      "sha256": "2bdd4f5a5ea59872ff70c1fbf9f0b7a13d024597d96d97342946d65235f4b007",
+      "params": {
+        "format": [
+          "json"
+        ],
+        "unit-parent-id": [
+          "030200000000"
+        ],
+        "unit-level": [
+          "6"
+        ],
+        "year": [
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "page-size": [
+          "100"
+        ],
+        "page": [
+          "2"
+        ]
+      },
+      "file": "source_responses/data-453372-page-2.json",
+      "page": 2,
+      "records_expected_total": 285,
+      "records_received": 85,
+      "variable_id": "453372"
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/1649554?format=json&unit-parent-id=030200000000&unit-level=6&year=2023&year=2024&year=2025&page-size=100&page=0",
+      "retrieved_at_utc": "2026-10-10T20:12:35.1472038Z",
+      "status_code": 200,
+      "content_type": "application/json; charset=utf-8",
+      "sha256": "9dade42d6602ee2a356b05b17071290ae009681a9f7d23db9999362a0e1e555b",
+      "params": {
+        "format": [
+          "json"
+        ],
+        "unit-parent-id": [
+          "030200000000"
+        ],
+        "unit-level": [
+          "6"
+        ],
+        "year": [
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "page-size": [
+          "100"
+        ],
+        "page": [
+          "0"
+        ]
+      },
+      "file": "source_responses/data-1649554-page-0.json",
+      "page": 0,
+      "records_expected_total": 285,
+      "records_received": 100,
+      "variable_id": "1649554"
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/1649554?format=json&unit-parent-id=030200000000&unit-level=6&year=2023&year=2024&year=2025&page-size=100&page=1",
+      "retrieved_at_utc": "2026-10-10T20:12:36.5788066Z",
+      "status_code": 200,
+      "content_type": "application/json; charset=utf-8",
+      "sha256": "17beaeebaa5ed2bce5ab72b15d2f7b1e54e0a2769beb80173d3e92b4470415d3",
+      "params": {
+        "format": [
+          "json"
+        ],
+        "unit-parent-id": [
+          "030200000000"
+        ],
+        "unit-level": [
+          "6"
+        ],
+        "year": [
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "page-size": [
+          "100"
+        ],
+        "page": [
+          "1"
+        ]
+      },
+      "file": "source_responses/data-1649554-page-1.json",
+      "page": 1,
+      "records_expected_total": 285,
+      "records_received": 100,
+      "variable_id": "1649554"
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/1649554?format=json&unit-parent-id=030200000000&unit-level=6&year=2023&year=2024&year=2025&page-size=100&page=2",
+      "retrieved_at_utc": "2026-10-10T20:12:37.9395614Z",
+      "status_code": 200,
+      "content_type": "application/json; charset=utf-8",
+      "sha256": "6ab82a7393f7d137cb7a6668695f12eb829e57aecdaaa1123012299dac324ff9",
+      "params": {
+        "format": [
+          "json"
+        ],
+        "unit-parent-id": [
+          "030200000000"
+        ],
+        "unit-level": [
+          "6"
+        ],
+        "year": [
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "page-size": [
+          "100"
+        ],
+        "page": [
+          "2"
+        ]
+      },
+      "file": "source_responses/data-1649554-page-2.json",
+      "page": 2,
+      "records_expected_total": 285,
+      "records_received": 85,
+      "variable_id": "1649554"
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/1649557?format=json&unit-parent-id=030200000000&unit-level=6&year=2023&year=2024&year=2025&page-size=100&page=0",
+      "retrieved_at_utc": "2026-10-10T20:12:39.3271934Z",
+      "status_code": 200,
+      "content_type": "application/json; charset=utf-8",
+      "sha256": "32855cccc22f460300bfd153a63ec862d98a92ee3e14ef0b5d61100f3458c9b1",
+      "params": {
+        "format": [
+          "json"
+        ],
+        "unit-parent-id": [
+          "030200000000"
+        ],
+        "unit-level": [
+          "6"
+        ],
+        "year": [
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "page-size": [
+          "100"
+        ],
+        "page": [
+          "0"
+        ]
+      },
+      "file": "source_responses/data-1649557-page-0.json",
+      "page": 0,
+      "records_expected_total": 285,
+      "records_received": 100,
+      "variable_id": "1649557"
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/1649557?format=json&unit-parent-id=030200000000&unit-level=6&year=2023&year=2024&year=2025&page-size=100&page=1",
+      "retrieved_at_utc": "2026-10-10T20:12:40.7495436Z",
+      "status_code": 200,
+      "content_type": "application/json; charset=utf-8",
+      "sha256": "eb6ef029013356fae5e22d2ce599b0ceec76bb7d1f8feefcbb6de021f6310aa3",
+      "params": {
+        "format": [
+          "json"
+        ],
+        "unit-parent-id": [
+          "030200000000"
+        ],
+        "unit-level": [
+          "6"
+        ],
+        "year": [
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "page-size": [
+          "100"
+        ],
+        "page": [
+          "1"
+        ]
+      },
+      "file": "source_responses/data-1649557-page-1.json",
+      "page": 1,
+      "records_expected_total": 285,
+      "records_received": 100,
+      "variable_id": "1649557"
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/1649557?format=json&unit-parent-id=030200000000&unit-level=6&year=2023&year=2024&year=2025&page-size=100&page=2",
+      "retrieved_at_utc": "2026-10-10T20:12:42.0558114Z",
+      "status_code": 200,
+      "content_type": "application/json; charset=utf-8",
+      "sha256": "fb95256402d030a62d8cbc8c81514fedf5c584056272f28975805de553ea8dc6",
+      "params": {
+        "format": [
+          "json"
+        ],
+        "unit-parent-id": [
+          "030200000000"
+        ],
+        "unit-level": [
+          "6"
+        ],
+        "year": [
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "page-size": [
+          "100"
+        ],
+        "page": [
+          "2"
+        ]
+      },
+      "file": "source_responses/data-1649557-page-2.json",
+      "page": 2,
+      "records_expected_total": 285,
+      "records_received": 85,
+      "variable_id": "1649557"
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/377234?format=json&unit-parent-id=030200000000&unit-level=6&year=2023&year=2024&year=2025&page-size=100&page=0",
+      "retrieved_at_utc": "2026-10-10T20:12:43.9178110Z",
+      "status_code": 200,
+      "content_type": "application/json; charset=utf-8",
+      "sha256": "cf30ebbe3ff6f055d4f1e1006a9efc709a0f992d13255437c97696c4028b9100",
+      "params": {
+        "format": [
+          "json"
+        ],
+        "unit-parent-id": [
+          "030200000000"
+        ],
+        "unit-level": [
+          "6"
+        ],
+        "year": [
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "page-size": [
+          "100"
+        ],
+        "page": [
+          "0"
+        ]
+      },
+      "file": "source_responses/data-377234-page-0.json",
+      "page": 0,
+      "records_expected_total": 285,
+      "records_received": 100,
+      "variable_id": "377234"
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/377234?format=json&unit-parent-id=030200000000&unit-level=6&year=2023&year=2024&year=2025&page-size=100&page=1",
+      "retrieved_at_utc": "2026-10-10T20:12:45.4452041Z",
+      "status_code": 200,
+      "content_type": "application/json; charset=utf-8",
+      "sha256": "01bdce756e2dea4253dd7aea8ee999ca76b67d493e29348648bdbb2bec8e9380",
+      "params": {
+        "format": [
+          "json"
+        ],
+        "unit-parent-id": [
+          "030200000000"
+        ],
+        "unit-level": [
+          "6"
+        ],
+        "year": [
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "page-size": [
+          "100"
+        ],
+        "page": [
+          "1"
+        ]
+      },
+      "file": "source_responses/data-377234-page-1.json",
+      "page": 1,
+      "records_expected_total": 285,
+      "records_received": 100,
+      "variable_id": "377234"
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/377234?format=json&unit-parent-id=030200000000&unit-level=6&year=2023&year=2024&year=2025&page-size=100&page=2",
+      "retrieved_at_utc": "2026-10-10T20:12:46.9537517Z",
+      "status_code": 200,
+      "content_type": "application/json; charset=utf-8",
+      "sha256": "1d3fb11254c1bdd89bdd6891fe7bda8bd7b0227b7373f8e7021ad108e35cfe65",
+      "params": {
+        "format": [
+          "json"
+        ],
+        "unit-parent-id": [
+          "030200000000"
+        ],
+        "unit-level": [
+          "6"
+        ],
+        "year": [
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "page-size": [
+          "100"
+        ],
+        "page": [
+          "2"
+        ]
+      },
+      "file": "source_responses/data-377234-page-2.json",
+      "page": 2,
+      "records_expected_total": 285,
+      "records_received": 85,
+      "variable_id": "377234"
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/377225?format=json&unit-parent-id=030200000000&unit-level=6&year=2023&year=2024&year=2025&page-size=100&page=0",
+      "retrieved_at_utc": "2026-10-10T20:12:49.8019556Z",
+      "status_code": 200,
+      "content_type": "application/json; charset=utf-8",
+      "sha256": "d9f3e2873baa959fac23e5acdab55914fff3b575bfc4ed8c13c1590c03dd8647",
+      "params": {
+        "format": [
+          "json"
+        ],
+        "unit-parent-id": [
+          "030200000000"
+        ],
+        "unit-level": [
+          "6"
+        ],
+        "year": [
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "page-size": [
+          "100"
+        ],
+        "page": [
+          "0"
+        ]
+      },
+      "file": "source_responses/data-377225-page-0.json",
+      "page": 0,
+      "records_expected_total": 285,
+      "records_received": 100,
+      "variable_id": "377225"
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/377225?format=json&unit-parent-id=030200000000&unit-level=6&year=2023&year=2024&year=2025&page-size=100&page=1",
+      "retrieved_at_utc": "2026-10-10T20:12:52.2705328Z",
+      "status_code": 200,
+      "content_type": "application/json; charset=utf-8",
+      "sha256": "b6f44d7f8ac4f53bcf170608005d846b91c299748871fe414af38cbf25f60fd5",
+      "params": {
+        "format": [
+          "json"
+        ],
+        "unit-parent-id": [
+          "030200000000"
+        ],
+        "unit-level": [
+          "6"
+        ],
+        "year": [
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "page-size": [
+          "100"
+        ],
+        "page": [
+          "1"
+        ]
+      },
+      "file": "source_responses/data-377225-page-1.json",
+      "page": 1,
+      "records_expected_total": 285,
+      "records_received": 100,
+      "variable_id": "377225"
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/377225?format=json&unit-parent-id=030200000000&unit-level=6&year=2023&year=2024&year=2025&page-size=100&page=2",
+      "retrieved_at_utc": "2026-10-10T20:12:54.6410001Z",
+      "status_code": 200,
+      "content_type": "application/json; charset=utf-8",
+      "sha256": "22595cfadc2189f5906936e6020a2f0d1e7befdc11314a91b68b394fb1783654",
+      "params": {
+        "format": [
+          "json"
+        ],
+        "unit-parent-id": [
+          "030200000000"
+        ],
+        "unit-level": [
+          "6"
+        ],
+        "year": [
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "page-size": [
+          "100"
+        ],
+        "page": [
+          "2"
+        ]
+      },
+      "file": "source_responses/data-377225-page-2.json",
+      "page": 2,
+      "records_expected_total": 285,
+      "records_received": 85,
+      "variable_id": "377225"
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/1649860?format=json&unit-parent-id=030200000000&unit-level=6&year=2023&year=2024&year=2025&page-size=100&page=0",
+      "retrieved_at_utc": "2026-10-10T20:12:55.3025668Z",
+      "status_code": 200,
+      "content_type": "application/json; charset=utf-8",
+      "sha256": "d4e30e1c517af4d963efba4c53d7f6a26476c5e3d1991c71b56e93f62b472cb5",
+      "params": {
+        "format": [
+          "json"
+        ],
+        "unit-parent-id": [
+          "030200000000"
+        ],
+        "unit-level": [
+          "6"
+        ],
+        "year": [
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "page-size": [
+          "100"
+        ],
+        "page": [
+          "0"
+        ]
+      },
+      "file": "source_responses/data-1649860-page-0.json",
+      "page": 0,
+      "records_expected_total": 285,
+      "records_received": 100,
+      "variable_id": "1649860"
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/1649860?format=json&unit-parent-id=030200000000&unit-level=6&year=2023&year=2024&year=2025&page-size=100&page=1",
+      "retrieved_at_utc": "2026-10-10T20:12:55.8570821Z",
+      "status_code": 200,
+      "content_type": "application/json; charset=utf-8",
+      "sha256": "8d8845ea032f76579a92af01c46a03cf3c0967c82d6fe335e61668360c14ed1e",
+      "params": {
+        "format": [
+          "json"
+        ],
+        "unit-parent-id": [
+          "030200000000"
+        ],
+        "unit-level": [
+          "6"
+        ],
+        "year": [
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "page-size": [
+          "100"
+        ],
+        "page": [
+          "1"
+        ]
+      },
+      "file": "source_responses/data-1649860-page-1.json",
+      "page": 1,
+      "records_expected_total": 285,
+      "records_received": 100,
+      "variable_id": "1649860"
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/1649860?format=json&unit-parent-id=030200000000&unit-level=6&year=2023&year=2024&year=2025&page-size=100&page=2",
+      "retrieved_at_utc": "2026-10-10T20:12:56.5890205Z",
+      "status_code": 200,
+      "content_type": "application/json; charset=utf-8",
+      "sha256": "5546d2bedb13341ddf50580fb91f3e5810d7d4bbdf10b7fbb08cfd4fe33531e5",
+      "params": {
+        "format": [
+          "json"
+        ],
+        "unit-parent-id": [
+          "030200000000"
+        ],
+        "unit-level": [
+          "6"
+        ],
+        "year": [
+          "2023",
+          "2024",
+          "2025"
+        ],
+        "page-size": [
+          "100"
+        ],
+        "page": [
+          "2"
+        ]
+      },
+      "file": "source_responses/data-1649860-page-2.json",
+      "page": 2,
+      "records_expected_total": 285,
+      "records_received": 85,
+      "variable_id": "1649860"
+    }
+  ],
+  "source_total_records_per_variable": 285,
+  "territorial_dictionary_total_records": 294,
+  "excluded_part_count": 116,
+  "excluded_historical_unit_ids": [
+    "030210110052",
+    "030210216001",
+    "030210302031",
+    "030210321091",
+    "030210324032",
+    "030210363011",
+    "030210418032",
+    "030210420022",
+    "030210423082"
+  ],
+  "attributes_observed": {
+    "1": 2484,
+    "0": 1065
+  },
+  "quality_counts": {
+    "valid": 2484,
+    "true_zero": 1065
+  },
+  "missing_observation_count": 0,
+  "errors": [],
+  "files": {
+    "attributes.json": "621647a7b03e08cdc8fb16129f9af4414a5ae568f7948ba97d5f61fefbe1d780",
+    "build_sample.py": "900e728e0e312dca2942ce5c1c7c926181da6208feed9f6fdb32912412fb8e2b",
+    "configuration.json": "8d9fc108a18ccfeda755516006e089c6ea7d019e5d13f6ffb1ec0e51813dde63",
+    "indicators.json": "5645b098afec9f297751d520a0c8ddd727bf0decf983cabda9645d963c32e9a8",
+    "observations.csv": "30f924588eee798fcbf9788feda42b5b068339e31b4b1109eb1402b93a4f1045",
+    "README.md": "90e27bd1bcd679e0f77d7867d6578441da323fc3b0c081762d34839175d9987a",
+    "source-verification.json": "9110d859d726b4f21d1d349019aaa0f05fb82423a0d0efe44881a9994ca18e1c",
+    "source_responses/aggregates.json": "d55f1b7c3fba8e8cd9e88da15e2dff0183953c3460ee1caffc42554648eb2f54",
+    "source_responses/aggregates.json.meta.json": "a722e0a9de536fece5b0ca4c52a54b7a3344ab34b9d1c14ce16245bdb5fa479d",
+    "source_responses/attributes.json": "451085fa027d57a095a17f579fc4bce025d6bd576f04523fd3d6ab9e360a52b2",
+    "source_responses/attributes.json.meta.json": "3e629db2b2a8bf2a71396f9f10ba31c0f67fa0ea0de249926de4e83dff675354",
+    "source_responses/data-1649554-page-0.json": "9dade42d6602ee2a356b05b17071290ae009681a9f7d23db9999362a0e1e555b",
+    "source_responses/data-1649554-page-0.json.meta.json": "6284df6f1e0ba6e4ad9669ad06bed9355c1f3c91ae696bb783d0131a2d7ca931",
+    "source_responses/data-1649554-page-1.json": "17beaeebaa5ed2bce5ab72b15d2f7b1e54e0a2769beb80173d3e92b4470415d3",
+    "source_responses/data-1649554-page-1.json.meta.json": "3d961b30801a6da7917101d06a68062ee6e2875e27068010f2a2f9613dcfa40c",
+    "source_responses/data-1649554-page-2.json": "6ab82a7393f7d137cb7a6668695f12eb829e57aecdaaa1123012299dac324ff9",
+    "source_responses/data-1649554-page-2.json.meta.json": "9ce8490cb7cf1cf8fd19418066638a47c7376d9aa09c589484046b90201383e0",
+    "source_responses/data-1649557-page-0.json": "32855cccc22f460300bfd153a63ec862d98a92ee3e14ef0b5d61100f3458c9b1",
+    "source_responses/data-1649557-page-0.json.meta.json": "6807aea5086d23cde1547d3245bff121ed49e986f8ae550d84f6ed93dac0b5c0",
+    "source_responses/data-1649557-page-1.json": "eb6ef029013356fae5e22d2ce599b0ceec76bb7d1f8feefcbb6de021f6310aa3",
+    "source_responses/data-1649557-page-1.json.meta.json": "01a01d48edeed6b4beff2909f788c51c0adb9e9956560b5ae0169b57243b47d2",
+    "source_responses/data-1649557-page-2.json": "fb95256402d030a62d8cbc8c81514fedf5c584056272f28975805de553ea8dc6",
+    "source_responses/data-1649557-page-2.json.meta.json": "6ff21bb72616047435ba899f56e3f7ec1a864995fd245924fe1244f62429f878",
+    "source_responses/data-1649860-page-0.json": "d4e30e1c517af4d963efba4c53d7f6a26476c5e3d1991c71b56e93f62b472cb5",
+    "source_responses/data-1649860-page-0.json.meta.json": "c62de425d53375d054da650ae6aade74ebd0ac9b7c01bbf20b21cb222d6ca2e5",
+    "source_responses/data-1649860-page-1.json": "8d8845ea032f76579a92af01c46a03cf3c0967c82d6fe335e61668360c14ed1e",
+    "source_responses/data-1649860-page-1.json.meta.json": "d8c17feec3a27132387f6d8c84fc1a2bb26d0255672130758f7704eb3cf7097a",
+    "source_responses/data-1649860-page-2.json": "5546d2bedb13341ddf50580fb91f3e5810d7d4bbdf10b7fbb08cfd4fe33531e5",
+    "source_responses/data-1649860-page-2.json.meta.json": "f4fa7a071666835767ea25b325112b802e66ab0b60c323515023bfac71eb91e5",
+    "source_responses/data-377225-page-0.json": "d9f3e2873baa959fac23e5acdab55914fff3b575bfc4ed8c13c1590c03dd8647",
+    "source_responses/data-377225-page-0.json.meta.json": "fe9829ad319fb6d5dfc62ebbba31a5531e3fe459afaa1fa0dc9b3617acfdbf04",
+    "source_responses/data-377225-page-1.json": "b6f44d7f8ac4f53bcf170608005d846b91c299748871fe414af38cbf25f60fd5",
+    "source_responses/data-377225-page-1.json.meta.json": "7added33a966f6dd10ffe6b3cfe6c694708a673c4deb888b308519bdfdf9ef1d",
+    "source_responses/data-377225-page-2.json": "22595cfadc2189f5906936e6020a2f0d1e7befdc11314a91b68b394fb1783654",
+    "source_responses/data-377225-page-2.json.meta.json": "47c644c0f6e2de3c38ab99efbc18c50079b830e93b3d8977498c5a1207e8190c",
+    "source_responses/data-377234-page-0.json": "cf30ebbe3ff6f055d4f1e1006a9efc709a0f992d13255437c97696c4028b9100",
+    "source_responses/data-377234-page-0.json.meta.json": "d4ac7fb8043537a4749975db256c1fc24a424e0c51a410c6df9119943d108c74",
+    "source_responses/data-377234-page-1.json": "01bdce756e2dea4253dd7aea8ee999ca76b67d493e29348648bdbb2bec8e9380",
+    "source_responses/data-377234-page-1.json.meta.json": "efbd655698b56b66db888461296a571d6a580fa99093fbd64d351c3a4a68200c",
+    "source_responses/data-377234-page-2.json": "1d3fb11254c1bdd89bdd6891fe7bda8bd7b0227b7373f8e7021ad108e35cfe65",
+    "source_responses/data-377234-page-2.json.meta.json": "5a5e6c34cd9c24d25d5220d7353b8a12f2577b5f781740b5b13e0bf90fdcdf7d",
+    "source_responses/data-453371-page-0.json": "b415e6fc477e55c6d78bf17e9dd8e7a746832b71296962d45401f7a15504db26",
+    "source_responses/data-453371-page-0.json.meta.json": "6e9e8409c78157a8f36b87489fd8086c3838ea86c27d3f3103e9fefc076fdd0c",
+    "source_responses/data-453371-page-1.json": "e93effdafbd941a1ea05f6337089b627ab8464f08fc05f56bf1aefff00a49605",
+    "source_responses/data-453371-page-1.json.meta.json": "c54d59114d8953a8ddce8c2055d2e78a07da81c31e0249683f8461226dfe34ed",
+    "source_responses/data-453371-page-2.json": "d976782e8af3395e32a2bd6e0824e069c0b16a24689a05641b0179c83645c65d",
+    "source_responses/data-453371-page-2.json.meta.json": "892955451e18d019ab58b47895077fae14a3ddb484cfe65226d7bb7f298f86bf",
+    "source_responses/data-453372-page-0.json": "b948039d1d838b0c7b7280d42d60bb589a5a00c129682cfbdd48b3257c2a2664",
+    "source_responses/data-453372-page-0.json.meta.json": "af5e76c6b508b9e4c12df2937f6cc2e2d7065c036ee0569d600b9629980c72f6",
+    "source_responses/data-453372-page-1.json": "43678743d68a2e525bd653c630997cb918955dcd559f9e60a95ffc508bb36dd0",
+    "source_responses/data-453372-page-1.json.meta.json": "c5c6ef9059212594b40257209cf6388a82ca51b2b64ce765487cf8548c6ed4d5",
+    "source_responses/data-453372-page-2.json": "2bdd4f5a5ea59872ff70c1fbf9f0b7a13d024597d96d97342946d65235f4b007",
+    "source_responses/data-453372-page-2.json.meta.json": "2a86ca999e4be1c3578da1895ff988fcbe68358a11148445e90db5278973bbfb",
+    "source_responses/levels.json": "5b907a5b93bc5c7cd2b26b54a87558478903625e441a67fb4d280d501fad3bd8",
+    "source_responses/levels.json.meta.json": "2a43ae94f066595575c172c7846b319e35726670f51704ffc14d09c452ebd327",
+    "source_responses/measures.json": "6f81aafe69585d607e2a91328cd10fdd73fa3c25e80dc4b22e454a2706826209",
+    "source_responses/measures.json.meta.json": "a4d20bc484955738c630ce37de28fdeac778ba22607162137c653b2f6ff6a96b",
+    "source_responses/powiats.json": "2c4967863506ae5df17b6ea8050a201bff9e2cd5d2b442e86ed68efd0dce9b7e",
+    "source_responses/powiats.json.meta.json": "3765d68bf9c8675482c45a0d0d36d909ec46837952d804cebb40700beb485a1a",
+    "source_responses/region-macro.json": "3bb991edc14dd04f10e672a176e021585699caf376c62de45ff78f5818f882d1",
+    "source_responses/region-macro.json.meta.json": "312378194bb0fdf2d0a31661db4b6473ab17d579081eba15c25c118e4353e83c",
+    "source_responses/region.json": "61def144a5f05ed1c45734381c7d323118e88cbe2403012f40bdd340af5eb9d1",
+    "source_responses/region.json.meta.json": "34d36a984e04ac493c7df077c13052e1b00fe7d124612922ff6cec0c6c194a5b",
+    "source_responses/sample-kobierzyce.json": "320cc2df61b152358c8daff821be562441d7436d33a0a6c51bc50f08523b4c7c",
+    "source_responses/sample-kobierzyce.json.meta.json": "74906d22b965656234542cced730e3545a34082c860af87f9e1aa413fcc20101",
+    "source_responses/sample-siechnice.json": "6ae32d5619f012da12266033b0465aa5919c3f6f029576a25cf9c15edf4fe325",
+    "source_responses/sample-siechnice.json.meta.json": "ddb4156ad5791bbd808bca2fab8c6c40c63ad2b6562e5f96939e09ea5c5eadf3",
+    "source_responses/sample-wroclaw.json": "b703c6378147fed3e08673eb7cbd1059779d8400012e6003b1319efa4eddf73c",
+    "source_responses/sample-wroclaw.json.meta.json": "0f0881738c649551abf7df2978711b6a8851f44584ba6add29a6898c3f355d0a",
+    "source_responses/subjects-G266.json": "011784a7ca10cddeda3761a0c2198a0671d607401f68e7a494cac64ae69277dd",
+    "source_responses/subjects-G266.json.meta.json": "6f86d46bbb4ded46a155dfe612ffe109f95cad509f87b0fdc169a539111bd782",
+    "source_responses/subjects-G7.json": "5f6601609f53fadc016e5f509361c33fa2af3c24eb5d336107a6c93f2ff24b9d",
+    "source_responses/subjects-G7.json.meta.json": "32a82b5d08a53ef48ea5640db61e45596cd9ae2a861c80b3f466ac08b6245181",
+    "source_responses/subjects-K22.json": "811fbeb418d1f6363bab4f17e333d12871a0ff1d44f06ec964e0a5bae85d2ace",
+    "source_responses/subjects-K22.json.meta.json": "69ce5bf181b0a1427239408f75a256a3133d3b7c3800f2bc56c6db6e95f9af39",
+    "source_responses/subjects-K3.json": "9b84cda7f7986424786ee7846c55a4e5d18b93f0b734b89f697e0df1e3e27065",
+    "source_responses/subjects-K3.json.meta.json": "f9288fa7a39afebc0f04fede0c56d70f4484e79d9dc98291c0faec90253d22e6",
+    "source_responses/subjects-P1341.json": "00073e6773825c35f3399d10d251d6cbc2ee79b001117937d5af35dbda3d8760",
+    "source_responses/subjects-P1341.json.meta.json": "d0bfe37188144d1920a6a930e1590a18244660cdc3e550efdcdcd71bb4eba481",
+    "source_responses/subjects-P3219.json": "c2e5c191747ed529c5923c442ab012f516031ab2331610a79a60cff7d8ef8caa",
+    "source_responses/subjects-P3219.json.meta.json": "24a6432141e32206b228c2f9ea8957210196987d8f7bfa86a2a9c17ba18996ff",
+    "source_responses/subjects-P3227.json": "aeeea16f0dbee21919ea43c73272203521250df7122d1e629602424174c30c85",
+    "source_responses/subjects-P3227.json.meta.json": "6f30a4a52b69d14a9b14d00d0a8ede24f1259c144e782c416d22433904d329ca",
+    "source_responses/subjects-P3447.json": "534e4e9606ed7949f85c94dd5bfe3d68ea53fb802af522bbf187454b95a2e0d0",
+    "source_responses/subjects-P3447.json.meta.json": "ae5702dc3e4783a266e5e4995b893c251d098b13eb8485345a894b8b55ea55e6",
+    "source_responses/unit-030210110052.json": "cdf1bccfed57341f97b7757084c148cba850ca266f4f2722d0aca32ed101e635",
+    "source_responses/unit-030210110052.json.meta.json": "623a58575dbc887fa43434c24285a71fc368b35831213885af5b1c9016000e54",
+    "source_responses/unit-030210110053.json": "d25384dd5028283fb45d18184ce55246f0cb9ff87a0f0cf9c3e7e913b520eb8d",
+    "source_responses/unit-030210110053.json.meta.json": "9378655fa73b58ecdb25733593822fc34f3360c8851aff779e8654fd39bef1ac",
+    "source_responses/unit-030210216001.json": "6d028bd56f91f694cab0f7074e160cff66506efa534de9d190f5c8009588cd47",
+    "source_responses/unit-030210216001.json.meta.json": "212d956dd479ed6839b1b56a9f4df7616210f84cd72455701b973b953485c224",
+    "source_responses/unit-030210302031.json": "70754df9fa28b55d503c28381d6d44ab55ba06692450b6339814d8712b89a5ee",
+    "source_responses/unit-030210302031.json.meta.json": "799b207b28e78368806c7b69f28084fe032ae9c435226fdb5ec3ba6289dd2a51",
+    "source_responses/unit-030210302033.json": "15eb6791c045cf4233fb266e33b3f6dfdabc13ec88145db069e2115e4db626a7",
+    "source_responses/unit-030210302033.json.meta.json": "abf24d50e53802f39be40e9d70cc460670f309e6a9eef6b1cc2ceed90170f3b7",
+    "source_responses/unit-030210321091.json": "822c3f960545dbddbad3ad49d74efbe3e69a3fd171f69d240ac40cbd51d8f7cc",
+    "source_responses/unit-030210321091.json.meta.json": "0e2000ae2aade98a268ea5acd20a5941fc93c2cc1894203a0aac8c594ac3db35",
+    "source_responses/unit-030210324032.json": "0a04f61d7c3d19c360e137a112f1e97a3d883096c2a70f266a614da224b412e3",
+    "source_responses/unit-030210324032.json.meta.json": "4a199de2ed2c0d207efae28f022b4b63f45a5911e026a5e2eea4340eb92b1fd9",
+    "source_responses/unit-030210324033.json": "893f70054a5b46149b73946e077e75de73f7d5eeb666cf9a6b6bab8e3e17805c",
+    "source_responses/unit-030210324033.json.meta.json": "0042d9c4a3fcdb1c06738ac3efdb72f0ef7f4759977fd99c7ded32a64ab24aed",
+    "source_responses/unit-030210363011.json": "a962415511592725a0e8027185ae821c52fac1c7226a10fcc1109bb8a0f04573",
+    "source_responses/unit-030210363011.json.meta.json": "00bb26328e42967988f47ffcb1cbb4747cc496edf49e430deaaa23c1342d6372",
+    "source_responses/unit-030210365011.json": "71d6a7669a90e96f29a7d4b700f8e14ef53c0cfe89eedfbea97d45b19fd5e276",
+    "source_responses/unit-030210365011.json.meta.json": "fe7a610645faf85fffd3244f2b397cae381c73e9d4852fff5196c7068bcf19f9",
+    "source_responses/unit-030210418032.json": "46f5dd10b2e3f47bcc6be9d3f1e68431d1cf355e81596864cb075eecb8a7d9bb",
+    "source_responses/unit-030210418032.json.meta.json": "c70030a1595c6d3ef0731acaba25ed23260507c52d552617068a3af712d26f61",
+    "source_responses/unit-030210418033.json": "fdc9a6ecd898c954a26df71b416511e2eae47a2b09e19d68b398def79ef6e155",
+    "source_responses/unit-030210418033.json.meta.json": "84e2ed18d281929ff80338e5904fdc0986b8d811f7307c8611f1ebc3a8cddc55",
+    "source_responses/unit-030210420022.json": "7df6c414866dd90150b248308b1b5751031ca972edd49c9d91a433234f2cce71",
+    "source_responses/unit-030210420022.json.meta.json": "eb2f7c7efca532068eb6e8fcdcedf8af921069a7bee58e5039f1c1bf1ea09bcf",
+    "source_responses/unit-030210420023.json": "22d8bc0ad80b4d1dc0efa0e54ba92b0331da0da4fa08913c2f42582e3b3b448c",
+    "source_responses/unit-030210420023.json.meta.json": "91e12222a9cf1cbf009d60e8ae0b50322c79bc973c25f4de46a3eea0fca68e45",
+    "source_responses/unit-030210423082.json": "a9a5531d7cfb20363f8b2db4697a4a65f5fe2457b938bdee353b1ff054d625b3",
+    "source_responses/unit-030210423082.json.meta.json": "94db13904d3d45cbd1a450b86f4c3ec723c81e5d39ad4b2a2eece1d586a618f4",
+    "source_responses/unit-030210423083.json": "b6d57907e483982310dfca83fe0c2fe5cd82b7e15f884edc6549e857c5f17240",
+    "source_responses/unit-030210423083.json.meta.json": "d5fbf69904773a5fef64fcb95a10c674860b3bad80347c4eef54a9bd904ec4d7",
+    "source_responses/units-page-0.json": "3bf73668d2f62b373d65a1acea79d5af301f92c51d0be6f303a22b725b7a1701",
+    "source_responses/units-page-0.json.meta.json": "97be84ba5cb85478356ce5edb5b99032a6b450acaf38d6a77c073c0c883ee359",
+    "source_responses/units-page-1.json": "52600c5287ba326baa43150d58448f681c5cdcd06bb65da9d59b2cd47d4688f2",
+    "source_responses/units-page-1.json.meta.json": "7ff76c5978de611aa1e39e8ab74d33f33cecc97e3bb9f067530f4de391c52d91",
+    "source_responses/units-page-2.json": "26b2ca740d3b5b321aea27fcc65a0229184f117f567086c2ef43dcf8536b3517",
+    "source_responses/units-page-2.json.meta.json": "90b7b5eef8b81ffa37b6e85e6eb66ae844f2a65fc193dec63cf504110d573858",
+    "source_responses/variable-1649554.json": "c36c888ccd934760c910802961d9c6498eec90caf6b97bae1fcf74f11e074953",
+    "source_responses/variable-1649554.json.meta.json": "1636707ed8adc1f3f846adb11a0f6ba5937709d0a660ff051b4e7d09c883d565",
+    "source_responses/variable-1649557.json": "74c6761b6d1616a6f2800940cad94f4585826c66934858323bd364f347734ed3",
+    "source_responses/variable-1649557.json.meta.json": "bf116950cdb2477292ba2213c056588970b8c953efe2a5950c9499e62c9a653e",
+    "source_responses/variable-1649859.json": "4d1507349434fcf0edff1865ae1797b065915076511108c678dc9a7822f94eb5",
+    "source_responses/variable-1649859.json.meta.json": "77e13dc6f2d1745802d9b2ea85e0ad0c8087849f9e44fcb53ce3101621b2abb9",
+    "source_responses/variable-1649860.json": "7d5aef3642fbde0c4ff8680eb922f2813533e5193da62b03cf8fac0bc7ac806a",
+    "source_responses/variable-1649860.json.meta.json": "9f0e7661133a8de7f0ee250e06cb9dc913bf8400833eee1d19ba23a7d4b32ae0",
+    "source_responses/variable-377225.json": "46ac3058208edd555efbf5b9e91723d76d615c2e87b5a1f1d8883dae8a0c4658",
+    "source_responses/variable-377225.json.meta.json": "4c46f3abe93ba56d3032067585ebeccaa0983e7022e0cfd439abd12787d4fb7f",
+    "source_responses/variable-377234.json": "613868e1e4da54e8271143d7b927db161d60f6ebbfebf4b762b1bbc6c03faa72",
+    "source_responses/variable-377234.json.meta.json": "2cf01e387c81060fcbe4710656cd7ace9a0cf1e13a6337cc428f021876fb9865",
+    "source_responses/variable-453371.json": "d5980ca8ca04be7bb656669967084b841ff84874646ee4f38eec0b04f95fde6b",
+    "source_responses/variable-453371.json.meta.json": "ef20703598c2085081110cf417a85374a20240d49967c81a83e40e0e6dbee4e9",
+    "source_responses/variable-453372.json": "48a87bc30a7c5fd62628d05cef7cf63094ff4b059b49f8f185e67ed4e77c0707",
+    "source_responses/variable-453372.json.meta.json": "15c8d557426bae8f57e65e157d1771d28f8f011ad7eb390fa2dad641bf025fe4",
+    "source_responses/variable-71.json": "875ca9b803fcb5fa6f3a47fbb0d6161a5127ccdd9578670b5eae45456dc2c226",
+    "source_responses/variable-71.json.meta.json": "75f95e12dd8ec2f509d56653138322a674681d60a6eee6c8b9fc31183ecc62b6",
+    "source_responses/variable-72.json": "22e4fae9893bdac396513b452b2c18d2e6f853f63d587834014d013a099fe97a",
+    "source_responses/variable-72.json.meta.json": "7c5a46a0f36e8c877d8c814ddaefa6f3ace3e3d3d3e5c3a09655894190079be4",
+    "source_responses/variable-73.json": "6cc4551957c51207784be48af6d09143f3c3a2dd7750cb0fa9f444bb0236f8ef",
+    "source_responses/variable-73.json.meta.json": "0226a19f8b2a8daf8d8b9ecbb5a10607c2d228f216a933bb622281710437fc90",
+    "units.json": "42878da56231f90b18fe4562b678d999afea15df14451104b240fc6d0b20f2eb"
+  },
+  "config_sha256": "54c52f1024640b018d6895b748ebd75d49bcb21678206b2389beb89fff313aae",
+  "code_version": "source-contract-v1",
+  "data_license": "CC-BY-4.0",
+  "attribution": "Source: Statistics Poland (GUS), Local Data Bank (BDL); downloaded 10 October 2026; local derived metrics are identified separately.",
+  "source_url": "https://bdl.stat.gov.pl/api/v1/",
+  "refresh_uses_cache": true
+}

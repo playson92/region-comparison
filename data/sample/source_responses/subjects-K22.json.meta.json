@@ -1,0 +1,12 @@
+{
+  "url": "https://bdl.stat.gov.pl/api/v1/subjects/K22?format=json",
+  "retrieved_at_utc": "2026-10-10T20:11:18.3717277Z",
+  "status_code": 200,
+  "content_type": "application/json; charset=utf-8",
+  "sha256": "811fbeb418d1f6363bab4f17e333d12871a0ff1d44f06ec964e0a5bae85d2ace",
+  "params": {
+    "format": [
+      "json"
+    ]
+  }
+}

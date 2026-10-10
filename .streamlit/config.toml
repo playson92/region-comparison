@@ -1,0 +1,33 @@
+# Native theme based on the Streamlit financial dashboard template.
+# System fonts keep the offline demo independent of font CDNs.
+[browser]
+gatherUsageStats = false
+
+[server]
+headless = true
+
+[theme]
+base = "light"
+primaryColor = "#C45D35"
+backgroundColor = "#FAF9F6"
+secondaryBackgroundColor = "#F0EFEA"
+textColor = "#172B3A"
+linkColor = "#266B80"
+borderColor = "#DADDD9"
+showWidgetBorder = true
+showSidebarBorder = true
+baseRadius = "8px"
+buttonRadius = "8px"
+font = "sans-serif"
+baseFontSize = 15
+headingFontSizes = ["38px", "28px", "22px", "18px", "16px", "14px"]
+headingFontWeights = [700, 650, 600, 600, 600, 600]
+dataframeHeaderBackgroundColor = "#E8EEEB"
+chartCategoricalColors = ["#266B80", "#C45D35", "#6A7F42", "#87679D"]
+
+[theme.sidebar]
+backgroundColor = "#172B3A"
+secondaryBackgroundColor = "#263E4E"
+textColor = "#F5F6F2"
+primaryColor = "#EDA782"
+borderColor = "#47606D"

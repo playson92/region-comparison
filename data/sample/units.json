@@ -1,0 +1,3213 @@
+[
+  {
+    "bdl_unit_id": "030210101011",
+    "name": "Bolesławiec",
+    "kind": "1",
+    "parent_id": "030210101000",
+    "powiat": "Powiat bolesławiecki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[0]"
+  },
+  {
+    "bdl_unit_id": "030210101022",
+    "name": "Bolesławiec",
+    "kind": "2",
+    "parent_id": "030210101000",
+    "powiat": "Powiat bolesławiecki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[1]"
+  },
+  {
+    "bdl_unit_id": "030210101032",
+    "name": "Gromadka",
+    "kind": "2",
+    "parent_id": "030210101000",
+    "powiat": "Powiat bolesławiecki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[2]"
+  },
+  {
+    "bdl_unit_id": "030210101043",
+    "name": "Nowogrodziec",
+    "kind": "3",
+    "parent_id": "030210101000",
+    "powiat": "Powiat bolesławiecki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[3]"
+  },
+  {
+    "bdl_unit_id": "030210101052",
+    "name": "Osiecznica",
+    "kind": "2",
+    "parent_id": "030210101000",
+    "powiat": "Powiat bolesławiecki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[6]"
+  },
+  {
+    "bdl_unit_id": "030210101062",
+    "name": "Warta Bolesławiecka",
+    "kind": "2",
+    "parent_id": "030210101000",
+    "powiat": "Powiat bolesławiecki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[7]"
+  },
+  {
+    "bdl_unit_id": "030210105011",
+    "name": "Jawor",
+    "kind": "1",
+    "parent_id": "030210105000",
+    "powiat": "Powiat jaworski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[8]"
+  },
+  {
+    "bdl_unit_id": "030210105023",
+    "name": "Bolków",
+    "kind": "3",
+    "parent_id": "030210105000",
+    "powiat": "Powiat jaworski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[9]"
+  },
+  {
+    "bdl_unit_id": "030210105032",
+    "name": "Męcinka",
+    "kind": "2",
+    "parent_id": "030210105000",
+    "powiat": "Powiat jaworski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[12]"
+  },
+  {
+    "bdl_unit_id": "030210105042",
+    "name": "Mściwojów",
+    "kind": "2",
+    "parent_id": "030210105000",
+    "powiat": "Powiat jaworski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[13]"
+  },
+  {
+    "bdl_unit_id": "030210105052",
+    "name": "Paszowice",
+    "kind": "2",
+    "parent_id": "030210105000",
+    "powiat": "Powiat jaworski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[14]"
+  },
+  {
+    "bdl_unit_id": "030210105062",
+    "name": "Wądroże Wielkie",
+    "kind": "2",
+    "parent_id": "030210105000",
+    "powiat": "Powiat jaworski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[15]"
+  },
+  {
+    "bdl_unit_id": "030210106011",
+    "name": "Karpacz",
+    "kind": "1",
+    "parent_id": "030210106000",
+    "powiat": "Powiat karkonoski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[16]"
+  },
+  {
+    "bdl_unit_id": "030210106021",
+    "name": "Kowary",
+    "kind": "1",
+    "parent_id": "030210106000",
+    "powiat": "Powiat karkonoski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[17]"
+  },
+  {
+    "bdl_unit_id": "030210106031",
+    "name": "Piechowice",
+    "kind": "1",
+    "parent_id": "030210106000",
+    "powiat": "Powiat karkonoski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[18]"
+  },
+  {
+    "bdl_unit_id": "030210106041",
+    "name": "Szklarska Poręba",
+    "kind": "1",
+    "parent_id": "030210106000",
+    "powiat": "Powiat karkonoski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[19]"
+  },
+  {
+    "bdl_unit_id": "030210106052",
+    "name": "Janowice Wielkie",
+    "kind": "2",
+    "parent_id": "030210106000",
+    "powiat": "Powiat karkonoski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[20]"
+  },
+  {
+    "bdl_unit_id": "030210106062",
+    "name": "Jeżów Sudecki",
+    "kind": "2",
+    "parent_id": "030210106000",
+    "powiat": "Powiat karkonoski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[21]"
+  },
+  {
+    "bdl_unit_id": "030210106072",
+    "name": "Mysłakowice",
+    "kind": "2",
+    "parent_id": "030210106000",
+    "powiat": "Powiat karkonoski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[22]"
+  },
+  {
+    "bdl_unit_id": "030210106082",
+    "name": "Podgórzyn",
+    "kind": "2",
+    "parent_id": "030210106000",
+    "powiat": "Powiat karkonoski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[23]"
+  },
+  {
+    "bdl_unit_id": "030210106092",
+    "name": "Stara Kamienica",
+    "kind": "2",
+    "parent_id": "030210106000",
+    "powiat": "Powiat karkonoski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[24]"
+  },
+  {
+    "bdl_unit_id": "030210107011",
+    "name": "Kamienna Góra",
+    "kind": "1",
+    "parent_id": "030210107000",
+    "powiat": "Powiat kamiennogórski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[25]"
+  },
+  {
+    "bdl_unit_id": "030210107022",
+    "name": "Kamienna Góra",
+    "kind": "2",
+    "parent_id": "030210107000",
+    "powiat": "Powiat kamiennogórski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[26]"
+  },
+  {
+    "bdl_unit_id": "030210107033",
+    "name": "Lubawka",
+    "kind": "3",
+    "parent_id": "030210107000",
+    "powiat": "Powiat kamiennogórski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[27]"
+  },
+  {
+    "bdl_unit_id": "030210107042",
+    "name": "Marciszów",
+    "kind": "2",
+    "parent_id": "030210107000",
+    "powiat": "Powiat kamiennogórski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[30]"
+  },
+  {
+    "bdl_unit_id": "030210110011",
+    "name": "Lubań",
+    "kind": "1",
+    "parent_id": "030210110000",
+    "powiat": "Powiat lubański",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[31]"
+  },
+  {
+    "bdl_unit_id": "030210110021",
+    "name": "Świeradów-Zdrój",
+    "kind": "1",
+    "parent_id": "030210110000",
+    "powiat": "Powiat lubański",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[32]"
+  },
+  {
+    "bdl_unit_id": "030210110033",
+    "name": "Leśna",
+    "kind": "3",
+    "parent_id": "030210110000",
+    "powiat": "Powiat lubański",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[33]"
+  },
+  {
+    "bdl_unit_id": "030210110042",
+    "name": "Lubań",
+    "kind": "2",
+    "parent_id": "030210110000",
+    "powiat": "Powiat lubański",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[36]"
+  },
+  {
+    "bdl_unit_id": "030210110053",
+    "name": "Olszyna",
+    "kind": "3",
+    "parent_id": "030210110000",
+    "powiat": "Powiat lubański",
+    "valid_from": 2005,
+    "valid_to": 2026,
+    "validity_basis": "unit_metadata_years",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "Zmiana rodzaju gminy z wiejskiego na miejsko-wiejski z dniem 01.01.2005 r. (Dz.U. z 2004 r. Nr 254, poz. 2535)",
+    "source_file": "source_responses/unit-030210110053.json",
+    "source_record": "$"
+  },
+  {
+    "bdl_unit_id": "030210110062",
+    "name": "Platerówka",
+    "kind": "2",
+    "parent_id": "030210110000",
+    "powiat": "Powiat lubański",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[41]"
+  },
+  {
+    "bdl_unit_id": "030210110072",
+    "name": "Siekierczyn",
+    "kind": "2",
+    "parent_id": "030210110000",
+    "powiat": "Powiat lubański",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[42]"
+  },
+  {
+    "bdl_unit_id": "030210112013",
+    "name": "Gryfów Śląski",
+    "kind": "3",
+    "parent_id": "030210112000",
+    "powiat": "Powiat lwówecki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[43]"
+  },
+  {
+    "bdl_unit_id": "030210112023",
+    "name": "Lubomierz",
+    "kind": "3",
+    "parent_id": "030210112000",
+    "powiat": "Powiat lwówecki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[46]"
+  },
+  {
+    "bdl_unit_id": "030210112033",
+    "name": "Lwówek Śląski",
+    "kind": "3",
+    "parent_id": "030210112000",
+    "powiat": "Powiat lwówecki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[49]"
+  },
+  {
+    "bdl_unit_id": "030210112043",
+    "name": "Mirsk",
+    "kind": "3",
+    "parent_id": "030210112000",
+    "powiat": "Powiat lwówecki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[52]"
+  },
+  {
+    "bdl_unit_id": "030210112053",
+    "name": "Wleń",
+    "kind": "3",
+    "parent_id": "030210112000",
+    "powiat": "Powiat lwówecki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[55]"
+  },
+  {
+    "bdl_unit_id": "030210125011",
+    "name": "Zawidów",
+    "kind": "1",
+    "parent_id": "030210125000",
+    "powiat": "Powiat zgorzelecki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[58]"
+  },
+  {
+    "bdl_unit_id": "030210125021",
+    "name": "Zgorzelec",
+    "kind": "1",
+    "parent_id": "030210125000",
+    "powiat": "Powiat zgorzelecki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[59]"
+  },
+  {
+    "bdl_unit_id": "030210125033",
+    "name": "Bogatynia",
+    "kind": "3",
+    "parent_id": "030210125000",
+    "powiat": "Powiat zgorzelecki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[60]"
+  },
+  {
+    "bdl_unit_id": "030210125043",
+    "name": "Pieńsk",
+    "kind": "3",
+    "parent_id": "030210125000",
+    "powiat": "Powiat zgorzelecki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[63]"
+  },
+  {
+    "bdl_unit_id": "030210125052",
+    "name": "Sulików",
+    "kind": "2",
+    "parent_id": "030210125000",
+    "powiat": "Powiat zgorzelecki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[66]"
+  },
+  {
+    "bdl_unit_id": "030210125063",
+    "name": "Węgliniec",
+    "kind": "3",
+    "parent_id": "030210125000",
+    "powiat": "Powiat zgorzelecki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[67]"
+  },
+  {
+    "bdl_unit_id": "030210125072",
+    "name": "Zgorzelec",
+    "kind": "2",
+    "parent_id": "030210125000",
+    "powiat": "Powiat zgorzelecki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[70]"
+  },
+  {
+    "bdl_unit_id": "030210126011",
+    "name": "Wojcieszów",
+    "kind": "1",
+    "parent_id": "030210126000",
+    "powiat": "Powiat złotoryjski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[71]"
+  },
+  {
+    "bdl_unit_id": "030210126021",
+    "name": "Złotoryja",
+    "kind": "1",
+    "parent_id": "030210126000",
+    "powiat": "Powiat złotoryjski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[72]"
+  },
+  {
+    "bdl_unit_id": "030210126032",
+    "name": "Pielgrzymka",
+    "kind": "2",
+    "parent_id": "030210126000",
+    "powiat": "Powiat złotoryjski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[73]"
+  },
+  {
+    "bdl_unit_id": "030210126043",
+    "name": "Świerzawa",
+    "kind": "3",
+    "parent_id": "030210126000",
+    "powiat": "Powiat złotoryjski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[74]"
+  },
+  {
+    "bdl_unit_id": "030210126052",
+    "name": "Zagrodno",
+    "kind": "2",
+    "parent_id": "030210126000",
+    "powiat": "Powiat złotoryjski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[77]"
+  },
+  {
+    "bdl_unit_id": "030210126062",
+    "name": "Złotoryja",
+    "kind": "2",
+    "parent_id": "030210126000",
+    "powiat": "Powiat złotoryjski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[78]"
+  },
+  {
+    "bdl_unit_id": "030210161011",
+    "name": "Jelenia Góra",
+    "kind": "1",
+    "parent_id": "030210161000",
+    "powiat": "Powiat m. Jelenia Góra",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[79]"
+  },
+  {
+    "bdl_unit_id": "030210203011",
+    "name": "Głogów",
+    "kind": "1",
+    "parent_id": "030210203000",
+    "powiat": "Powiat głogowski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[80]"
+  },
+  {
+    "bdl_unit_id": "030210203022",
+    "name": "Głogów",
+    "kind": "2",
+    "parent_id": "030210203000",
+    "powiat": "Powiat głogowski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[81]"
+  },
+  {
+    "bdl_unit_id": "030210203032",
+    "name": "Jerzmanowa",
+    "kind": "2",
+    "parent_id": "030210203000",
+    "powiat": "Powiat głogowski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[82]"
+  },
+  {
+    "bdl_unit_id": "030210203042",
+    "name": "Kotla",
+    "kind": "2",
+    "parent_id": "030210203000",
+    "powiat": "Powiat głogowski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[83]"
+  },
+  {
+    "bdl_unit_id": "030210203052",
+    "name": "Pęcław",
+    "kind": "2",
+    "parent_id": "030210203000",
+    "powiat": "Powiat głogowski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[84]"
+  },
+  {
+    "bdl_unit_id": "030210203062",
+    "name": "Żukowice",
+    "kind": "2",
+    "parent_id": "030210203000",
+    "powiat": "Powiat głogowski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[85]"
+  },
+  {
+    "bdl_unit_id": "030210204013",
+    "name": "Góra",
+    "kind": "3",
+    "parent_id": "030210204000",
+    "powiat": "Powiat górowski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[86]"
+  },
+  {
+    "bdl_unit_id": "030210204022",
+    "name": "Jemielno",
+    "kind": "2",
+    "parent_id": "030210204000",
+    "powiat": "Powiat górowski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[89]"
+  },
+  {
+    "bdl_unit_id": "030210204032",
+    "name": "Niechlów",
+    "kind": "2",
+    "parent_id": "030210204000",
+    "powiat": "Powiat górowski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[90]"
+  },
+  {
+    "bdl_unit_id": "030210204043",
+    "name": "Wąsosz",
+    "kind": "3",
+    "parent_id": "030210204000",
+    "powiat": "Powiat górowski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[91]"
+  },
+  {
+    "bdl_unit_id": "030210209011",
+    "name": "Chojnów",
+    "kind": "1",
+    "parent_id": "030210209000",
+    "powiat": "Powiat legnicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[94]"
+  },
+  {
+    "bdl_unit_id": "030210209022",
+    "name": "Chojnów",
+    "kind": "2",
+    "parent_id": "030210209000",
+    "powiat": "Powiat legnicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[95]"
+  },
+  {
+    "bdl_unit_id": "030210209032",
+    "name": "Krotoszyce",
+    "kind": "2",
+    "parent_id": "030210209000",
+    "powiat": "Powiat legnicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[96]"
+  },
+  {
+    "bdl_unit_id": "030210209042",
+    "name": "Kunice",
+    "kind": "2",
+    "parent_id": "030210209000",
+    "powiat": "Powiat legnicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[97]"
+  },
+  {
+    "bdl_unit_id": "030210209052",
+    "name": "Legnickie Pole",
+    "kind": "2",
+    "parent_id": "030210209000",
+    "powiat": "Powiat legnicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[98]"
+  },
+  {
+    "bdl_unit_id": "030210209062",
+    "name": "Miłkowice",
+    "kind": "2",
+    "parent_id": "030210209000",
+    "powiat": "Powiat legnicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-0.json",
+    "source_record": "results[99]"
+  },
+  {
+    "bdl_unit_id": "030210209073",
+    "name": "Prochowice",
+    "kind": "3",
+    "parent_id": "030210209000",
+    "powiat": "Powiat legnicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[0]"
+  },
+  {
+    "bdl_unit_id": "030210209082",
+    "name": "Ruja",
+    "kind": "2",
+    "parent_id": "030210209000",
+    "powiat": "Powiat legnicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[3]"
+  },
+  {
+    "bdl_unit_id": "030210211011",
+    "name": "Lubin",
+    "kind": "1",
+    "parent_id": "030210211000",
+    "powiat": "Powiat lubiński",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[4]"
+  },
+  {
+    "bdl_unit_id": "030210211022",
+    "name": "Lubin",
+    "kind": "2",
+    "parent_id": "030210211000",
+    "powiat": "Powiat lubiński",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[5]"
+  },
+  {
+    "bdl_unit_id": "030210211032",
+    "name": "Rudna",
+    "kind": "2",
+    "parent_id": "030210211000",
+    "powiat": "Powiat lubiński",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[6]"
+  },
+  {
+    "bdl_unit_id": "030210211043",
+    "name": "Ścinawa",
+    "kind": "3",
+    "parent_id": "030210211000",
+    "powiat": "Powiat lubiński",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[7]"
+  },
+  {
+    "bdl_unit_id": "030210216013",
+    "name": "Chocianów",
+    "kind": "3",
+    "parent_id": "030210216000",
+    "powiat": "Powiat polkowicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[11]"
+  },
+  {
+    "bdl_unit_id": "030210216022",
+    "name": "Gaworzyce",
+    "kind": "2",
+    "parent_id": "030210216000",
+    "powiat": "Powiat polkowicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[14]"
+  },
+  {
+    "bdl_unit_id": "030210216032",
+    "name": "Grębocice",
+    "kind": "2",
+    "parent_id": "030210216000",
+    "powiat": "Powiat polkowicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[15]"
+  },
+  {
+    "bdl_unit_id": "030210216043",
+    "name": "Polkowice",
+    "kind": "3",
+    "parent_id": "030210216000",
+    "powiat": "Powiat polkowicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[16]"
+  },
+  {
+    "bdl_unit_id": "030210216053",
+    "name": "Przemków",
+    "kind": "3",
+    "parent_id": "030210216000",
+    "powiat": "Powiat polkowicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[19]"
+  },
+  {
+    "bdl_unit_id": "030210216062",
+    "name": "Radwanice",
+    "kind": "2",
+    "parent_id": "030210216000",
+    "powiat": "Powiat polkowicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[22]"
+  },
+  {
+    "bdl_unit_id": "030210262011",
+    "name": "Legnica",
+    "kind": "1",
+    "parent_id": "030210262000",
+    "powiat": "Powiat m. Legnica",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[23]"
+  },
+  {
+    "bdl_unit_id": "030210302011",
+    "name": "Bielawa",
+    "kind": "1",
+    "parent_id": "030210302000",
+    "powiat": "Powiat dzierżoniowski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[24]"
+  },
+  {
+    "bdl_unit_id": "030210302021",
+    "name": "Dzierżoniów",
+    "kind": "1",
+    "parent_id": "030210302000",
+    "powiat": "Powiat dzierżoniowski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[25]"
+  },
+  {
+    "bdl_unit_id": "030210302033",
+    "name": "Pieszyce",
+    "kind": "3",
+    "parent_id": "030210302000",
+    "powiat": "Powiat dzierżoniowski",
+    "valid_from": 2016,
+    "valid_to": 2026,
+    "validity_basis": "unit_metadata_years",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "Zmiana rodzaju gminy z miejskiego na miejsko-wiejski z dniem 01.01.2016 r. (Dz.U. z 2015 r. poz. 2313)",
+    "source_file": "source_responses/unit-030210302033.json",
+    "source_record": "$"
+  },
+  {
+    "bdl_unit_id": "030210302041",
+    "name": "Piława Górna",
+    "kind": "1",
+    "parent_id": "030210302000",
+    "powiat": "Powiat dzierżoniowski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[30]"
+  },
+  {
+    "bdl_unit_id": "030210302052",
+    "name": "Dzierżoniów",
+    "kind": "2",
+    "parent_id": "030210302000",
+    "powiat": "Powiat dzierżoniowski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[31]"
+  },
+  {
+    "bdl_unit_id": "030210302062",
+    "name": "Łagiewniki",
+    "kind": "2",
+    "parent_id": "030210302000",
+    "powiat": "Powiat dzierżoniowski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[32]"
+  },
+  {
+    "bdl_unit_id": "030210302073",
+    "name": "Niemcza",
+    "kind": "3",
+    "parent_id": "030210302000",
+    "powiat": "Powiat dzierżoniowski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[33]"
+  },
+  {
+    "bdl_unit_id": "030210308011",
+    "name": "Duszniki-Zdrój",
+    "kind": "1",
+    "parent_id": "030210308000",
+    "powiat": "Powiat kłodzki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[36]"
+  },
+  {
+    "bdl_unit_id": "030210308021",
+    "name": "Kłodzko",
+    "kind": "1",
+    "parent_id": "030210308000",
+    "powiat": "Powiat kłodzki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[37]"
+  },
+  {
+    "bdl_unit_id": "030210308031",
+    "name": "Kudowa-Zdrój",
+    "kind": "1",
+    "parent_id": "030210308000",
+    "powiat": "Powiat kłodzki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[38]"
+  },
+  {
+    "bdl_unit_id": "030210308041",
+    "name": "Nowa Ruda",
+    "kind": "1",
+    "parent_id": "030210308000",
+    "powiat": "Powiat kłodzki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[39]"
+  },
+  {
+    "bdl_unit_id": "030210308051",
+    "name": "Polanica-Zdrój",
+    "kind": "1",
+    "parent_id": "030210308000",
+    "powiat": "Powiat kłodzki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[40]"
+  },
+  {
+    "bdl_unit_id": "030210308063",
+    "name": "Bystrzyca Kłodzka",
+    "kind": "3",
+    "parent_id": "030210308000",
+    "powiat": "Powiat kłodzki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[41]"
+  },
+  {
+    "bdl_unit_id": "030210308072",
+    "name": "Kłodzko",
+    "kind": "2",
+    "parent_id": "030210308000",
+    "powiat": "Powiat kłodzki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[44]"
+  },
+  {
+    "bdl_unit_id": "030210308083",
+    "name": "Lądek-Zdrój",
+    "kind": "3",
+    "parent_id": "030210308000",
+    "powiat": "Powiat kłodzki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[45]"
+  },
+  {
+    "bdl_unit_id": "030210308092",
+    "name": "Lewin Kłodzki",
+    "kind": "2",
+    "parent_id": "030210308000",
+    "powiat": "Powiat kłodzki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[48]"
+  },
+  {
+    "bdl_unit_id": "030210308103",
+    "name": "Międzylesie",
+    "kind": "3",
+    "parent_id": "030210308000",
+    "powiat": "Powiat kłodzki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[49]"
+  },
+  {
+    "bdl_unit_id": "030210308112",
+    "name": "Nowa Ruda",
+    "kind": "2",
+    "parent_id": "030210308000",
+    "powiat": "Powiat kłodzki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[52]"
+  },
+  {
+    "bdl_unit_id": "030210308123",
+    "name": "Radków",
+    "kind": "3",
+    "parent_id": "030210308000",
+    "powiat": "Powiat kłodzki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[53]"
+  },
+  {
+    "bdl_unit_id": "030210308133",
+    "name": "Stronie Śląskie",
+    "kind": "3",
+    "parent_id": "030210308000",
+    "powiat": "Powiat kłodzki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[56]"
+  },
+  {
+    "bdl_unit_id": "030210308143",
+    "name": "Szczytna",
+    "kind": "3",
+    "parent_id": "030210308000",
+    "powiat": "Powiat kłodzki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[59]"
+  },
+  {
+    "bdl_unit_id": "030210319011",
+    "name": "Świdnica",
+    "kind": "1",
+    "parent_id": "030210319000",
+    "powiat": "Powiat świdnicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[62]"
+  },
+  {
+    "bdl_unit_id": "030210319021",
+    "name": "Świebodzice",
+    "kind": "1",
+    "parent_id": "030210319000",
+    "powiat": "Powiat świdnicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[63]"
+  },
+  {
+    "bdl_unit_id": "030210319032",
+    "name": "Dobromierz",
+    "kind": "2",
+    "parent_id": "030210319000",
+    "powiat": "Powiat świdnicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[64]"
+  },
+  {
+    "bdl_unit_id": "030210319043",
+    "name": "Jaworzyna Śląska",
+    "kind": "3",
+    "parent_id": "030210319000",
+    "powiat": "Powiat świdnicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[65]"
+  },
+  {
+    "bdl_unit_id": "030210319052",
+    "name": "Marcinowice",
+    "kind": "2",
+    "parent_id": "030210319000",
+    "powiat": "Powiat świdnicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[68]"
+  },
+  {
+    "bdl_unit_id": "030210319063",
+    "name": "Strzegom",
+    "kind": "3",
+    "parent_id": "030210319000",
+    "powiat": "Powiat świdnicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[69]"
+  },
+  {
+    "bdl_unit_id": "030210319072",
+    "name": "Świdnica",
+    "kind": "2",
+    "parent_id": "030210319000",
+    "powiat": "Powiat świdnicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[72]"
+  },
+  {
+    "bdl_unit_id": "030210319083",
+    "name": "Żarów",
+    "kind": "3",
+    "parent_id": "030210319000",
+    "powiat": "Powiat świdnicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[73]"
+  },
+  {
+    "bdl_unit_id": "030210321011",
+    "name": "Boguszów-Gorce",
+    "kind": "1",
+    "parent_id": "030210321000",
+    "powiat": "Powiat wałbrzyski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[76]"
+  },
+  {
+    "bdl_unit_id": "030210321021",
+    "name": "Jedlina-Zdrój",
+    "kind": "1",
+    "parent_id": "030210321000",
+    "powiat": "Powiat wałbrzyski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[77]"
+  },
+  {
+    "bdl_unit_id": "030210321031",
+    "name": "Szczawno-Zdrój",
+    "kind": "1",
+    "parent_id": "030210321000",
+    "powiat": "Powiat wałbrzyski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[78]"
+  },
+  {
+    "bdl_unit_id": "030210321042",
+    "name": "Czarny Bór",
+    "kind": "2",
+    "parent_id": "030210321000",
+    "powiat": "Powiat wałbrzyski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[79]"
+  },
+  {
+    "bdl_unit_id": "030210321053",
+    "name": "Głuszyca",
+    "kind": "3",
+    "parent_id": "030210321000",
+    "powiat": "Powiat wałbrzyski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[80]"
+  },
+  {
+    "bdl_unit_id": "030210321063",
+    "name": "Mieroszów",
+    "kind": "3",
+    "parent_id": "030210321000",
+    "powiat": "Powiat wałbrzyski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[83]"
+  },
+  {
+    "bdl_unit_id": "030210321072",
+    "name": "Stare Bogaczowice",
+    "kind": "2",
+    "parent_id": "030210321000",
+    "powiat": "Powiat wałbrzyski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[86]"
+  },
+  {
+    "bdl_unit_id": "030210321082",
+    "name": "Walim",
+    "kind": "2",
+    "parent_id": "030210321000",
+    "powiat": "Powiat wałbrzyski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[87]"
+  },
+  {
+    "bdl_unit_id": "030210324013",
+    "name": "Bardo",
+    "kind": "3",
+    "parent_id": "030210324000",
+    "powiat": "Powiat ząbkowicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[89]"
+  },
+  {
+    "bdl_unit_id": "030210324022",
+    "name": "Ciepłowody",
+    "kind": "2",
+    "parent_id": "030210324000",
+    "powiat": "Powiat ząbkowicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[92]"
+  },
+  {
+    "bdl_unit_id": "030210324033",
+    "name": "Kamieniec Ząbkowicki",
+    "kind": "3",
+    "parent_id": "030210324000",
+    "powiat": "Powiat ząbkowicki",
+    "valid_from": 2021,
+    "valid_to": 2026,
+    "validity_basis": "unit_metadata_years",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "Zmiana rodzaju gminy z wiejskiego na miejsko-wiejski z dniem 01.01.2021 r. (Dz.U. poz.2260 z 2020 r.)",
+    "source_file": "source_responses/unit-030210324033.json",
+    "source_record": "$"
+  },
+  {
+    "bdl_unit_id": "030210324042",
+    "name": "Stoszowice",
+    "kind": "2",
+    "parent_id": "030210324000",
+    "powiat": "Powiat ząbkowicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[97]"
+  },
+  {
+    "bdl_unit_id": "030210324053",
+    "name": "Ząbkowice Śląskie",
+    "kind": "3",
+    "parent_id": "030210324000",
+    "powiat": "Powiat ząbkowicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-1.json",
+    "source_record": "results[98]"
+  },
+  {
+    "bdl_unit_id": "030210324063",
+    "name": "Ziębice",
+    "kind": "3",
+    "parent_id": "030210324000",
+    "powiat": "Powiat ząbkowicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[1]"
+  },
+  {
+    "bdl_unit_id": "030210324073",
+    "name": "Złoty Stok",
+    "kind": "3",
+    "parent_id": "030210324000",
+    "powiat": "Powiat ząbkowicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[4]"
+  },
+  {
+    "bdl_unit_id": "030210365011",
+    "name": "Wałbrzych od 2013",
+    "kind": "1",
+    "parent_id": "030210365000",
+    "powiat": "Powiat m. Wałbrzych od 2013",
+    "valid_from": 2013,
+    "valid_to": 2026,
+    "validity_basis": "unit_metadata_years",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "Przywrócenie miastu Wałbrzych statusu miasta na prawach powiatu z dniem 01.01.2013 r. (Dz.U. z 2012, poz. 853 i poz. 1389)",
+    "source_file": "source_responses/unit-030210365011.json",
+    "source_record": "$"
+  },
+  {
+    "bdl_unit_id": "030210413012",
+    "name": "Cieszków",
+    "kind": "2",
+    "parent_id": "030210413000",
+    "powiat": "Powiat milicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[9]"
+  },
+  {
+    "bdl_unit_id": "030210413022",
+    "name": "Krośnice",
+    "kind": "2",
+    "parent_id": "030210413000",
+    "powiat": "Powiat milicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[10]"
+  },
+  {
+    "bdl_unit_id": "030210413033",
+    "name": "Milicz",
+    "kind": "3",
+    "parent_id": "030210413000",
+    "powiat": "Powiat milicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[11]"
+  },
+  {
+    "bdl_unit_id": "030210414011",
+    "name": "Oleśnica",
+    "kind": "1",
+    "parent_id": "030210414000",
+    "powiat": "Powiat oleśnicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[14]"
+  },
+  {
+    "bdl_unit_id": "030210414023",
+    "name": "Bierutów",
+    "kind": "3",
+    "parent_id": "030210414000",
+    "powiat": "Powiat oleśnicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[15]"
+  },
+  {
+    "bdl_unit_id": "030210414032",
+    "name": "Dobroszyce",
+    "kind": "2",
+    "parent_id": "030210414000",
+    "powiat": "Powiat oleśnicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[18]"
+  },
+  {
+    "bdl_unit_id": "030210414042",
+    "name": "Dziadowa Kłoda",
+    "kind": "2",
+    "parent_id": "030210414000",
+    "powiat": "Powiat oleśnicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[19]"
+  },
+  {
+    "bdl_unit_id": "030210414053",
+    "name": "Międzybórz",
+    "kind": "3",
+    "parent_id": "030210414000",
+    "powiat": "Powiat oleśnicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[20]"
+  },
+  {
+    "bdl_unit_id": "030210414062",
+    "name": "Oleśnica",
+    "kind": "2",
+    "parent_id": "030210414000",
+    "powiat": "Powiat oleśnicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[23]"
+  },
+  {
+    "bdl_unit_id": "030210414073",
+    "name": "Syców",
+    "kind": "3",
+    "parent_id": "030210414000",
+    "powiat": "Powiat oleśnicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[24]"
+  },
+  {
+    "bdl_unit_id": "030210414083",
+    "name": "Twardogóra",
+    "kind": "3",
+    "parent_id": "030210414000",
+    "powiat": "Powiat oleśnicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[27]"
+  },
+  {
+    "bdl_unit_id": "030210415011",
+    "name": "Oława",
+    "kind": "1",
+    "parent_id": "030210415000",
+    "powiat": "Powiat oławski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[30]"
+  },
+  {
+    "bdl_unit_id": "030210415022",
+    "name": "Domaniów",
+    "kind": "2",
+    "parent_id": "030210415000",
+    "powiat": "Powiat oławski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[31]"
+  },
+  {
+    "bdl_unit_id": "030210415033",
+    "name": "Jelcz-Laskowice",
+    "kind": "3",
+    "parent_id": "030210415000",
+    "powiat": "Powiat oławski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[32]"
+  },
+  {
+    "bdl_unit_id": "030210415042",
+    "name": "Oława",
+    "kind": "2",
+    "parent_id": "030210415000",
+    "powiat": "Powiat oławski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[35]"
+  },
+  {
+    "bdl_unit_id": "030210417012",
+    "name": "Borów",
+    "kind": "2",
+    "parent_id": "030210417000",
+    "powiat": "Powiat strzeliński",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[36]"
+  },
+  {
+    "bdl_unit_id": "030210417022",
+    "name": "Kondratowice",
+    "kind": "2",
+    "parent_id": "030210417000",
+    "powiat": "Powiat strzeliński",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[37]"
+  },
+  {
+    "bdl_unit_id": "030210417032",
+    "name": "Przeworno",
+    "kind": "2",
+    "parent_id": "030210417000",
+    "powiat": "Powiat strzeliński",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[38]"
+  },
+  {
+    "bdl_unit_id": "030210417043",
+    "name": "Strzelin",
+    "kind": "3",
+    "parent_id": "030210417000",
+    "powiat": "Powiat strzeliński",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[39]"
+  },
+  {
+    "bdl_unit_id": "030210417053",
+    "name": "Wiązów",
+    "kind": "3",
+    "parent_id": "030210417000",
+    "powiat": "Powiat strzeliński",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[42]"
+  },
+  {
+    "bdl_unit_id": "030210418012",
+    "name": "Kostomłoty",
+    "kind": "2",
+    "parent_id": "030210418000",
+    "powiat": "Powiat średzki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[45]"
+  },
+  {
+    "bdl_unit_id": "030210418022",
+    "name": "Malczyce",
+    "kind": "2",
+    "parent_id": "030210418000",
+    "powiat": "Powiat średzki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[46]"
+  },
+  {
+    "bdl_unit_id": "030210418033",
+    "name": "Miękinia",
+    "kind": "3",
+    "parent_id": "030210418000",
+    "powiat": "Powiat średzki",
+    "valid_from": 2023,
+    "valid_to": 2026,
+    "validity_basis": "unit_metadata_years",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "Zmiana rodzaju gminy z wiejskiego na miejsko-wiejski z dniem 01.01.2023 r. (Dz.U. poz.2769 z 2022 r.)",
+    "source_file": "source_responses/unit-030210418033.json",
+    "source_record": "$"
+  },
+  {
+    "bdl_unit_id": "030210418043",
+    "name": "Środa Śląska",
+    "kind": "3",
+    "parent_id": "030210418000",
+    "powiat": "Powiat średzki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[51]"
+  },
+  {
+    "bdl_unit_id": "030210418052",
+    "name": "Udanin",
+    "kind": "2",
+    "parent_id": "030210418000",
+    "powiat": "Powiat średzki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[54]"
+  },
+  {
+    "bdl_unit_id": "030210420013",
+    "name": "Oborniki Śląskie",
+    "kind": "3",
+    "parent_id": "030210420000",
+    "powiat": "Powiat trzebnicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[55]"
+  },
+  {
+    "bdl_unit_id": "030210420023",
+    "name": "Prusice",
+    "kind": "3",
+    "parent_id": "030210420000",
+    "powiat": "Powiat trzebnicki",
+    "valid_from": 2000,
+    "valid_to": 2026,
+    "validity_basis": "unit_metadata_years",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "Zmiana rodzaju gminy z wiejskiego na miejsko-wiejski z dniem 01.01.2000 r. (Dz.U. z 1999 r. Nr 110, poz. 1268)",
+    "source_file": "source_responses/unit-030210420023.json",
+    "source_record": "$"
+  },
+  {
+    "bdl_unit_id": "030210420033",
+    "name": "Trzebnica",
+    "kind": "3",
+    "parent_id": "030210420000",
+    "powiat": "Powiat trzebnicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[62]"
+  },
+  {
+    "bdl_unit_id": "030210420042",
+    "name": "Wisznia Mała",
+    "kind": "2",
+    "parent_id": "030210420000",
+    "powiat": "Powiat trzebnicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[65]"
+  },
+  {
+    "bdl_unit_id": "030210420052",
+    "name": "Zawonia",
+    "kind": "2",
+    "parent_id": "030210420000",
+    "powiat": "Powiat trzebnicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[66]"
+  },
+  {
+    "bdl_unit_id": "030210420063",
+    "name": "Żmigród",
+    "kind": "3",
+    "parent_id": "030210420000",
+    "powiat": "Powiat trzebnicki",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[67]"
+  },
+  {
+    "bdl_unit_id": "030210422013",
+    "name": "Brzeg Dolny",
+    "kind": "3",
+    "parent_id": "030210422000",
+    "powiat": "Powiat wołowski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[70]"
+  },
+  {
+    "bdl_unit_id": "030210422022",
+    "name": "Wińsko",
+    "kind": "2",
+    "parent_id": "030210422000",
+    "powiat": "Powiat wołowski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[73]"
+  },
+  {
+    "bdl_unit_id": "030210422033",
+    "name": "Wołów",
+    "kind": "3",
+    "parent_id": "030210422000",
+    "powiat": "Powiat wołowski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[74]"
+  },
+  {
+    "bdl_unit_id": "030210423012",
+    "name": "Czernica",
+    "kind": "2",
+    "parent_id": "030210423000",
+    "powiat": "Powiat wrocławski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[77]"
+  },
+  {
+    "bdl_unit_id": "030210423022",
+    "name": "Długołęka",
+    "kind": "2",
+    "parent_id": "030210423000",
+    "powiat": "Powiat wrocławski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[78]"
+  },
+  {
+    "bdl_unit_id": "030210423032",
+    "name": "Jordanów Śląski",
+    "kind": "2",
+    "parent_id": "030210423000",
+    "powiat": "Powiat wrocławski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[79]"
+  },
+  {
+    "bdl_unit_id": "030210423043",
+    "name": "Kąty Wrocławskie",
+    "kind": "3",
+    "parent_id": "030210423000",
+    "powiat": "Powiat wrocławski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[80]"
+  },
+  {
+    "bdl_unit_id": "030210423052",
+    "name": "Kobierzyce",
+    "kind": "2",
+    "parent_id": "030210423000",
+    "powiat": "Powiat wrocławski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[83]"
+  },
+  {
+    "bdl_unit_id": "030210423062",
+    "name": "Mietków",
+    "kind": "2",
+    "parent_id": "030210423000",
+    "powiat": "Powiat wrocławski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[84]"
+  },
+  {
+    "bdl_unit_id": "030210423073",
+    "name": "Sobótka",
+    "kind": "3",
+    "parent_id": "030210423000",
+    "powiat": "Powiat wrocławski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[85]"
+  },
+  {
+    "bdl_unit_id": "030210423083",
+    "name": "Siechnice",
+    "kind": "3",
+    "parent_id": "030210423000",
+    "powiat": "Powiat wrocławski",
+    "valid_from": 1997,
+    "valid_to": 2026,
+    "validity_basis": "unit_metadata_years",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "Zmiana rodzaju gminy z wiejskiego na miejsko-wiejski z dniem 01.01.1997 r. (Dz.U. z 1996 r. Nr 155, poz. 760); Zmiana nazwy gminy z Święta Katarzyna z dniem 01.01.2010 r. (Dz.U. z 2009 r. Nr 202, poz. 1559)",
+    "source_file": "source_responses/unit-030210423083.json",
+    "source_record": "$"
+  },
+  {
+    "bdl_unit_id": "030210423092",
+    "name": "Żórawina",
+    "kind": "2",
+    "parent_id": "030210423000",
+    "powiat": "Powiat wrocławski",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[92]"
+  },
+  {
+    "bdl_unit_id": "030210564011",
+    "name": "Wrocław",
+    "kind": "1",
+    "parent_id": "030210564000",
+    "powiat": "Powiat m. Wrocław",
+    "valid_from": 2023,
+    "valid_to": 2025,
+    "validity_basis": "observed_snapshot_coverage",
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "teryt": null,
+    "description": "",
+    "source_file": "source_responses/units-page-2.json",
+    "source_record": "results[93]"
+  }
+]

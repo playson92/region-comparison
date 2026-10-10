@@ -1,0 +1,12 @@
+{
+  "url": "https://bdl.stat.gov.pl/api/v1/subjects/G266?format=json",
+  "retrieved_at_utc": "2026-10-10T20:11:17.8383935Z",
+  "status_code": 200,
+  "content_type": "application/json; charset=utf-8",
+  "sha256": "011784a7ca10cddeda3761a0c2198a0671d607401f68e7a494cac64ae69277dd",
+  "params": {
+    "format": [
+      "json"
+    ]
+  }
+}

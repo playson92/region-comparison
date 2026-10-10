@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-10",
+  "snapshot_id": "bdl-dolnoslaskie-2023-2025-20261010",
+  "methodology_version": "1.0.0",
+  "source": {
+    "status": "PASS",
+    "municipalities": 169,
+    "years": [
+      2023,
+      2024,
+      2025
+    ],
+    "source_cells": 3549,
+    "admissible_cells": 3549,
+    "ratio_checks": 507,
+    "age_sum_checks": 9
+  },
+  "local_tests": {
+    "status": "PASS",
+    "passed": 89,
+    "failed": 0,
+    "skipped": 0,
+    "postgres_tests": 6,
+    "ui_tests": 10,
+    "seconds": 50.19,
+    "command": "powershell -NoProfile -ExecutionPolicy RemoteSigned -File scripts/check.ps1 -Postgres",
+    "database": "dedicated region_test / PostgreSQL 17.7",
+    "runtime_commit": "2d21fc963289993ed405ed96df46763d50746b9e"
+  },
+  "ruff": {
+    "lint": "PASS",
+    "format": "PASS"
+  },
+  "browser": {
+    "status": "PASS",
+    "tool": "installed Microsoft Edge / Playwright",
+    "evidence": "docs/images/browser-check.json",
+    "page_errors": 0,
+    "exceptions": 0,
+    "failed_requests": 0,
+    "real_charts": true,
+    "weight_change": true,
+    "mobile": true
+  },
+  "snapshot_postgres_equivalence": {
+    "status": "PASS",
+    "includes": "all unit metadata, source observations, metrics, scores and export content fingerprint"
+  },
+  "docker": {
+    "status": "PASS",
+    "application_port": 8602,
+    "database_port": 55432,
+    "nonroot_uid": 10001,
+    "real_postgres_adapter": true,
+    "immutable_reimport": true,
+    "generated_report": true,
+    "browser": true,
+    "ci_run": "https://github.com/playson92/region-comparison/actions/runs/38084763674"
+  },
+  "clean_clone": {
+    "status": "PASS",
+    "python": "3.12.10",
+    "path_contains_space": true,
+    "independent_venv": true,
+    "gus_cache_present": false,
+    "offline_tests_passed": 83,
+    "postgres_tests_deselected": 6,
+    "seconds": 18.57,
+    "real_browser": true
+  },
+  "github_ci": {
+    "status": "PASS",
+    "verified_runtime_commit": "2d21fc963289993ed405ed96df46763d50746b9e",
+    "run": "https://github.com/playson92/region-comparison/actions/runs/38084763674",
+    "jobs": {
+      "Offline / ubuntu-latest": "PASS",
+      "Offline / windows-latest": "PASS",
+      "PostgreSQL integration": "PASS",
+      "Docker full pipeline": "PASS"
+    },
+    "final_head_policy": "Verify all four jobs again on the exact final PR head and default branch before release"
+  },
+  "review": {
+    "status": "PASS",
+    "type": "separate agent implementation review; source author is not independent of source discovery",
+    "evidence": "docs/review.md",
+    "independent_focused_tests": 60,
+    "skipped": 0,
+    "unresolved_high": 0,
+    "unresolved_medium": 0
+  },
+  "live_fetch": {
+    "status": "PASS",
+    "evidence": "docs/live-fetch-verification.json",
+    "request_count": 32,
+    "pages": 21,
+    "cells": 3549,
+    "postgres_import": "PASS",
+    "report": "PASS"
+  }
+}

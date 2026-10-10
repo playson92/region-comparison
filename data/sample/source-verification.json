@@ -1,0 +1,114 @@
+{
+  "age_cross_checks": [
+    {
+      "unit_id": "030210564011",
+      "year": 2023,
+      "age_0_plus_1_plus_2": 19429,
+      "group_0_2": 19429,
+      "source_file": "source_responses/sample-wroclaw.json",
+      "matches": true
+    },
+    {
+      "unit_id": "030210564011",
+      "year": 2024,
+      "age_0_plus_1_plus_2": 17592,
+      "group_0_2": 17592,
+      "source_file": "source_responses/sample-wroclaw.json",
+      "matches": true
+    },
+    {
+      "unit_id": "030210564011",
+      "year": 2025,
+      "age_0_plus_1_plus_2": 16154,
+      "group_0_2": 16154,
+      "source_file": "source_responses/sample-wroclaw.json",
+      "matches": true
+    },
+    {
+      "unit_id": "030210423052",
+      "year": 2023,
+      "age_0_plus_1_plus_2": 733,
+      "group_0_2": 733,
+      "source_file": "source_responses/sample-kobierzyce.json",
+      "matches": true
+    },
+    {
+      "unit_id": "030210423052",
+      "year": 2024,
+      "age_0_plus_1_plus_2": 667,
+      "group_0_2": 667,
+      "source_file": "source_responses/sample-kobierzyce.json",
+      "matches": true
+    },
+    {
+      "unit_id": "030210423052",
+      "year": 2025,
+      "age_0_plus_1_plus_2": 618,
+      "group_0_2": 618,
+      "source_file": "source_responses/sample-kobierzyce.json",
+      "matches": true
+    },
+    {
+      "unit_id": "030210423083",
+      "year": 2023,
+      "age_0_plus_1_plus_2": 1102,
+      "group_0_2": 1102,
+      "source_file": "source_responses/sample-siechnice.json",
+      "matches": true
+    },
+    {
+      "unit_id": "030210423083",
+      "year": 2024,
+      "age_0_plus_1_plus_2": 965,
+      "group_0_2": 965,
+      "source_file": "source_responses/sample-siechnice.json",
+      "matches": true
+    },
+    {
+      "unit_id": "030210423083",
+      "year": 2025,
+      "age_0_plus_1_plus_2": 865,
+      "group_0_2": 865,
+      "source_file": "source_responses/sample-siechnice.json",
+      "matches": true
+    }
+  ],
+  "ratio_cross_check_count": 507,
+  "ratio_max_absolute_difference": 0.49769585253454807,
+  "ratio_absolute_tolerance": 0.500000001,
+  "ratio_tolerance_basis": "GUS variable 1649860 presents integer values; half a display unit",
+  "ratio_cross_check_passed": true,
+  "yearly_checks": [
+    {
+      "year": 2023,
+      "municipalities": 169,
+      "zero_care_places": 54,
+      "population_total": 2879271,
+      "children_0_2": 66865,
+      "care_places": 22389,
+      "children_in_care": 18959,
+      "ratios_above_1000": 1
+    },
+    {
+      "year": 2024,
+      "municipalities": 169,
+      "zero_care_places": 55,
+      "population_total": 2868242,
+      "children_0_2": 60143,
+      "care_places": 22467,
+      "children_in_care": 17809,
+      "ratios_above_1000": 0
+    },
+    {
+      "year": 2025,
+      "municipalities": 169,
+      "zero_care_places": 47,
+      "population_total": 2857273,
+      "children_0_2": 54869,
+      "care_places": 23472,
+      "children_in_care": 17001,
+      "ratios_above_1000": 0
+    }
+  ],
+  "missing_source_cells": 0
+}

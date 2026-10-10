@@ -1,0 +1,12 @@
+{
+  "url": "https://bdl.stat.gov.pl/api/v1/subjects/P3219?format=json",
+  "retrieved_at_utc": "2026-10-10T20:11:16.9232093Z",
+  "status_code": 200,
+  "content_type": "application/json; charset=utf-8",
+  "sha256": "c2e5c191747ed529c5923c442ab012f516031ab2331610a79a60cff7d8ef8caa",
+  "params": {
+    "format": [
+      "json"
+    ]
+  }
+}

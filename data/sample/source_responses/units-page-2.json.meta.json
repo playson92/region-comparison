@@ -1,0 +1,24 @@
+{
+  "url": "https://bdl.stat.gov.pl/api/v1/units?parent-id=030200000000&level=6&format=json&page-size=100&page=2",
+  "retrieved_at_utc": "2026-10-10T20:10:14.6416731Z",
+  "status_code": 200,
+  "content_type": "application/json; charset=utf-8",
+  "sha256": "26b2ca740d3b5b321aea27fcc65a0229184f117f567086c2ef43dcf8536b3517",
+  "params": {
+    "parent-id": [
+      "030200000000"
+    ],
+    "level": [
+      "6"
+    ],
+    "format": [
+      "json"
+    ],
+    "page-size": [
+      "100"
+    ],
+    "page": [
+      "2"
+    ]
+  }
+}
