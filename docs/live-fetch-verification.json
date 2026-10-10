@@ -1,0 +1,1175 @@
+{
+  "snapshot_id": "bdl-20261010T203450Z-1e156647",
+  "state": "complete",
+  "started_at": "2026-10-10T20:34:50.671218+00:00",
+  "finished_at": "2026-10-10T20:35:58.044241+00:00",
+  "region_id": "030200000000",
+  "years": [
+    2023,
+    2024,
+    2025
+  ],
+  "pages_expected": 21,
+  "pages_received": 21,
+  "records_expected": 1995,
+  "records_received": 1995,
+  "observation_count": 3549,
+  "unit_count": 169,
+  "metadata_page_count": 11,
+  "status": "PASS",
+  "request_count": 32,
+  "cache_hits": 0,
+  "manifest_sha256": "926c605b90e050818a4ddc91e9d127d82241a50124dfe46b6a6b5c5856f9bcff",
+  "postgres_import": "PASS / dedicated region_test",
+  "report": "PASS / computed from PostgreSQL",
+  "requests": [
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/units",
+      "params": [
+        [
+          "format",
+          "json"
+        ],
+        [
+          "lang",
+          "pl"
+        ],
+        [
+          "level",
+          "6"
+        ],
+        [
+          "page",
+          "0"
+        ],
+        [
+          "page-size",
+          "100"
+        ],
+        [
+          "parent-id",
+          "030200000000"
+        ]
+      ],
+      "retrieved_at": "2026-10-10T20:34:53.975967+00:00",
+      "sha256": "ec54bea8c2ae39a9871fe9be58a13570e9022ccc4c851db5b6e1ca568761a773",
+      "cache_hit": false
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/units",
+      "params": [
+        [
+          "format",
+          "json"
+        ],
+        [
+          "lang",
+          "pl"
+        ],
+        [
+          "level",
+          "6"
+        ],
+        [
+          "page",
+          "1"
+        ],
+        [
+          "page-size",
+          "100"
+        ],
+        [
+          "parent-id",
+          "030200000000"
+        ]
+      ],
+      "retrieved_at": "2026-10-10T20:34:56.490140+00:00",
+      "sha256": "bfe7f521432e553d1920691d71826df98af223cad042aff0de19f6fdda5af7d7",
+      "cache_hit": false
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/units",
+      "params": [
+        [
+          "format",
+          "json"
+        ],
+        [
+          "lang",
+          "pl"
+        ],
+        [
+          "level",
+          "6"
+        ],
+        [
+          "page",
+          "2"
+        ],
+        [
+          "page-size",
+          "100"
+        ],
+        [
+          "parent-id",
+          "030200000000"
+        ]
+      ],
+      "retrieved_at": "2026-10-10T20:34:56.674599+00:00",
+      "sha256": "441d86636a73ec6e16c83d2b88ba3e5a717007ae08163fe76c41560bde8f09f4",
+      "cache_hit": false
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/attributes",
+      "params": [
+        [
+          "format",
+          "json"
+        ],
+        [
+          "lang",
+          "pl"
+        ]
+      ],
+      "retrieved_at": "2026-10-10T20:34:57.539264+00:00",
+      "sha256": "451085fa027d57a095a17f579fc4bce025d6bd576f04523fd3d6ab9e360a52b2",
+      "cache_hit": false
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/variables/453371",
+      "params": [
+        [
+          "format",
+          "json"
+        ],
+        [
+          "lang",
+          "pl"
+        ]
+      ],
+      "retrieved_at": "2026-10-10T20:34:59.634283+00:00",
+      "sha256": "d5980ca8ca04be7bb656669967084b841ff84874646ee4f38eec0b04f95fde6b",
+      "cache_hit": false
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/453371",
+      "params": [
+        [
+          "format",
+          "json"
+        ],
+        [
+          "lang",
+          "pl"
+        ],
+        [
+          "page",
+          "0"
+        ],
+        [
+          "page-size",
+          "100"
+        ],
+        [
+          "unit-level",
+          "6"
+        ],
+        [
+          "unit-parent-id",
+          "030200000000"
+        ],
+        [
+          "year",
+          "2023"
+        ],
+        [
+          "year",
+          "2024"
+        ],
+        [
+          "year",
+          "2025"
+        ]
+      ],
+      "retrieved_at": "2026-10-10T20:35:03.659841+00:00",
+      "sha256": "83f0026420a1e1566127a2e9c3f9c76366b8634645ac6d37c80e30da2ff63f40",
+      "cache_hit": false
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/453371",
+      "params": [
+        [
+          "format",
+          "json"
+        ],
+        [
+          "lang",
+          "pl"
+        ],
+        [
+          "page",
+          "1"
+        ],
+        [
+          "page-size",
+          "100"
+        ],
+        [
+          "unit-level",
+          "6"
+        ],
+        [
+          "unit-parent-id",
+          "030200000000"
+        ],
+        [
+          "year",
+          "2023"
+        ],
+        [
+          "year",
+          "2024"
+        ],
+        [
+          "year",
+          "2025"
+        ]
+      ],
+      "retrieved_at": "2026-10-10T20:35:14.099642+00:00",
+      "sha256": "71b3c96f1de656bd8ebc1c6deae9707e62266a3a7527bab8836ebdf6178a66e8",
+      "cache_hit": false
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/453371",
+      "params": [
+        [
+          "format",
+          "json"
+        ],
+        [
+          "lang",
+          "pl"
+        ],
+        [
+          "page",
+          "2"
+        ],
+        [
+          "page-size",
+          "100"
+        ],
+        [
+          "unit-level",
+          "6"
+        ],
+        [
+          "unit-parent-id",
+          "030200000000"
+        ],
+        [
+          "year",
+          "2023"
+        ],
+        [
+          "year",
+          "2024"
+        ],
+        [
+          "year",
+          "2025"
+        ]
+      ],
+      "retrieved_at": "2026-10-10T20:35:20.808540+00:00",
+      "sha256": "fe8c90d9fd86ab80eb437df78d5bec7376a974db27b206e1d518c79057c93815",
+      "cache_hit": false
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/variables/453372",
+      "params": [
+        [
+          "format",
+          "json"
+        ],
+        [
+          "lang",
+          "pl"
+        ]
+      ],
+      "retrieved_at": "2026-10-10T20:35:30.735507+00:00",
+      "sha256": "48a87bc30a7c5fd62628d05cef7cf63094ff4b059b49f8f185e67ed4e77c0707",
+      "cache_hit": false
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/453372",
+      "params": [
+        [
+          "format",
+          "json"
+        ],
+        [
+          "lang",
+          "pl"
+        ],
+        [
+          "page",
+          "0"
+        ],
+        [
+          "page-size",
+          "100"
+        ],
+        [
+          "unit-level",
+          "6"
+        ],
+        [
+          "unit-parent-id",
+          "030200000000"
+        ],
+        [
+          "year",
+          "2023"
+        ],
+        [
+          "year",
+          "2024"
+        ],
+        [
+          "year",
+          "2025"
+        ]
+      ],
+      "retrieved_at": "2026-10-10T20:35:33.202185+00:00",
+      "sha256": "c2f086816a5ca049e413a13dcd23ad7277107d9f87bfd413b23939430fdca4db",
+      "cache_hit": false
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/453372",
+      "params": [
+        [
+          "format",
+          "json"
+        ],
+        [
+          "lang",
+          "pl"
+        ],
+        [
+          "page",
+          "1"
+        ],
+        [
+          "page-size",
+          "100"
+        ],
+        [
+          "unit-level",
+          "6"
+        ],
+        [
+          "unit-parent-id",
+          "030200000000"
+        ],
+        [
+          "year",
+          "2023"
+        ],
+        [
+          "year",
+          "2024"
+        ],
+        [
+          "year",
+          "2025"
+        ]
+      ],
+      "retrieved_at": "2026-10-10T20:35:35.520918+00:00",
+      "sha256": "cceeccc02dfc8d0dc7e14a376aa990fff20f9c0a307aa0e914ee37c6351beacd",
+      "cache_hit": false
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/453372",
+      "params": [
+        [
+          "format",
+          "json"
+        ],
+        [
+          "lang",
+          "pl"
+        ],
+        [
+          "page",
+          "2"
+        ],
+        [
+          "page-size",
+          "100"
+        ],
+        [
+          "unit-level",
+          "6"
+        ],
+        [
+          "unit-parent-id",
+          "030200000000"
+        ],
+        [
+          "year",
+          "2023"
+        ],
+        [
+          "year",
+          "2024"
+        ],
+        [
+          "year",
+          "2025"
+        ]
+      ],
+      "retrieved_at": "2026-10-10T20:35:38.081060+00:00",
+      "sha256": "27c7b8faf7050f1db830adcfb96ef6357ff6d4f0e1945e532be98debc97f75f8",
+      "cache_hit": false
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/variables/1649554",
+      "params": [
+        [
+          "format",
+          "json"
+        ],
+        [
+          "lang",
+          "pl"
+        ]
+      ],
+      "retrieved_at": "2026-10-10T20:35:38.721058+00:00",
+      "sha256": "c36c888ccd934760c910802961d9c6498eec90caf6b97bae1fcf74f11e074953",
+      "cache_hit": false
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/1649554",
+      "params": [
+        [
+          "format",
+          "json"
+        ],
+        [
+          "lang",
+          "pl"
+        ],
+        [
+          "page",
+          "0"
+        ],
+        [
+          "page-size",
+          "100"
+        ],
+        [
+          "unit-level",
+          "6"
+        ],
+        [
+          "unit-parent-id",
+          "030200000000"
+        ],
+        [
+          "year",
+          "2023"
+        ],
+        [
+          "year",
+          "2024"
+        ],
+        [
+          "year",
+          "2025"
+        ]
+      ],
+      "retrieved_at": "2026-10-10T20:35:39.552164+00:00",
+      "sha256": "44fb3412ad15d545211f03b96efcbc73a7944479f6ca9369aa60ea44f307d67b",
+      "cache_hit": false
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/1649554",
+      "params": [
+        [
+          "format",
+          "json"
+        ],
+        [
+          "lang",
+          "pl"
+        ],
+        [
+          "page",
+          "1"
+        ],
+        [
+          "page-size",
+          "100"
+        ],
+        [
+          "unit-level",
+          "6"
+        ],
+        [
+          "unit-parent-id",
+          "030200000000"
+        ],
+        [
+          "year",
+          "2023"
+        ],
+        [
+          "year",
+          "2024"
+        ],
+        [
+          "year",
+          "2025"
+        ]
+      ],
+      "retrieved_at": "2026-10-10T20:35:40.860170+00:00",
+      "sha256": "00f6921b7cb2ce7546898efd3def87acc26821b19876c0c8f6ffe264057b65ed",
+      "cache_hit": false
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/1649554",
+      "params": [
+        [
+          "format",
+          "json"
+        ],
+        [
+          "lang",
+          "pl"
+        ],
+        [
+          "page",
+          "2"
+        ],
+        [
+          "page-size",
+          "100"
+        ],
+        [
+          "unit-level",
+          "6"
+        ],
+        [
+          "unit-parent-id",
+          "030200000000"
+        ],
+        [
+          "year",
+          "2023"
+        ],
+        [
+          "year",
+          "2024"
+        ],
+        [
+          "year",
+          "2025"
+        ]
+      ],
+      "retrieved_at": "2026-10-10T20:35:41.317073+00:00",
+      "sha256": "c8c9b29d265c85f528d0640c6bc59571bc9cc270e02102b2392d5961b29740c9",
+      "cache_hit": false
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/variables/1649557",
+      "params": [
+        [
+          "format",
+          "json"
+        ],
+        [
+          "lang",
+          "pl"
+        ]
+      ],
+      "retrieved_at": "2026-10-10T20:35:42.273162+00:00",
+      "sha256": "74c6761b6d1616a6f2800940cad94f4585826c66934858323bd364f347734ed3",
+      "cache_hit": false
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/1649557",
+      "params": [
+        [
+          "format",
+          "json"
+        ],
+        [
+          "lang",
+          "pl"
+        ],
+        [
+          "page",
+          "0"
+        ],
+        [
+          "page-size",
+          "100"
+        ],
+        [
+          "unit-level",
+          "6"
+        ],
+        [
+          "unit-parent-id",
+          "030200000000"
+        ],
+        [
+          "year",
+          "2023"
+        ],
+        [
+          "year",
+          "2024"
+        ],
+        [
+          "year",
+          "2025"
+        ]
+      ],
+      "retrieved_at": "2026-10-10T20:35:43.768696+00:00",
+      "sha256": "5a376e901f4d4f1d0f72f5693d0ed7845498d9e6ac608c81c31cafbc48645be7",
+      "cache_hit": false
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/1649557",
+      "params": [
+        [
+          "format",
+          "json"
+        ],
+        [
+          "lang",
+          "pl"
+        ],
+        [
+          "page",
+          "1"
+        ],
+        [
+          "page-size",
+          "100"
+        ],
+        [
+          "unit-level",
+          "6"
+        ],
+        [
+          "unit-parent-id",
+          "030200000000"
+        ],
+        [
+          "year",
+          "2023"
+        ],
+        [
+          "year",
+          "2024"
+        ],
+        [
+          "year",
+          "2025"
+        ]
+      ],
+      "retrieved_at": "2026-10-10T20:35:44.288459+00:00",
+      "sha256": "e41bb5a7d83c5479641cae6ceb7cd3a71253081df538efb3def47a58843a6ad5",
+      "cache_hit": false
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/1649557",
+      "params": [
+        [
+          "format",
+          "json"
+        ],
+        [
+          "lang",
+          "pl"
+        ],
+        [
+          "page",
+          "2"
+        ],
+        [
+          "page-size",
+          "100"
+        ],
+        [
+          "unit-level",
+          "6"
+        ],
+        [
+          "unit-parent-id",
+          "030200000000"
+        ],
+        [
+          "year",
+          "2023"
+        ],
+        [
+          "year",
+          "2024"
+        ],
+        [
+          "year",
+          "2025"
+        ]
+      ],
+      "retrieved_at": "2026-10-10T20:35:45.206855+00:00",
+      "sha256": "825e937626c5ef055c5c68d7da4c192f762ad4b2513f22072dbf823b310ac4e1",
+      "cache_hit": false
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/variables/377234",
+      "params": [
+        [
+          "format",
+          "json"
+        ],
+        [
+          "lang",
+          "pl"
+        ]
+      ],
+      "retrieved_at": "2026-10-10T20:35:46.890674+00:00",
+      "sha256": "613868e1e4da54e8271143d7b927db161d60f6ebbfebf4b762b1bbc6c03faa72",
+      "cache_hit": false
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/377234",
+      "params": [
+        [
+          "format",
+          "json"
+        ],
+        [
+          "lang",
+          "pl"
+        ],
+        [
+          "page",
+          "0"
+        ],
+        [
+          "page-size",
+          "100"
+        ],
+        [
+          "unit-level",
+          "6"
+        ],
+        [
+          "unit-parent-id",
+          "030200000000"
+        ],
+        [
+          "year",
+          "2023"
+        ],
+        [
+          "year",
+          "2024"
+        ],
+        [
+          "year",
+          "2025"
+        ]
+      ],
+      "retrieved_at": "2026-10-10T20:35:47.596638+00:00",
+      "sha256": "fdc744b02376350d449c44e9b871b17fef60662e86171003edeaf26d508754a0",
+      "cache_hit": false
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/377234",
+      "params": [
+        [
+          "format",
+          "json"
+        ],
+        [
+          "lang",
+          "pl"
+        ],
+        [
+          "page",
+          "1"
+        ],
+        [
+          "page-size",
+          "100"
+        ],
+        [
+          "unit-level",
+          "6"
+        ],
+        [
+          "unit-parent-id",
+          "030200000000"
+        ],
+        [
+          "year",
+          "2023"
+        ],
+        [
+          "year",
+          "2024"
+        ],
+        [
+          "year",
+          "2025"
+        ]
+      ],
+      "retrieved_at": "2026-10-10T20:35:48.292868+00:00",
+      "sha256": "7174433f51b3a58a8f7e3ebcc103840fa098b0b8876fc5e6d5acd0b1319fb30c",
+      "cache_hit": false
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/377234",
+      "params": [
+        [
+          "format",
+          "json"
+        ],
+        [
+          "lang",
+          "pl"
+        ],
+        [
+          "page",
+          "2"
+        ],
+        [
+          "page-size",
+          "100"
+        ],
+        [
+          "unit-level",
+          "6"
+        ],
+        [
+          "unit-parent-id",
+          "030200000000"
+        ],
+        [
+          "year",
+          "2023"
+        ],
+        [
+          "year",
+          "2024"
+        ],
+        [
+          "year",
+          "2025"
+        ]
+      ],
+      "retrieved_at": "2026-10-10T20:35:49.513980+00:00",
+      "sha256": "6da64bed1c835bb62e091388813ce36603d4dd3ceb56c80f7101951f396b00fe",
+      "cache_hit": false
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/variables/377225",
+      "params": [
+        [
+          "format",
+          "json"
+        ],
+        [
+          "lang",
+          "pl"
+        ]
+      ],
+      "retrieved_at": "2026-10-10T20:35:50.771003+00:00",
+      "sha256": "46ac3058208edd555efbf5b9e91723d76d615c2e87b5a1f1d8883dae8a0c4658",
+      "cache_hit": false
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/377225",
+      "params": [
+        [
+          "format",
+          "json"
+        ],
+        [
+          "lang",
+          "pl"
+        ],
+        [
+          "page",
+          "0"
+        ],
+        [
+          "page-size",
+          "100"
+        ],
+        [
+          "unit-level",
+          "6"
+        ],
+        [
+          "unit-parent-id",
+          "030200000000"
+        ],
+        [
+          "year",
+          "2023"
+        ],
+        [
+          "year",
+          "2024"
+        ],
+        [
+          "year",
+          "2025"
+        ]
+      ],
+      "retrieved_at": "2026-10-10T20:35:51.306997+00:00",
+      "sha256": "27b3e7bb306cabc3b13e14d8b3a8b2f718f301a334036ddcd16f5ca09e4e2562",
+      "cache_hit": false
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/377225",
+      "params": [
+        [
+          "format",
+          "json"
+        ],
+        [
+          "lang",
+          "pl"
+        ],
+        [
+          "page",
+          "1"
+        ],
+        [
+          "page-size",
+          "100"
+        ],
+        [
+          "unit-level",
+          "6"
+        ],
+        [
+          "unit-parent-id",
+          "030200000000"
+        ],
+        [
+          "year",
+          "2023"
+        ],
+        [
+          "year",
+          "2024"
+        ],
+        [
+          "year",
+          "2025"
+        ]
+      ],
+      "retrieved_at": "2026-10-10T20:35:53.648481+00:00",
+      "sha256": "9c096b761ae80bcc938862398e3de5e14ef7cd617dad7bc2e0839c4542b2fd82",
+      "cache_hit": false
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/377225",
+      "params": [
+        [
+          "format",
+          "json"
+        ],
+        [
+          "lang",
+          "pl"
+        ],
+        [
+          "page",
+          "2"
+        ],
+        [
+          "page-size",
+          "100"
+        ],
+        [
+          "unit-level",
+          "6"
+        ],
+        [
+          "unit-parent-id",
+          "030200000000"
+        ],
+        [
+          "year",
+          "2023"
+        ],
+        [
+          "year",
+          "2024"
+        ],
+        [
+          "year",
+          "2025"
+        ]
+      ],
+      "retrieved_at": "2026-10-10T20:35:53.793797+00:00",
+      "sha256": "1185f5ebe85d94ee6865526cecd4416404fea63bedb9cbc404adcb4957716fa3",
+      "cache_hit": false
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/variables/1649860",
+      "params": [
+        [
+          "format",
+          "json"
+        ],
+        [
+          "lang",
+          "pl"
+        ]
+      ],
+      "retrieved_at": "2026-10-10T20:35:55.034151+00:00",
+      "sha256": "7d5aef3642fbde0c4ff8680eb922f2813533e5193da62b03cf8fac0bc7ac806a",
+      "cache_hit": false
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/1649860",
+      "params": [
+        [
+          "format",
+          "json"
+        ],
+        [
+          "lang",
+          "pl"
+        ],
+        [
+          "page",
+          "0"
+        ],
+        [
+          "page-size",
+          "100"
+        ],
+        [
+          "unit-level",
+          "6"
+        ],
+        [
+          "unit-parent-id",
+          "030200000000"
+        ],
+        [
+          "year",
+          "2023"
+        ],
+        [
+          "year",
+          "2024"
+        ],
+        [
+          "year",
+          "2025"
+        ]
+      ],
+      "retrieved_at": "2026-10-10T20:35:56.270342+00:00",
+      "sha256": "67bd23cfaca1059cc62d70f6d4fff4d9343256000f39698b9058bab946cf796c",
+      "cache_hit": false
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/1649860",
+      "params": [
+        [
+          "format",
+          "json"
+        ],
+        [
+          "lang",
+          "pl"
+        ],
+        [
+          "page",
+          "1"
+        ],
+        [
+          "page-size",
+          "100"
+        ],
+        [
+          "unit-level",
+          "6"
+        ],
+        [
+          "unit-parent-id",
+          "030200000000"
+        ],
+        [
+          "year",
+          "2023"
+        ],
+        [
+          "year",
+          "2024"
+        ],
+        [
+          "year",
+          "2025"
+        ]
+      ],
+      "retrieved_at": "2026-10-10T20:35:56.856836+00:00",
+      "sha256": "38ed31b25bc137b0f54520107e81d4941e43e6138ba071b809c136bdb6b02f5c",
+      "cache_hit": false
+    },
+    {
+      "url": "https://bdl.stat.gov.pl/api/v1/data/by-variable/1649860",
+      "params": [
+        [
+          "format",
+          "json"
+        ],
+        [
+          "lang",
+          "pl"
+        ],
+        [
+          "page",
+          "2"
+        ],
+        [
+          "page-size",
+          "100"
+        ],
+        [
+          "unit-level",
+          "6"
+        ],
+        [
+          "unit-parent-id",
+          "030200000000"
+        ],
+        [
+          "year",
+          "2023"
+        ],
+        [
+          "year",
+          "2024"
+        ],
+        [
+          "year",
+          "2025"
+        ]
+      ],
+      "retrieved_at": "2026-10-10T20:35:57.980448+00:00",
+      "sha256": "a2062c15de877e334cf576c3b232f54dddf0e298fb09fc6f8697e208c227c108",
+      "cache_hit": false
+    }
+  ]
+}
