@@ -12,6 +12,7 @@ def pytest_configure(config):
         if config.option.basetemp
         else OUTPUT / "tmp" / ("pytest-" + new_run_id())
     )
+    output_path(config.option.basetemp).parent.mkdir(parents=True, exist_ok=True)
     config.inicfg["cache_dir"] = str(OUTPUT / "cache" / "pytest" / new_run_id())
     if config.option.xmlpath:
         config.option.xmlpath = str(output_path(config.option.xmlpath))

@@ -34,6 +34,29 @@ def test_unique_run_ids_even_when_created_immediately():
     assert len(identifiers) == 1000
 
 
+def test_pytest_creates_missing_output_temp_parent_in_fresh_process():
+    destination = ROOT / "output" / "tmp" / new_run_id() / "not-created" / "base"
+    assert not destination.parent.exists()
+    result = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "pytest",
+            "tests/test_storage.py::test_snapshot_retains_leading_zeros_and_real_zero",
+            "--basetemp",
+            str(destination),
+            "-q",
+        ],
+        cwd=ROOT,
+        capture_output=True,
+        text=True,
+        check=False,
+        env={**os.environ, "PYTHONDONTWRITEBYTECODE": "1"},
+    )
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert "1 passed" in result.stdout
+
+
 def test_reporting_defaults_and_explicit_output_from_other_cwd(tmp_path, monkeypatch, capsys):
     before = subprocess.check_output(["git", "diff", "HEAD"], cwd=ROOT)
     monkeypatch.chdir(tmp_path)
