@@ -1,6 +1,5 @@
 param([string]$Python = 'py')
-$ErrorActionPreference = 'Stop'
-$projectRoot = Split-Path -Parent $PSScriptRoot
+. (Join-Path $PSScriptRoot 'common.ps1')
 Push-Location -LiteralPath $projectRoot
 try {
     $venvPython = Join-Path $projectRoot '.venv\Scripts\python.exe'

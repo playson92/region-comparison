@@ -15,6 +15,7 @@ from sqlalchemy.engine import make_url
 from region_comparison.storage import (
     StorageError,
     import_snapshot,
+    initialize_database,
     load_database,
     load_snapshot,
     migrate,
@@ -34,7 +35,20 @@ def write_fixture(path: Path, snapshot_id="test-storage") -> Path:
     ]:
         (path / filename).write_text(json.dumps(contents), encoding="utf-8")
     (path / "fixture.json").write_text(
-        json.dumps({"synthetic": True, "values": [3, 0]}), encoding="utf-8"
+        json.dumps(
+            {
+                "synthetic": True,
+                "variableId": "7",
+                "results": [
+                    {
+                        "id": unit["bdl_unit_id"],
+                        "values": [{"year": 2023, "val": value, "attrId": 0 if value == 0 else 1}],
+                    }
+                    for unit, value in zip(units, [3, 0], strict=True)
+                ],
+            }
+        ),
+        encoding="utf-8",
     )
     pd.DataFrame(
         [
@@ -48,7 +62,7 @@ def write_fixture(path: Path, snapshot_id="test-storage") -> Path:
                 "quality_status": "true_zero" if value == 0 else "valid",
                 "reason_code": "observed_zero" if value == 0 else "observed",
                 "source_file": "fixture.json",
-                "source_record": str(index),
+                "source_record": f"results[{index}].values[0]",
             }
             for index, (u, value) in enumerate(zip(units, [3, 0], strict=True))
         ]
@@ -181,6 +195,105 @@ def test_new_definition_is_scoped_to_its_snapshot(tmp_path, database_url):
     import_snapshot(database_url, old)
     assert load_database(database_url).snapshot_id == "old"
     assert load_database(database_url, "new").indicators[0]["definition_version"] == "2"
+
+
+@pytest.mark.postgres
+def test_initialize_empty_database_seeds_once(tmp_path, database_url):
+    seed = write_fixture(tmp_path / "seed", "seed-A")
+    assert initialize_database(database_url, seed) == "seed-A"
+    assert initialize_database(database_url, seed) == "seed-A"
+    assert load_database(database_url).snapshot_id == "seed-A"
+    engine = create_engine(database_url.replace("postgresql://", "postgresql+psycopg://", 1))
+    with engine.connect() as connection:
+        assert connection.execute(text("SELECT COUNT(*) FROM snapshots")).scalar_one() == 1
+        assert connection.execute(text("SELECT COUNT(*) FROM ingestion_runs")).scalar_one() == 1
+    engine.dispose()
+
+
+@pytest.mark.postgres
+def test_initializer_preserves_newer_active_snapshot_and_explicit_activation_works(
+    tmp_path, database_url
+):
+    seed = write_fixture(tmp_path / "seed", "seed-A")
+    newer = write_fixture(tmp_path / "newer", "newer-B")
+    assert initialize_database(database_url, seed) == "seed-A"
+    assert import_snapshot(database_url, newer) == "newer-B"
+    assert initialize_database(database_url, seed) == "newer-B"
+    # An existing active database must not depend on the seed still being available.
+    assert initialize_database(database_url, tmp_path / "unavailable-seed") == "newer-B"
+    assert load_database(database_url).snapshot_id == "newer-B"
+    assert import_snapshot(database_url, seed) == "seed-A"
+    assert load_database(database_url).snapshot_id == "seed-A"
+    assert load_database(database_url, "newer-B").snapshot_id == "newer-B"
+
+
+@pytest.mark.postgres
+def test_initializer_rejects_nonempty_database_without_active_snapshot(tmp_path, database_url):
+    seed = write_fixture(tmp_path / "seed", "seed-A")
+    import_snapshot(database_url, seed)
+    engine = create_engine(database_url.replace("postgresql://", "postgresql+psycopg://", 1))
+    with engine.begin() as connection:
+        connection.execute(text("UPDATE snapshots SET active=FALSE"))
+    with pytest.raises(StorageError, match="No complete active"):
+        initialize_database(database_url, seed)
+    with engine.connect() as connection:
+        assert (
+            connection.execute(text("SELECT COUNT(*) FROM snapshots WHERE active")).scalar_one()
+            == 0
+        )
+    engine.dispose()
+
+
+@pytest.mark.postgres
+def test_interrupted_download_cannot_replace_active_database_snapshot(tmp_path, database_url):
+    from region_comparison.config import read_indicators
+    from region_comparison.ingestion import BDLClient, BDLError, fetch_snapshot
+
+    seed = write_fixture(tmp_path / "seed", "seed-A")
+    initialize_database(database_url, seed)
+    sample = Path(__file__).resolve().parents[1] / "data" / "sample"
+    original = load_snapshot(sample)
+    configuration = read_indicators()
+    configuration.update(units=original.units.to_dict("records"), attributes=original.attributes)
+    target = tmp_path / "interrupted"
+    with BDLClient(
+        tmp_path / "cache", transport=httpx.MockTransport(lambda _: httpx.Response(400))
+    ) as client:
+        with pytest.raises(BDLError, match="permanent"):
+            fetch_snapshot(configuration, target, client)
+    with pytest.raises(StorageError, match="incomplete"):
+        import_snapshot(database_url, target)
+    assert load_database(database_url).snapshot_id == "seed-A"
+
+
+@pytest.mark.postgres
+@pytest.mark.parametrize("tampering", ["unresolved_reference", "wrong_unit", "unit_years"])
+def test_rehashed_invalid_provenance_cannot_replace_active_snapshot(
+    tmp_path, database_url, tampering
+):
+    seed = write_fixture(tmp_path / "seed", "seed-A")
+    initialize_database(database_url, seed)
+    invalid = write_fixture(tmp_path / "invalid", "invalid-provenance")
+    filename = "observations.csv"
+    if tampering == "unit_years":
+        filename = "units.json"
+        units = json.loads((invalid / filename).read_text())
+        units[0].update(years=[2024], validity_basis="unit_metadata_years")
+        (invalid / filename).write_text(json.dumps(units))
+    else:
+        observations = pd.read_csv(invalid / filename, dtype={"unit_id": str})
+        observations.loc[0, "source_record"] = (
+            "results[999].values[0]"
+            if tampering == "unresolved_reference"
+            else "results[1].values[0]"
+        )
+        observations.to_csv(invalid / filename, index=False)
+    manifest = json.loads((invalid / "manifest.json").read_text())
+    manifest["files"][filename] = hashlib.sha256((invalid / filename).read_bytes()).hexdigest()
+    (invalid / "manifest.json").write_text(json.dumps(manifest))
+    with pytest.raises(StorageError, match="provenance"):
+        import_snapshot(database_url, invalid)
+    assert load_database(database_url).snapshot_id == "seed-A"
 
 
 @pytest.mark.postgres

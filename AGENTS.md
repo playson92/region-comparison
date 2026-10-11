@@ -2,6 +2,8 @@
 
 Scope: Lower Silesia, public GUS BDL demographic and childcare data, Polish Streamlit UI. Do not expand to forecasting, all Poland, cloud hosting or accounts.
 
+All project-created run artifacts must be inside project-root output/ and must never be tracked by Git. Use region_comparison.paths for ROOT, OUTPUT, unique run IDs and validated write paths. This includes caches, snapshots, exports, logs, test reports, screenshots and review archives. Maintained documentation and reproducible data/sample inputs remain versioned; browser downloads use the user's chosen destination. Do not change global Codex configuration.
+
 Architecture: ingestion -> semantic validation -> immutable snapshot -> PostgreSQL or offline snapshot adapter -> metrics -> frozen regional cohort -> scoring/sensitivity -> UI/export. UI must reuse the analytical modules.
 
 Use Python 3.12, src layout, Ruff (100 characters), pytest. Work on feature/fix branches with small English commits, update documentation, preserve user changes. Never commit secrets, raw caches, environments or private material. Source IDs, definitions, age groups, periods and attributes require actual GUS evidence. Missing data is never zero.

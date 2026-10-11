@@ -219,6 +219,36 @@ def test_corrupt_cache_and_credentials_are_not_silently_accepted(tmp_path):
         client.get_json("units")
 
 
+@pytest.mark.parametrize(
+    ("canonical", "legacy", "explicit", "expected"),
+    [
+        ("fake-canonical", None, None, "fake-canonical"),
+        (None, "fake-legacy", None, "fake-legacy"),
+        ("fake-canonical", "fake-legacy", None, "fake-canonical"),
+        ("fake-canonical", "fake-legacy", "fake-explicit", "fake-explicit"),
+        ("fake-canonical", "fake-legacy", "", None),
+        ("", "fake-legacy", None, None),
+        (None, None, None, None),
+    ],
+)
+def test_gus_client_id_header_precedence_and_anonymous_use(
+    tmp_path, monkeypatch, canonical, legacy, explicit, expected
+):
+    for name, value in (("GUS_CLIENT_ID", canonical), ("GUS_API_KEY", legacy)):
+        monkeypatch.delenv(name, raising=False)
+        if value is not None:
+            monkeypatch.setenv(name, value)
+
+    def handler(request):
+        assert request.headers.get("X-ClientId") == expected
+        return httpx.Response(200, json={"results": []})
+
+    with make_client(tmp_path / "cache", handler, client_id=explicit) as client:
+        client.get_json("attributes")
+        assert not any("fake-" in json.dumps(record) for record in client.requests)
+    assert not any("fake-" in file.read_text() for file in tmp_path.rglob("*.json"))
+
+
 def test_multiwindow_budget_survives_restart(tmp_path):
     def clock():
         return 1000
@@ -292,9 +322,14 @@ def test_real_full_region_fetch_has_provenance_and_complete_snapshot_is_immutabl
         first_manifest = (target / "manifest.json").read_bytes()
         count = len(calls)
         assert count == 32  # 3 unit pages + dictionary + 7 definitions + 21 observation pages.
-        fetch_snapshot(config, target, client)
+        fetch_snapshot(config, target, client, mode="reuse")
         assert len(calls) == count
         assert (target / "manifest.json").read_bytes() == first_manifest
+        assert client.last_fetch["mode"] == "reuse"
+        with pytest.raises(BDLError, match="new snapshot directory"):
+            fetch_snapshot(config, target, client)
+        with pytest.raises(BDLError, match="incomplete snapshot"):
+            fetch_snapshot(config, target, client, mode="resume")
     downloaded = load_snapshot(target)
     assert validate_dataset(downloaded).valid
     assert len(downloaded.units) == 169
@@ -337,9 +372,104 @@ def test_partial_fetch_resumes_verified_pages_instead_of_repeating_requests(tmp_
     assert checkpoint["state"] == "partial"
     started = checkpoint["started_at"]
     with make_client(tmp_path / "cache", handler) as client:
-        fetch_snapshot(config, target, client)
+        fetch_snapshot(config, target, client, mode="resume")
     assert load_snapshot(target).manifest["started_at"] == started
     assert len(calls) == 32
+    resumed = load_snapshot(target).manifest
+    assert resumed["snapshot_id"] == checkpoint["snapshot_id"]
+    assert resumed["last_fetch_mode"] == "resume"
+    assert any(request["cache_hit"] for request in resumed["requests"])
+    assert len([request for request in resumed["requests"] if not request["cache_hit"]]) == 32
+
+
+def test_two_refreshes_fetch_changed_response_and_have_unique_snapshot_identity(tmp_path):
+    from region_comparison.config import read_indicators
+    from region_comparison.paths import OUTPUT
+    from region_comparison.storage import load_snapshot
+
+    sample = Path(__file__).resolve().parents[1] / "data" / "sample"
+    original = load_snapshot(sample)
+    config = read_indicators()
+    config.update(units=original.units.to_dict(orient="records"), attributes=original.attributes)
+    calls = []
+    good = _real_fixture_handler(sample, calls)
+    changed = [False]
+    uid, iid, year = "030210564011", "453372", 2025
+
+    def handler(request):
+        response = good(request)
+        body = response.json()
+        if changed[0] and request.url.path.endswith(f"data/by-variable/{iid}"):
+            for unit in body["results"]:
+                if unit["id"] == uid:
+                    for value in unit["values"]:
+                        if int(value["year"]) == year:
+                            value["val"] += 1
+                            value["attrId"] = 1
+        return httpx.Response(200, json=body)
+
+    # The same injected client and cache root must not leak responses into a new refresh.
+    with make_client(tmp_path / "cache", handler) as client:
+        first = fetch_snapshot(config, client=client)
+        first_manifest = (first / "manifest.json").read_bytes()
+        changed[0] = True
+        second = fetch_snapshot(config, client=client)
+    assert first != second
+    assert first.parent == second.parent == OUTPUT / "snapshots"
+    assert (first / "manifest.json").read_bytes() == first_manifest
+    assert len(calls) == 64
+    a, b = load_snapshot(first), load_snapshot(second)
+    assert a.snapshot_id != b.snapshot_id
+    key = ["unit_id", "indicator_id", "year"]
+    assert b.observations.set_index(key).loc[(uid, iid, year), "semantic_value"] == (
+        a.observations.set_index(key).loc[(uid, iid, year), "semantic_value"] + 1
+    )
+    for snapshot in (a, b):
+        assert snapshot.manifest["last_fetch_mode"] == "refresh"
+        assert len(snapshot.manifest["requests"]) == 32
+        assert all(not request["cache_hit"] for request in snapshot.manifest["requests"])
+        assert {request["response_origin"] for request in snapshot.manifest["requests"]} == {
+            "network"
+        }
+
+
+@pytest.mark.parametrize("mode", ["resume", "reuse"])
+def test_resume_and_reuse_require_explicit_existing_snapshot(mode):
+    with pytest.raises(BDLError, match="explicit snapshot directory"):
+        fetch_snapshot({}, mode=mode)
+
+
+def test_cli_reuses_valid_legacy_sample_without_network_or_writes(tmp_path, monkeypatch, capsys):
+    from region_comparison.cli import main
+    from region_comparison.config import DEFAULT_SNAPSHOT
+
+    before = {file: file.read_bytes() for file in DEFAULT_SNAPSHOT.rglob("*") if file.is_file()}
+
+    def reject_network(*_args, **_kwargs):
+        raise AssertionError("Explicit reuse must not construct an HTTP client.")
+
+    monkeypatch.setattr("region_comparison.ingestion.BDLClient", reject_network)
+    monkeypatch.chdir(tmp_path)
+    assert main(["fetch", "--mode", "reuse", "--snapshot", "data/sample"]) == 0
+    assert json.loads(capsys.readouterr().out)["operation"] == "reuse"
+    assert before == {
+        file: file.read_bytes() for file in DEFAULT_SNAPSHOT.rglob("*") if file.is_file()
+    }
+
+
+def test_reuse_rejects_changed_source_definitions_without_network(tmp_path):
+    from region_comparison.config import DEFAULT_SNAPSHOT, read_indicators
+    from region_comparison.storage import load_snapshot
+
+    dataset = load_snapshot(DEFAULT_SNAPSHOT)
+    config = read_indicators()
+    config.update(units=dataset.units.to_dict("records"), attributes=dataset.attributes)
+    config["indicators"][0]["age_scope"] = "changed interpretation"
+    with make_client(
+        tmp_path / "cache", lambda _: pytest.fail("Explicit reuse cannot call the network")
+    ) as client:
+        with pytest.raises(BDLError, match="source definitions"):
+            fetch_snapshot(config, DEFAULT_SNAPSHOT, client, mode="reuse")
 
 
 @pytest.mark.parametrize("omission", ["whole_unit", "one_year"])

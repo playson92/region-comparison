@@ -23,7 +23,7 @@ def main():
     for name in names:
         raw = git("show", f":{name}")
         assert len(raw) < 15_000_000, f"Large artifact: {name}"
-        assert not name.startswith((".venv/", ".cache/", "data/raw/", ".local/")), name
+        assert not name.startswith(("output/", ".venv/", ".cache/", "data/raw/", ".local/")), name
         assert name != ".env", "Environment file cannot be published"
         if name.endswith((".png", ".zip")):
             continue

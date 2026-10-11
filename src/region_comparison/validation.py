@@ -159,6 +159,9 @@ def validate_dataset(dataset: Any, require_complete: bool = True) -> ValidationR
         not unit_required.issubset(units.columns) or not obs_required.issubset(observations.columns)
     ):
         return ValidationReport(False, errors)
+    from region_comparison.provenance import validate_unit_years
+
+    errors.extend(validate_unit_years(dataset))
     unit_ids = set(units["bdl_unit_id"].astype(str))
     if len(units) != len(unit_ids):
         errors.append("Duplicate BDL unit identifiers.")
@@ -270,4 +273,19 @@ def validate_dataset(dataset: Any, require_complete: bool = True) -> ValidationR
         warnings.append(
             "Authentic flagged/missing observations are retained and block dependent analysis."
         )
+    from region_comparison.config import SOURCE_METRICS
+
+    if not errors and set(SOURCE_METRICS.values()).issubset(definitions):
+        from region_comparison.metrics import build_metrics, ratio_summary
+
+        try:
+            counts["ratio_comparison"] = ratio_summary(build_metrics(dataset))
+            outside = counts["ratio_comparison"]["outside_tolerance"]
+            if outside:
+                warnings.append(
+                    f"{outside} derived/source childcare ratios exceed the rounding tolerance; "
+                    "review source definitions without adjusting or imputing either series."
+                )
+        except ValueError as exc:
+            errors.append("Analytical source definitions are incompatible: " + str(exc))
     return ValidationReport(not errors, errors, warnings, counts)

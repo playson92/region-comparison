@@ -6,10 +6,9 @@ import json
 from region_comparison.config import (
     COMPONENTS,
     METHODOLOGY_VERSION,
-    SOURCE_METRICS,
     read_indicators,
 )
-from region_comparison.scoring import SCORE_PRECISION
+from region_comparison.methodology import content_digest, method_contract, methodology_fingerprint
 
 
 def dataset_fingerprint(dataset) -> str:
@@ -32,27 +31,26 @@ def dataset_fingerprint(dataset) -> str:
 
 
 def scenario_config(dataset, result, selected_ids) -> dict:
-    return {
-        "export_schema_version": "1.0",
+    selected_ids = list(selected_ids)
+    _validate_selection(dataset, selected_ids)
+    configuration = {
+        **method_contract(),
         "snapshot_id": dataset.manifest["snapshot_id"],
         "snapshot_manifest": dataset.manifest,
         "dataset_sha256": dataset_fingerprint(dataset),
         "methodology_version": METHODOLOGY_VERSION,
         "year": result.year,
-        "selected_ids": list(selected_ids),
+        "selected_ids": selected_ids,
         "cohort_ids": list(result.cohort_ids),
         "cohort_sha256": hashlib.sha256("\n".join(result.cohort_ids).encode()).hexdigest(),
         "weights": result.weights,
-        "components": COMPONENTS,
-        "score_precision": SCORE_PRECISION,
-        "tie_rule": "descending min/max rank of score rounded to 6 decimals",
-        "normalization": "(average_rank - 1) / (N - 1); constant = 0.5",
-        "source_metrics": SOURCE_METRICS,
         "indicator_definitions": dataset.indicators,
-        "derived_definitions": read_indicators()["derived"],
         "attributes": dataset.attributes,
+        "methodology_sha256": methodology_fingerprint(),
         "source": "GUS Bank Danych Lokalnych; https://bdl.stat.gov.pl/api/v1/",
     }
+    configuration["scenario_sha256"] = content_digest(configuration)
+    return configuration
 
 
 def export_config(dataset, result, selected_ids) -> bytes:
@@ -98,21 +96,48 @@ def replay_config(dataset, config: dict):
     from region_comparison.metrics import build_metrics
     from region_comparison.scoring import evaluate
 
-    if config["snapshot_id"] != dataset.manifest["snapshot_id"]:
+    if not isinstance(config, dict):
+        raise ValueError("Export configuration must be an object")
+    for field, expected in method_contract().items():
+        if config.get(field) != expected:
+            raise ValueError(f"Unsupported export methodology field: {field}")
+    if config.get("snapshot_id") != dataset.manifest["snapshot_id"]:
         raise ValueError("Snapshot does not match exported configuration")
-    if config["methodology_version"] != METHODOLOGY_VERSION:
-        raise ValueError("Unsupported methodology version")
     if config.get("snapshot_manifest") != dataset.manifest or config.get(
         "dataset_sha256"
     ) != dataset_fingerprint(dataset):
         raise ValueError("Snapshot content differs from exported configuration")
-    if (
-        config.get("derived_definitions") != read_indicators()["derived"]
-        or config.get("components") != COMPONENTS
-    ):
-        raise ValueError("Analytical definitions differ from exported configuration")
+    for field, expected in {
+        "indicator_definitions": dataset.indicators,
+        "attributes": dataset.attributes,
+        "methodology_sha256": methodology_fingerprint(),
+        "source": "GUS Bank Danych Lokalnych; https://bdl.stat.gov.pl/api/v1/",
+    }.items():
+        if config.get(field) != expected:
+            raise ValueError(f"Export field differs from executed contract: {field}")
+    if not isinstance(config.get("year"), int) or config["year"] not in dataset.years:
+        raise ValueError("Export year is outside the snapshot")
+    _validate_selection(dataset, config.get("selected_ids"))
+    if not isinstance(config.get("weights"), dict):
+        raise ValueError("Export weights must be a mapping")
     metrics = build_metrics(dataset)
     result = evaluate(metrics, config["year"], config["weights"])
-    if list(result.cohort_ids) != config["cohort_ids"]:
+    if list(result.cohort_ids) != config.get("cohort_ids"):
         raise ValueError("Reference cohort differs from exported configuration")
+    expected = scenario_config(dataset, result, config["selected_ids"])
+    if set(config) != set(expected):
+        raise ValueError("Export contains missing or unsupported fields")
+    for field, value in expected.items():
+        if config.get(field) != value:
+            raise ValueError(f"Export field differs from executed scenario: {field}")
     return result
+
+
+def _validate_selection(dataset, selected_ids) -> None:
+    known = set(dataset.units.bdl_unit_id.astype(str))
+    if (
+        not isinstance(selected_ids, list)
+        or any(not isinstance(item, str) or item not in known for item in selected_ids)
+        or len(selected_ids) != len(set(selected_ids))
+    ):
+        raise ValueError("Selected IDs must be unique municipalities from the snapshot")

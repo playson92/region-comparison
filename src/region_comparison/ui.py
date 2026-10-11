@@ -19,8 +19,13 @@ from region_comparison.config import (
     METHODOLOGY_VERSION,
     read_indicators,
 )
-from region_comparison.exports import export_config, export_csv
-from region_comparison.metrics import build_metrics
+from region_comparison.exports import (
+    dataset_fingerprint,
+    export_config,
+    export_csv,
+    methodology_fingerprint,
+)
+from region_comparison.metrics import build_metrics, ratio_summary
 from region_comparison.scoring import apply_weights, evaluate
 from region_comparison.sensitivity import analyze
 from region_comparison.storage import load_database, load_snapshot
@@ -80,12 +85,20 @@ def _load_postgres(database_url: str, snapshot_id: str | None):
 
 
 @st.cache_data(max_entries=4, show_spinner=False)
-def _metrics(snapshot_id: str, methodology: str, _dataset) -> pd.DataFrame:
+def _metrics(dataset_sha256: str, methodology_sha256: str, _dataset) -> pd.DataFrame:
+    """Cache verified content and the executed contract, rather than a metadata identity."""
     return build_metrics(_dataset)
 
 
 @st.cache_data(max_entries=64, show_spinner=False)
-def _sensitivity(snapshot_id: str, methodology: str, year: int, weights: tuple, _result):
+def _sensitivity(
+    dataset_sha256: str,
+    methodology_sha256: str,
+    year: int,
+    weights: tuple,
+    cohort_ids: tuple[str, ...],
+    _result,
+):
     return analyze(_result)
 
 
@@ -422,7 +435,14 @@ def _profile(
             )
 
 
-def _weights(dataset, result, frame: pd.DataFrame, selected: list[str]):
+def _weights(
+    dataset,
+    result,
+    frame: pd.DataFrame,
+    selected: list[str],
+    dataset_sha256: str,
+    methodology_sha256: str,
+):
     st.subheader("Założenia i odporność porównania", icon=":material/tune:")
     st.caption(
         "Zmiana wag dotyczy tej sesji. Dane, regionalna kohorta i percentyle pozostają takie same."
@@ -495,10 +515,11 @@ def _weights(dataset, result, frame: pd.DataFrame, selected: list[str]):
         st.info("Mniej niż dwie gminy spełniają warunki; ranking i analiza pozycji są niedostępne.")
         return
     sensitivity = _sensitivity(
-        dataset.snapshot_id,
-        METHODOLOGY_VERSION,
+        dataset_sha256,
+        methodology_sha256,
         result.year,
         tuple(sorted(result.weights.items())),
+        result.cohort_ids,
         result,
     )
     summary = sensitivity.summary.copy()
@@ -654,6 +675,23 @@ def _data(dataset, metrics: pd.DataFrame, result, selected: list[str]):
         hide_index=True,
         alt="Liczby obserwacji według roku, statusu i przyczyny",
     )
+    st.markdown("#### Kontrola wskaźnika miejsc na 1000 dzieci")
+    ratio = ratio_summary(metrics.loc[metrics["year"] == result.year])
+    columns = st.columns(2)
+    columns[0].metric("Porównywalne pary ze wskaźnikiem GUS", ratio["paired_cells"])
+    columns[1].metric("Różnice poza tolerancją", ratio["outside_tolerance"])
+    st.caption(
+        f"Cały region · rok {result.year}. Tolerancja zaokrąglenia wskaźnika GUS do "
+        f"liczby całkowitej: {_format(ratio['tolerance'], 9)}. "
+        f"Największa różnica bezwzględna: {_format(ratio['max_absolute_difference'], 9)}."
+    )
+    if ratio["outside_tolerance"]:
+        st.warning(
+            "Różnice poza tolerancją wymagają wyjaśnienia. Samo porównanie nie rozstrzyga, "
+            "która seria jest błędna. Wartości pozostają bez dopasowania i imputacji."
+        )
+    elif not ratio["paired_cells"]:
+        st.info("Brak porównywalnych par do kontroli wskaźnika w wybranym roku.")
     with st.expander("Obserwacje z wartościami surowymi, semantycznymi i pochodzeniem"):
         st.dataframe(
             observations,
@@ -789,7 +827,9 @@ def main() -> None:
         st.caption(f"Snapshot: {dataset.snapshot_id}")
         st.caption(f"Metodologia: {METHODOLOGY_VERSION}")
     try:
-        metrics = _metrics(dataset.snapshot_id, METHODOLOGY_VERSION, dataset)
+        dataset_sha256 = dataset_fingerprint(dataset)
+        methodology_sha256 = methodology_fingerprint()
+        metrics = _metrics(dataset_sha256, methodology_sha256, dataset)
     except Exception:
         st.error(
             "Nie można wykonać porównania: dane są niezgodne z wymaganą metodologią. "
@@ -847,6 +887,6 @@ def main() -> None:
     with profile:
         _profile(dataset, metrics, frame, labels, selected)
     with weights_tab:
-        _weights(dataset, result, frame, selected)
+        _weights(dataset, result, frame, selected, dataset_sha256, methodology_sha256)
     with data:
         _data(dataset, metrics, result, selected)

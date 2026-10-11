@@ -19,7 +19,9 @@ from uuid import uuid4
 import httpx
 import pandas as pd
 
-from region_comparison.validation import indicator_id, interpret_observation
+from region_comparison import __version__
+from region_comparison.paths import OUTPUT, artifact_path, new_run_id, output_path
+from region_comparison.validation import attribute_id, indicator_id, interpret_observation
 
 DEFAULT_RATE_LIMITS = ((1, 1), (900, 90), (43200, 900), (604800, 9000))
 
@@ -50,6 +52,7 @@ def sha256_file(path: str | Path) -> str:
 
 def _atomic_bytes(path: Path, value: bytes) -> None:
     """Replace within one directory, tolerating brief Windows sharing violations."""
+    path = output_path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_name(f"{path.name}.{uuid4().hex}.tmp")
     try:
@@ -88,6 +91,7 @@ class MultiWindowRateLimiter:
     ) -> None:
         if not windows or any(seconds <= 0 or limit < 1 for seconds, limit in windows):
             raise ValueError("Rate windows require positive durations and request counts.")
+        state_path = output_path(state_path) if state_path is not None else None
         self.windows, self.state_path, self.max_wait = windows, state_path, max_wait
         self.clock, self.sleep = clock, sleep
         self._lock = threading.Lock()
@@ -142,14 +146,19 @@ class BDLClient:
     ) -> None:
         if max_attempts < 1:
             raise ValueError("max_attempts must be positive.")
-        self.cache_dir = Path(cache_dir)
+        self.cache_dir = output_path(cache_dir)
         self.cache_dir.mkdir(parents=True, exist_ok=True)
         self.base_url = base_url.rstrip("/") + "/"
         self.max_attempts, self.max_retry_wait = max_attempts, max_retry_wait
         self.sleep, self.clock = sleep, clock
         self.jitter = jitter or (lambda: random.uniform(0, 0.25))
         headers = {"Accept": "application/json", "User-Agent": "RegionComparison/0.1"}
-        key = client_id or os.environ.get("GUS_API_KEY")
+        # Explicit argument wins; an empty explicit value deliberately selects anonymous use.
+        key = (
+            client_id
+            if client_id is not None
+            else os.environ.get("GUS_CLIENT_ID", os.environ.get("GUS_API_KEY"))
+        )
         if key:
             headers["X-ClientId"] = key
         self.http = httpx.Client(
@@ -168,6 +177,7 @@ class BDLClient:
         )
         self.requests: list[dict[str, Any]] = []
         self.last_pagination: dict[str, Any] = {}
+        self.last_fetch: dict[str, Any] = {}
 
     def __enter__(self) -> BDLClient:
         return self
@@ -235,7 +245,14 @@ class BDLClient:
                 raise CacheIntegrityError(
                     f"Corrupt BDL cache entry {cache_key}; remove this entry explicitly."
                 ) from exc
-            self.requests.append({**meta, "cache_hit": True, "cache_file": str(body_path)})
+            self.requests.append(
+                {
+                    **meta,
+                    "cache_hit": True,
+                    "response_origin": "cache",
+                    "cache_file": str(body_path),
+                }
+            )
             return result
         for attempt in range(self.max_attempts):
             self.limiter.acquire()
@@ -275,7 +292,14 @@ class BDLClient:
                 "sha256": sha256_file(body_path),
             }
             _atomic_json(meta_path, meta)
-            self.requests.append({**meta, "cache_hit": False, "cache_file": str(body_path)})
+            self.requests.append(
+                {
+                    **meta,
+                    "cache_hit": False,
+                    "response_origin": "network",
+                    "cache_file": str(body_path),
+                }
+            )
             return result
         raise BDLError("Request retry budget exhausted.")
 
@@ -333,32 +357,82 @@ class BDLClient:
 
 
 def fetch_snapshot(
-    config: dict[str, Any], path: str | Path, client: BDLClient | None = None
+    config: dict[str, Any],
+    path: str | Path | None = None,
+    client: BDLClient | None = None,
+    *,
+    mode: str = "refresh",
 ) -> Path:
-    """Fetch each selected indicator for all regional units/years, retaining source provenance."""
+    """Refresh in a new cache namespace, resume a partial snapshot, or explicitly reuse one.
+
+    A resume replays already verified HTTP pages from its own snapshot cache. A refresh never
+    reads a previous snapshot's cache, even when callers inject the same BDLClient instance.
+    Complete snapshots are read-only; reuse does not rewrite their provenance or manifest.
+    """
     from region_comparison.storage import load_snapshot
     from region_comparison.validation import validate_dataset
 
-    path = Path(path)
-    path.mkdir(parents=True, exist_ok=True)
+    if mode not in {"refresh", "resume", "reuse"}:
+        raise BDLError("Fetch mode must be refresh, resume or reuse.")
+    if mode != "refresh" and path is None:
+        raise BDLError(f"{mode.capitalize()} requires an explicit snapshot directory.")
+    snapshot_id = "bdl-" + new_run_id()
+    if mode == "reuse":
+        from region_comparison.paths import ROOT
+
+        path = Path(path)
+        path = (path if path.is_absolute() else ROOT / path).resolve()
+    else:
+        path = output_path(path) if path is not None else artifact_path("snapshots", snapshot_id)
     manifest_path = path / "manifest.json"
     configuration_hash = hashlib.sha256(json.dumps(config, sort_keys=True).encode()).hexdigest()
-    if manifest_path.exists():
+    if mode == "refresh":
+        if path.exists():
+            raise BDLError(
+                "Refresh requires a new snapshot directory; use resume or reuse explicitly."
+            )
+        path.mkdir(parents=True)
+    elif not manifest_path.is_file():
+        raise BDLError(f"{mode.capitalize()} requires an existing snapshot manifest.")
+    if mode != "refresh":
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-        if manifest.get("config_sha256") != configuration_hash:
+        saved_configuration_hash = manifest.get("config_sha256")
+        if mode != "reuse" and saved_configuration_hash != configuration_hash:
             raise BDLError(
                 "Existing snapshot belongs to a different configuration; choose a new directory."
             )
-        if manifest.get("state") == "complete":
-            report = validate_dataset(load_snapshot(path))
+        if mode == "reuse":
+            dataset = load_snapshot(path)
+            # Older builders hash the configuration file, while fetch hashes expanded JSON.
+            # Reuse checks the executed source contract instead of comparing those encodings.
+            if (
+                set(dataset.years) != set(map(int, config["years"]))
+                or set(dataset.units.bdl_unit_id.astype(str))
+                != {str(unit["bdl_unit_id"]) for unit in config["units"]}
+                or {indicator_id(item) for item in dataset.indicators}
+                != {indicator_id(item) for item in config["indicators"]}
+                or str(manifest.get("region_id")) != str(config.get("region_id"))
+                or sorted(dataset.indicators, key=indicator_id)
+                != sorted(config["indicators"], key=indicator_id)
+                or sorted(dataset.attributes, key=attribute_id)
+                != sorted(config["attributes"], key=attribute_id)
+            ):
+                raise BDLError(
+                    "The reused snapshot does not match the configured region, years or source definitions."
+                )
+            report = validate_dataset(dataset)
             if not report.valid:
                 raise BDLError(
                     "Existing complete snapshot failed validation: " + "; ".join(report.errors)
                 )
+            if client is not None:
+                client.last_fetch = {"mode": "reuse", "snapshot_id": manifest["snapshot_id"]}
             return path
+        if manifest.get("state") != "partial":
+            raise BDLError("Resume requires an incomplete snapshot; use reuse for complete data.")
     else:
         manifest = {
-            "snapshot_id": f"bdl-{datetime.now(UTC):%Y%m%dT%H%M%SZ}-{configuration_hash[:8]}",
+            "snapshot_id": snapshot_id,
             "manifest_schema_version": 1,
             "state": "partial",
             "started_at": utc_now(),
@@ -366,23 +440,32 @@ def fetch_snapshot(
             "errors": [],
             "files": {},
             "config_sha256": configuration_hash,
-            "code_version": "0.1.0",
+            "code_version": __version__,
             "config_version": config.get("config_version", "1"),
             "region_id": config.get("region_id", "030200000000"),
             "years": config["years"],
             "unit_ids": [str(u["bdl_unit_id"]) for u in config["units"]],
             "indicator_ids": [indicator_id(i) for i in config["indicators"]],
+            "cache_policy": "snapshot-scoped; refresh always fetches new responses",
+            "requests": [],
+            "progress": {"completed_indicators": []},
         }
+    manifest["last_fetch_mode"] = mode
     _atomic_json(manifest_path, manifest)
     own_client = client is None
     if client is None:
-        from region_comparison.config import ROOT
-
-        cache_root = ROOT / "data" / "raw" / "bdl-cache"
-        namespace = hashlib.sha256(manifest["snapshot_id"].encode()).hexdigest()
+        cache_root = OUTPUT / "cache"
         client = BDLClient(
-            cache_root / "snapshots" / namespace, rate_state_path=cache_root / ".rate-state.json"
+            cache_root / "snapshots" / manifest["snapshot_id"],
+            rate_state_path=cache_root / ".rate-state.json",
         )
+    previous_cache = client.cache_dir
+    if not own_client:
+        client.cache_dir = output_path(previous_cache / "snapshots" / manifest["snapshot_id"])
+        client.cache_dir.mkdir(parents=True, exist_ok=True)
+    request_start = len(client.requests)
+    previous_requests = list(manifest.get("requests", []))
+    client.last_fetch = {"mode": mode, "snapshot_id": manifest["snapshot_id"]}
     try:
         indicators, attributes, units = config["indicators"], config["attributes"], config["units"]
         selected_years = set(map(int, config["years"]))
@@ -487,6 +570,11 @@ def fetch_snapshot(
                     **client.last_pagination,
                 },
             )
+            completed = manifest.setdefault("progress", {}).setdefault("completed_indicators", [])
+            if iid not in completed:
+                completed.append(iid)
+            manifest["requests"] = previous_requests + client.requests[request_start:]
+            _atomic_json(manifest_path, manifest)
             by_unit = {str(record["id"]): record for record in records}
             current_full_units = {
                 uid
@@ -534,12 +622,15 @@ def fetch_snapshot(
                             ),
                         }
                     )
-        pd.DataFrame(observations).to_csv(path / "observations.csv", index=False, encoding="utf-8")
+        _atomic_bytes(
+            path / "observations.csv",
+            pd.DataFrame(observations).to_csv(index=False).encode("utf-8"),
+        )
         manifest.update(
             state="complete",
             finished_at=utc_now(),
             errors=[],
-            requests=client.requests,
+            requests=previous_requests + client.requests[request_start:],
             pages_expected=total_pages,
             pages_received=total_pages,
             records_expected=total_records,
@@ -564,8 +655,11 @@ def fetch_snapshot(
     except Exception as exc:
         manifest.update(state="partial", finished_at=None)
         manifest["errors"] = [f"{type(exc).__name__}: {exc}"]
+        manifest["requests"] = previous_requests + client.requests[request_start:]
         _atomic_json(manifest_path, manifest)
         raise
     finally:
         if own_client:
             client.close()
+        else:
+            client.cache_dir = previous_cache

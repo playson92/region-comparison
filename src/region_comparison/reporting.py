@@ -1,14 +1,24 @@
-"""Reports calculated directly from an identified snapshot and scenario."""
+"""Snapshot-specific findings with explicit missing values and comparable trends."""
 
 from pathlib import Path
 
 import pandas as pd
 
-from region_comparison.metrics import build_metrics
+from region_comparison.metrics import build_metrics, ratio_summary, safe_ratio
+from region_comparison.paths import output_path
 from region_comparison.scoring import evaluate
 from region_comparison.sensitivity import analyze
+from region_comparison.validation import ADMISSIBLE_STATUSES, validate_dataset
 
 DEMO_NAMES = ("Wrocław", "Kobierzyce", "Siechnice")
+
+
+def display_number(value, precision=3) -> str:
+    if value is None or pd.isna(value):
+        return "brak wartości"
+    if not precision:
+        return f"{value:.0f}"
+    return f"{value:.{precision}f}".rstrip("0").rstrip(".")
 
 
 def markdown_table(frame: pd.DataFrame) -> str:
@@ -19,6 +29,42 @@ def markdown_table(frame: pd.DataFrame) -> str:
     return "\n".join(lines)
 
 
+def _completeness(dataset) -> str:
+    excluded = int((~dataset.observations.quality_status.isin(ADMISSIBLE_STATUSES)).sum())
+    message = (
+        "No excluded source cells in this snapshot."
+        if excluded == 0
+        else "This snapshot contains missing or flagged observations; they are never imputed as zero."
+    )
+    return (
+        f"Source cells excluded by quality rules: **{excluded}**. {message} "
+        "DEMO_BRAK_DANYCH is a separate fictional UI case outside official data and rankings."
+    )
+
+
+def _value(row, metric) -> str:
+    if pd.isna(row[metric]):
+        return f"brak wartości ({row[metric + '_status']}: {row[metric + '_reason']})"
+    return display_number(row[metric], 0)
+
+
+def _trend(trend, name, metric, label) -> str:
+    start, end = trend.iloc[0], trend.iloc[-1]
+    ratio, reason = safe_ratio(end[metric], start[metric])
+    change = "niewyznaczalna (" + reason + ")" if ratio is None else f"{100 * (ratio - 1):+.2f}%"
+    excluded = trend.loc[~trend[metric + "_status"].isin(ADMISSIBLE_STATUSES)]
+    issues = "; ".join(f"{int(row.year)}: {_value(row, metric)}" for _, row in excluded.iterrows())
+    comparable = (
+        "pełny porównywalny trend"
+        if excluded.empty
+        else "trend niepełny lub lata nieporównywalne: " + issues
+    )
+    return (
+        f"- {name}, {label}: {_value(start, metric)} → {_value(end, metric)}; "
+        f"zmiana procentowa {change}; lata {int(start.year)}–{int(end.year)}; {comparable}."
+    )
+
+
 def findings(dataset) -> str:
     metrics = build_metrics(dataset)
     year = max(dataset.years)
@@ -26,21 +72,20 @@ def findings(dataset) -> str:
     sensitivity = analyze(result)
     selected = result.frame.loc[result.frame.name.isin(DEMO_NAMES)].copy()
     selected = selected.merge(sensitivity.summary, on="unit_id", suffixes=("", "_sensitivity"))
-    view = selected[
-        [
-            "name",
-            "unit_id",
-            "children_0_2",
-            "care_places",
-            "places_per_1000",
-            "children_share_pct",
-            "score",
-            "rank_min",
-            "rank_max",
-            "rank_min_sensitivity",
-            "rank_max_sensitivity",
-        ]
-    ].round(3)
+    columns = [
+        "name",
+        "unit_id",
+        "children_0_2",
+        "care_places",
+        "places_per_1000",
+        "children_share_pct",
+        "score",
+        "rank_min",
+        "rank_max",
+        "rank_min_sensitivity",
+        "rank_max_sensitivity",
+    ]
+    view = selected[columns].round(3)
     view.columns = [
         "Gmina",
         "BDL ID",
@@ -54,66 +99,65 @@ def findings(dataset) -> str:
         "Siatka min",
         "Siatka max",
     ]
-    quality = dataset.observations.quality_status.value_counts().to_dict()
-    ratio = metrics.ratio_difference.abs().dropna()
-    paired = []
-    for i, first in enumerate(selected.to_dict("records")):
-        for second in selected.to_dict("records")[i + 1 :]:
-            counts = sensitivity.pairwise(first["unit_id"], second["unit_id"])
-            paired.append(
-                f"- {first['name']} względem {second['name']}: "
-                f"wyżej {counts['above']}, niżej {counts['below']}, "
-                f"remis {counts['tied']} / {counts['count']} wariantów."
-            )
-    comparison = []
+    comparison, paired = [], []
     for name in DEMO_NAMES:
         trend = metrics.loc[metrics.name == name].sort_values("year")
-        if len(trend) > 1:
-            start, end = trend.iloc[0], trend.iloc[-1]
-            change = 100 * (end.children_0_2 / start.children_0_2 - 1)
-            comparison.append(
-                f"- {name}: dzieci 0–2 {int(start.children_0_2)} → "
-                f"{int(end.children_0_2)} ({change:+.2f}%), "
-                f"miejsca {int(start.care_places)} → {int(end.care_places)}; "
-                f"lata {int(start.year)}–{int(end.year)}."
+        if not trend.empty:
+            for metric, label in (("children_0_2", "dzieci 0–2"), ("care_places", "miejsca")):
+                comparison.append(_trend(trend, name, metric, label))
+    for index, first in enumerate(selected.to_dict("records")):
+        for second in selected.to_dict("records")[index + 1 :]:
+            counts = sensitivity.pairwise(first["unit_id"], second["unit_id"])
+            paired.append(
+                f"- {first['name']} względem {second['name']}: wyżej {counts['above']}, "
+                f"niżej {counts['below']}, remis {counts['tied']} / "
+                f"{counts['count']} porównywalnych wariantów."
             )
+    ratio = ratio_summary(metrics)
+    no_group = "No analyzed demonstration municipalities are present." if selected.empty else ""
+    no_scores = (
+        "Reference cohort has fewer than two eligible municipalities; scores and ranks unavailable."
+        if len(result.cohort_ids) < 2
+        else ""
+    )
     return f"""# Findings from the verified snapshot
 
-Generated by `python -m region_comparison report`; all numbers below use snapshot **{dataset.snapshot_id}**, methodology **{result.methodology_version}**, years **{min(dataset.years)}–{max(dataset.years)}**. Source: [GUS BDL](https://bdl.stat.gov.pl/api/v1/). Full regional coverage: **{len(dataset.units)} municipalities**, **{len(dataset.observations)} source cells**, **7 source and 3 derived profile metrics**. Download completed: {dataset.manifest.get("completed_at_utc", "")}.
+Generated by `python -m region_comparison report`; snapshot **{dataset.snapshot_id}**, methodology **{result.methodology_version}**, years **{min(dataset.years)}–{max(dataset.years)}**. Source: [GUS BDL](https://bdl.stat.gov.pl/api/v1/). Regional coverage: **{len(dataset.units)} municipalities**, **{len(dataset.observations)} source cells**, **{len(dataset.indicators)} source metrics**.
 
 ## Quality and reference cohort
 
-Observed source quality counts: `{quality}`. Qualifying municipalities in {year}: **{len(result.cohort_ids)}**; excluded: **{len(result.frame) - len(result.cohort_ids)}**. Weights: `{result.weights}`. Percentiles and ranks use the full qualifying regional cohort.
+Observed quality counts: `{dataset.observations.quality_status.value_counts().to_dict()}`.
+{_completeness(dataset)}
+Qualifying municipalities in {year}: **{len(result.cohort_ids)}**; excluded: **{len(result.frame) - len(result.cohort_ids)}**. Weights: `{result.weights}`. Percentiles and ranks use the full eligible regional cohort. {no_scores}
 
-Computed/GUS places-per-1000 comparison: **{len(ratio)}** paired cells, maximum absolute difference **{ratio.max():.9f}**, cells outside integer-rounding tolerance 0.500000001: **{int((ratio > 0.500000001).sum())}**. No value is fitted to the published indicator.
+Computed/GUS places-per-1000 comparison: **{ratio["paired_cells"]}** paired cells, maximum absolute difference **{display_number(ratio["max_absolute_difference"], 9)}**, cells outside integer-rounding tolerance {ratio["tolerance"]}: **{ratio["outside_tolerance"]}**. Discrepancies require investigation; neither series is fitted or imputed.
 
-## Three contrasting municipalities ({year})
+## Selected demonstration municipalities ({year})
 
-Wrocław is a large urban municipality, Kobierzyce a rural suburban municipality, and Siechnice an urban-rural suburban municipality. Selection illustrates administrative types and scale rather than optimizing the score.
+Wrocław, Kobierzyce and Siechnice illustrate administrative types and scale. {no_group}
 
 {markdown_table(view)}
 
-Raw demographic and capacity changes:
+Raw changes, source quality and comparability:
 
 {chr(10).join(comparison)}
 
 ## Weight sensitivity
 
-The grid contains **{sensitivity.count}** distinct scenarios, with the exact baseline and a 0.1 simplex grid. Data, cohort and percentiles are identical in every scenario. The table's sensitivity bounds include ties.
+The grid contains **{sensitivity.count}** distinct scenarios, the exact baseline and a 0.1 simplex grid. Data, cohort and percentiles stay fixed; bounds include ties.
 
 {chr(10).join(paired)}
 
-Counts of scenarios are not probabilities. The score is a comparative research signal, not unmet childcare demand. With no actual missing required observations, the UI demonstrates a separate fictional DEMO_BRAK_DANYCH case outside the official dataset, rankings and this report.
+Counts of scenarios are not probabilities. The score is a comparative research signal.
 
 ## Interpretation limits and research questions
 
-Capacity belongs to facilities located in the municipality; the denominator belongs to resident children. Cross-border attendance, children older than two, prices, queues, travel time, family preferences and opening hours are not measured. A high or low ratio alone cannot establish family-level accessibility or justify an investment. Further research should ask which households face practical constraints, where users live, and how capacity relates to actual prices, opening hours and waiting lists.
+Capacity describes facility locations; the denominator describes resident children. Cross-border attendance, children older than two, prices, queues, travel time, family preferences and opening hours are not measured. Investigate these before conclusions about family accessibility or investment.
 """
 
 
 def write_quality(dataset, output: Path) -> None:
-    from region_comparison.validation import validate_dataset
-
+    output = output_path(output)
     report = validate_dataset(dataset)
     metrics = build_metrics(dataset)
     cohort = []
@@ -129,15 +173,16 @@ def write_quality(dataset, output: Path) -> None:
     text = f"""# Data quality
 
 Snapshot: **{dataset.snapshot_id}**. Validation: **{"PASS" if report.valid else "FAIL"}**.
-
 Source cell counts: `{dataset.observations.quality_status.value_counts().to_dict()}`.
 Validation counts: `{report.counts}`.
 
 {markdown_table(pd.DataFrame(cohort))}
 
-Zero is retained only after interpretation of the actual source value/attribute pair. Missing/unavailable/below-precision/methodology/scope flags cannot be inferred as zero or a specific confidential-cell reason. Unknown attributes block activation. Complete download and authentic source missingness are distinct: an incomplete page leaves the snapshot inactive, whereas a fully retrieved snapshot can contain correctly interpreted missing observations.
+{_completeness(dataset)}
 
-The supplied complete snapshot contains no missing source cells or excluded required-score units. DEMO_BRAK_DANYCH is a separate fictional UI scenario and never changes a real municipality or the regional cohort.
+Zero is retained only after interpreting the source value/attribute pair. Missing or flagged values never become zero. Complete pagination and authentic missingness are distinct: incomplete downloads stay inactive; complete downloads can contain correctly interpreted missing observations.
+
+Ratio cross-check: `{ratio_summary(metrics)}`. Differences exceeding rounding tolerance require investigation, without automatically changing either series.
 
 Errors: `{report.errors}`. Warnings: `{report.warnings}`.
 """

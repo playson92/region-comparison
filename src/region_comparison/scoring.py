@@ -6,8 +6,7 @@ import numpy as np
 import pandas as pd
 
 from region_comparison.config import COMPONENTS, METHODOLOGY_VERSION
-
-SCORE_PRECISION = 6
+from region_comparison.methodology import SCORE_PRECISION
 
 
 @dataclass
@@ -27,6 +26,9 @@ def normalize_weights(weights: dict | None = None) -> dict[str, float]:
     values = np.array(list(weights.values()), dtype=float)
     if not np.isfinite(values).all() or (values < 0).any() or values.max() <= 0:
         raise ValueError("Weights must be finite, nonnegative and have a positive sum")
+    # Preserve exported normalized floats exactly; repeated normalization must be idempotent.
+    if (values <= 1).all() and abs(float(values.sum()) - 1.0) <= 1e-15:
+        return dict(zip(weights, map(float, values), strict=True))
     scaled = values / values.max()
     return {key: float(value / scaled.sum()) for key, value in zip(weights, scaled, strict=True)}
 

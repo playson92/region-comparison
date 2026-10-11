@@ -1,6 +1,6 @@
 {
   "manifest_schema_version": "1.0",
-  "snapshot_id": "bdl-dolnoslaskie-2023-2025-20261010",
+  "snapshot_id": "bdl-dolnoslaskie-2023-2025-20261010-v0.1.1",
   "state": "complete",
   "status": "complete",
   "started_at_utc": "2026-10-10T20:10:09.5436208Z",
@@ -939,11 +939,11 @@
   "errors": [],
   "files": {
     "attributes.json": "621647a7b03e08cdc8fb16129f9af4414a5ae568f7948ba97d5f61fefbe1d780",
-    "build_sample.py": "900e728e0e312dca2942ce5c1c7c926181da6208feed9f6fdb32912412fb8e2b",
+    "build_sample.py": "f6f869ecd80dce536be9a39fdde733be7596117a0c0926c2f59206ea67506af9",
     "configuration.json": "8d9fc108a18ccfeda755516006e089c6ea7d019e5d13f6ffb1ec0e51813dde63",
     "indicators.json": "5645b098afec9f297751d520a0c8ddd727bf0decf983cabda9645d963c32e9a8",
     "observations.csv": "30f924588eee798fcbf9788feda42b5b068339e31b4b1109eb1402b93a4f1045",
-    "README.md": "90e27bd1bcd679e0f77d7867d6578441da323fc3b0c081762d34839175d9987a",
+    "README.md": "84acf32ded3a455989dc32d6738ba36023345f5e782158f4d0678b53ad83a4f3",
     "source-verification.json": "9110d859d726b4f21d1d349019aaa0f05fb82423a0d0efe44881a9994ca18e1c",
     "source_responses/aggregates.json": "d55f1b7c3fba8e8cd9e88da15e2dff0183953c3460ee1caffc42554648eb2f54",
     "source_responses/aggregates.json.meta.json": "a722e0a9de536fece5b0ca4c52a54b7a3344ab34b9d1c14ce16245bdb5fa479d",

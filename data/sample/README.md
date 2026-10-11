@@ -1,6 +1,6 @@
 # Public GUS BDL demonstration snapshot
 
-`bdl-dolnoslaskie-2023-2025-20261010` covers **all 169 full Lower Silesian
+`bdl-dolnoslaskie-2023-2025-20261010-v0.1.1` covers **all 169 full Lower Silesian
 municipalities**, **2023–2025**, and seven source variables. There are 3,549 source
 observations. The source acquisition is complete, with no missing cells in this
 particular snapshot. This does not imply that future GUS snapshots will be complete.
@@ -39,10 +39,20 @@ the saved official responses. It performs **no network requests**:
 .\.venv\Scripts\python.exe .\data\sample\build_sample.py
 ```
 
-Reassembly preserves the first assembly timestamp, source retrieval timestamps and
-original response bytes; file hashes are checked and reconstructed. Running it
-twice without changing inputs produces the same manifest. The application reads the
-packaged snapshot directly, so running this script is unnecessary for the demo.
+Each reassembly creates a fresh snapshot identity and directory under
+`output/snapshots/bdl-sample-<unique-run-id>/`. It preserves original response bytes
+and their retrieval timestamps, checks source hashes, and records a new assembly
+timestamp and the input snapshot identity. It also writes its own
+`configuration.yml` in that output directory. An optional `--output` must name a
+new directory inside project `output/`; existing directories are never overwritten.
+The builder leaves the versioned sample and `config/indicators.yml` unchanged.
+The application reads the packaged snapshot directly, so reassembly is unnecessary
+for the demo.
+
+The v0.1.1 packaged sample has a distinct identity because its maintained builder
+and README changed. Observation values, attribute codes and retained GUS response
+bytes are unchanged from the v0.1.0 demonstration snapshot. The original release
+retains its original identity and file hashes.
 
 This snapshot contains authentic zeros but no missing required values. A synthetic
 missing-data demonstration must be clearly marked `DEMO_BRAK_DANYCH`, kept separate
