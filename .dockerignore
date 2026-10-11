@@ -17,3 +17,5 @@
 !.streamlit/**
 !docker/
 !docker/Dockerfile
+!scripts/
+!scripts/verify-docker-lifecycle.py

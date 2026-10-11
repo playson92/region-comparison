@@ -34,6 +34,18 @@ Wrażliwość zmienia wyłącznie wagi. Dane, kwalifikacja i percentyle pozostaj
 
 ## Jakość i ograniczenia
 
+Eksport JSON ma schemat 1.1 i kontrakt wykonywanej metodologii 1.0.0. Replay sprawdza
+definicje źródłowe i pochodne, atrybuty, kierunki, normalizację, precyzję, remisy, wagi,
+zakres, rok oraz odciski danych i kohorty. Zmiana nieobsługiwanej reguły albo wersji kończy
+się błędem. Formuły YAML są sprawdzane względem kodu Python, nigdy wykonywane przez eval.
+Nieznany lub zmodyfikowany kontrakt nie może po cichu zmienić interpretacji wyniku.
+
+Raporty rozróżniają brak i rzeczywiste zero. Procentowa zmiana przy zerowym roku bazowym
+jest niewyznaczalna; brak lub atrybut nieporównywalności w środku szeregu oznacza niepełny
+trend także wtedy, gdy oba końce mają wartości. Liczby wykluczonych gmin wynikają z danych
+konkretnego roku. Przekroczenia tolerancji wskaźnika GUS są zgłaszane do wyjaśnienia,
+bez uznawania jednej serii za automatycznie poprawną i bez imputacji.
+
 Zachowujemy raw_value, raw_attr_id, semantic_value, status i powód. Atrybuty braku/ochrony, progu prezentacji, metodologii i zakresu blokują ocenę zgodnie ze słownikiem. Nieznany atrybut nie jest poprawną wartością. Nie przypisujemy komórce dokładniejszej przyczyny niż ujawnia GUS. Zmiana percentyla pomiędzy latami nie jest bezpośrednią zmianą sytuacji, bo normalizację wykonujemy dla każdego roku osobno. Trendy przedstawiają rzeczywiste miary; braków nie łączymy linią.
 
 Brakuje danych o cenach, kolejkach, dojazdach, preferencjach rodziców i przepływach między gminami. Sama liczba miejsc nie dowodzi dostępności dla konkretnej rodziny. Kolejne badanie powinno sprawdzić te czynniki oraz dopasowanie godzin działania placówek do pracy rodziców.

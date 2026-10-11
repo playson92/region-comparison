@@ -5,12 +5,13 @@ COPY requirements.lock ./
 RUN pip install --no-cache-dir -r requirements.lock
 COPY pyproject.toml README.md LICENSE ./
 COPY src ./src
-RUN pip install --no-deps --no-build-isolation . && useradd --create-home --uid 10001 region
+RUN pip install --no-deps --no-build-isolation . && useradd --create-home --uid 10001 region && mkdir -p /app/output && chown region:region /app/output
 COPY app.py ./
 COPY config ./config
 COPY sql ./sql
 COPY data/sample ./data/sample
 COPY .streamlit ./.streamlit
+COPY scripts/verify-docker-lifecycle.py ./scripts/
 ENV REGION_PROJECT_ROOT=/app
 USER region
 EXPOSE 8501

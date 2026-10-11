@@ -1,7 +1,5 @@
 param([int]$Port = 8503)
-$ErrorActionPreference = 'Stop'
-$projectRoot = Split-Path -Parent $PSScriptRoot
-$venvPython = Join-Path $projectRoot '.venv\Scripts\python.exe'
+. (Join-Path $PSScriptRoot 'common.ps1')
 if (-not (Test-Path -LiteralPath $venvPython)) { throw 'Run scripts/bootstrap.ps1 first.' }
 Push-Location -LiteralPath $projectRoot
 $oldMode = $env:REGION_DATA_MODE

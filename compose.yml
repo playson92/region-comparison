@@ -7,7 +7,7 @@ services:
       POSTGRES_USER: region
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-region_demo_local_only}
     ports:
-      - "127.0.0.1:55432:5432"
+      - "127.0.0.1:${DB_PORT:-55432}:5432"
     volumes:
       - region_pgdata:/var/lib/postgresql/data
     healthcheck:
@@ -16,17 +16,21 @@ services:
       timeout: 5s
       retries: 20
   initialize:
+    user: "${REGION_UID:-10001}:${REGION_GID:-10001}"
     build:
       context: .
       dockerfile: docker/Dockerfile
     environment:
       DATABASE_URL: postgresql+psycopg://region:${POSTGRES_PASSWORD:-region_demo_local_only}@db:5432/region_comparison
-    command: ["python", "-m", "region_comparison", "load"]
+    command: ["python", "-m", "region_comparison", "initialize"]
+    volumes:
+      - ./output:/app/output
     depends_on:
       db:
         condition: service_healthy
     restart: "no"
   app:
+    user: "${REGION_UID:-10001}:${REGION_GID:-10001}"
     build:
       context: .
       dockerfile: docker/Dockerfile
@@ -35,6 +39,8 @@ services:
       DATABASE_URL: postgresql+psycopg://region:${POSTGRES_PASSWORD:-region_demo_local_only}@db:5432/region_comparison
     ports:
       - "127.0.0.1:${APP_PORT:-8602}:8501"
+    volumes:
+      - ./output:/app/output
     depends_on:
       initialize:
         condition: service_completed_successfully
