@@ -5,6 +5,7 @@ import math
 import pandas as pd
 
 from region_comparison.config import SOURCE_METRICS
+from region_comparison.methodology import RATIO_TOLERANCE, validate_derived_definitions
 
 ACCEPTED = frozenset({"valid", "true_zero"})
 
@@ -38,6 +39,7 @@ def validate_ratio_definition(numerator: dict, denominator: dict) -> None:
 
 def build_metrics(dataset) -> pd.DataFrame:
     """Return the complete municipality-year grid, retaining per-metric quality."""
+    validate_derived_definitions()
     definitions = {str(item["indicator_id"]): item for item in dataset.indicators}
     expected = {
         "population_total": (26, "all ages", "none"),
@@ -145,4 +147,19 @@ def build_metrics(dataset) -> pd.DataFrame:
             else:
                 row["ratio_difference"] = None
             rows.append(row)
-    return pd.DataFrame(rows)
+    if rows:
+        return pd.DataFrame(rows)
+    columns = ["unit_id", "year", "name", "kind", "powiat", "teryt", "parent_id"]
+    for metric in [*SOURCE_METRICS, "children_share_pct", "places_per_1000", "care_facilities"]:
+        columns.extend([metric, f"{metric}_status", f"{metric}_reason"])
+    return pd.DataFrame(columns=[*columns, "ratio_difference"])
+
+
+def ratio_summary(metrics: pd.DataFrame) -> dict:
+    differences = metrics["ratio_difference"].abs().dropna()
+    return {
+        "paired_cells": len(differences),
+        "outside_tolerance": int((differences > RATIO_TOLERANCE).sum()),
+        "max_absolute_difference": float(differences.max()) if len(differences) else None,
+        "tolerance": RATIO_TOLERANCE,
+    }
