@@ -1,11 +1,11 @@
 """Versioned analytical configuration; no credentials are stored here."""
 
-import os
 from pathlib import Path
 
 import yaml
 
-ROOT = Path(os.environ.get("REGION_PROJECT_ROOT", Path(__file__).resolve().parents[2]))
+from region_comparison.paths import ROOT
+
 DEFAULT_SNAPSHOT = ROOT / "data" / "sample"
 METHODOLOGY_VERSION = "1.0.0"
 COMPONENTS = {
