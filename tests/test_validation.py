@@ -112,3 +112,28 @@ def test_invalid_contracts_block_activation(dataset, mutation):
     elif mutation == "partial":
         dataset.manifest["state"] = "partial"
     assert not validate_dataset(dataset).valid
+
+
+def test_regular_validation_reports_unresolved_source_ratio_discrepancy_without_adjustment():
+    from region_comparison.config import DEFAULT_SNAPSHOT, SOURCE_METRICS
+    from region_comparison.storage import load_snapshot
+
+    dataset = load_snapshot(DEFAULT_SNAPSHOT)
+    baseline = validate_dataset(dataset)
+    assert baseline.valid
+    row = dataset.observations.index[
+        (dataset.observations.unit_id == "030210564011")
+        & (dataset.observations.year == 2025)
+        & (dataset.observations.indicator_id == SOURCE_METRICS["gus_places_per_1000"])
+    ][0]
+    changed = float(dataset.observations.loc[row, "semantic_value"]) + 2
+    dataset.observations.loc[row, ["raw_value", "semantic_value"]] = [str(changed), changed]
+    report = validate_dataset(dataset)
+    assert report.valid
+    assert report.counts["ratio_comparison"]["paired_cells"] == 507
+    assert (
+        report.counts["ratio_comparison"]["outside_tolerance"]
+        > (baseline.counts["ratio_comparison"]["outside_tolerance"])
+    )
+    assert any("without adjusting or imputing" in warning for warning in report.warnings)
+    assert dataset.observations.loc[row, "semantic_value"] == changed

@@ -1,4 +1,4 @@
-"""Rebuild the public sample from its immutable, downloaded GUS responses.
+"""Assemble a new output snapshot from the immutable demonstration responses.
 
 This script performs no network requests. For live refreshes use the package CLI.
 Run with the project's Python interpreter; PyYAML is a locked project dependency.
@@ -6,9 +6,11 @@ Run with the project's Python interpreter; PyYAML is a locked project dependency
 
 from __future__ import annotations
 
+import argparse
 import csv
 import hashlib
 import json
+import shutil
 from collections import Counter
 from datetime import UTC, datetime
 from pathlib import Path
@@ -16,8 +18,9 @@ from urllib.parse import parse_qsl, urlsplit
 
 import yaml
 
+from region_comparison.paths import ROOT, artifact_path, new_run_id, output_path
+
 HERE = Path(__file__).resolve().parent
-ROOT = HERE.parent.parent
 RAW = HERE / "source_responses"
 YEARS = [2023, 2024, 2025]
 SOURCES = [
@@ -63,8 +66,8 @@ def read(name: str) -> dict:
     return json.loads((RAW / name).read_text(encoding="utf-8-sig"))
 
 
-def write(name: str, value: object) -> None:
-    (HERE / name).write_text(
+def write(destination: Path, name: str, value: object) -> None:
+    (destination / name).write_text(
         json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
 
@@ -73,7 +76,14 @@ def sha(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def main() -> None:
+def main(output: str | Path | None = None) -> Path:
+    snapshot_id = "bdl-sample-" + new_run_id()
+    destination = (
+        output_path(output) if output is not None else artifact_path("snapshots", snapshot_id)
+    )
+    destination.mkdir(parents=True, exist_ok=False)
+    copied_raw = destination / "source_responses"
+    shutil.copytree(RAW, copied_raw)
     territorial = []
     for page in range(3):
         response = read(f"units-page-{page}.json")
@@ -221,7 +231,7 @@ def main() -> None:
         observations
     )
     observations.sort(key=lambda row: (row["unit_id"], row["year"], row["indicator_id"]))
-    with (HERE / "observations.csv").open("w", encoding="utf-8", newline="") as handle:
+    with (destination / "observations.csv").open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=list(observations[0]))
         writer.writeheader()
         writer.writerows(observations)
@@ -278,9 +288,9 @@ def main() -> None:
         metric["years"] = YEARS
         metric["level"] = 6
         metric["definition_version"] = "region-comparison-v1"
-    write("units.json", units)
-    write("indicators.json", indicators)
-    write("attributes.json", read("attributes.json")["results"])
+    write(destination, "units.json", units)
+    write(destination, "indicators.json", indicators)
+    write(destination, "attributes.json", read("attributes.json")["results"])
     wide = {}
     for row in observations:
         wide.setdefault((row["unit_id"], row["year"]), {})[row["indicator_id"]] = row[
@@ -333,6 +343,7 @@ def main() -> None:
             }
         )
     write(
+        destination,
         "source-verification.json",
         {
             "age_cross_checks": age_checks,
@@ -352,17 +363,19 @@ def main() -> None:
         "years": YEARS,
         "unit_level": 6,
         "accepted_kinds": ["1", "2", "3"],
-        "unit_registry": "data/sample/units.json",
-        "attributes_path": "data/sample/attributes.json",
+        "unit_registry": str((destination / "units.json").relative_to(ROOT)).replace("\\", "/"),
+        "attributes_path": str((destination / "attributes.json").relative_to(ROOT)).replace(
+            "\\", "/"
+        ),
         "indicators": indicators,
         "derived": derived,
     }
-    (ROOT / "config" / "indicators.yml").write_text(
+    (destination / "configuration.yml").write_text(
         yaml.safe_dump(config, allow_unicode=True, sort_keys=False, width=100), encoding="utf-8"
     )
-    write("configuration.json", config)
+    write(destination, "configuration.json", config)
     metas = []
-    for path in RAW.glob("*.meta.json"):
+    for path in copied_raw.glob("*.meta.json"):
         meta = read(path.name)
         original = path.with_name(path.name.removesuffix(".meta.json"))
         assert meta["sha256"] == sha(original), f"Altered source response: {original.name}"
@@ -374,24 +387,21 @@ def main() -> None:
         metas.append(meta)
     times = sorted(meta["retrieved_at_utc"] for meta in metas)
     files = {
-        str(path.relative_to(HERE)).replace("\\", "/"): sha(path)
-        for path in sorted(HERE.rglob("*"))
+        str(path.relative_to(destination)).replace("\\", "/"): sha(path)
+        for path in sorted(destination.rglob("*"))
         if path.is_file() and path.name != "manifest.json" and "__pycache__" not in path.parts
     }
-    existing_manifest = HERE / "manifest.json"
-    assembled_at = (
-        json.loads(existing_manifest.read_text(encoding="utf-8"))["assembled_at_utc"]
-        if existing_manifest.exists()
-        else datetime.now(UTC).isoformat()
-    )
+    source_manifest = json.loads((HERE / "manifest.json").read_text(encoding="utf-8"))
     manifest = {
         "manifest_schema_version": "1.0",
-        "snapshot_id": "bdl-dolnoslaskie-2023-2025-20261010",
+        "snapshot_id": snapshot_id,
         "state": "complete",
         "status": "complete",
         "started_at_utc": times[0],
         "completed_at_utc": times[-1],
-        "assembled_at_utc": assembled_at,
+        "assembled_at_utc": datetime.now(UTC).isoformat(),
+        "source_snapshot_id": source_manifest["snapshot_id"],
+        "assembly_origin": "retained_public_source_responses",
         "region_id": "030200000000",
         "years": YEARS,
         "unit_ids": sorted(unit_ids),
@@ -411,14 +421,14 @@ def main() -> None:
         "missing_observation_count": 0,
         "errors": [],
         "files": files,
-        "config_sha256": sha(ROOT / "config" / "indicators.yml"),
+        "config_sha256": sha(destination / "configuration.yml"),
         "code_version": "source-contract-v1",
         "data_license": "CC-BY-4.0",
         "attribution": "Source: Statistics Poland (GUS), Local Data Bank (BDL); downloaded 10 October 2026; local derived metrics are identified separately.",
         "source_url": "https://bdl.stat.gov.pl/api/v1/",
-        "refresh_uses_cache": True,
+        "assembly_performed_network_requests": False,
     }
-    write("manifest.json", manifest)
+    write(destination, "manifest.json", manifest)
     print(
         json.dumps(
             {
@@ -434,7 +444,14 @@ def main() -> None:
             ensure_ascii=False,
         )
     )
+    return destination
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output", help="New snapshot directory inside project output.")
+    arguments = parser.parse_args()
+    try:
+        print(main(arguments.output))
+    except (ValueError, FileExistsError) as exc:
+        parser.error(str(exc))

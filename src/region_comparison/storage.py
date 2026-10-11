@@ -87,13 +87,19 @@ def load_snapshot(path: str | Path, *, allow_partial: bool = False) -> Dataset:
     observations["year"] = pd.to_numeric(observations["year"], errors="raise").astype(int)
     for column in ("raw_value", "raw_attr_id"):
         observations[column] = observations[column].where(observations[column] != "", None)
-    return Dataset(
+    dataset = Dataset(
         manifest,
         units,
         observations,
         sorted(_list_json(path / "indicators.json"), key=indicator_id),
         sorted(_list_json(path / "attributes.json"), key=attribute_id),
     )
+    from region_comparison.provenance import validate_provenance
+
+    errors = validate_provenance(dataset, path)
+    if errors:
+        raise StorageError("Snapshot provenance validation failed: " + "; ".join(errors))
+    return dataset
 
 
 def _engine(database_url: str) -> Engine:
@@ -105,7 +111,7 @@ def _engine(database_url: str) -> Engine:
 
 
 def migrate(database_url: str, migration_dir: str | Path | None = None) -> None:
-    from region_comparison.config import ROOT
+    from region_comparison.paths import ROOT
 
     migrations = Path(migration_dir) if migration_dir else ROOT / "sql" / "migrations"
     if not migrations.is_dir():
@@ -163,17 +169,40 @@ def _json(value: Any) -> str:
 
 
 def import_snapshot(database_url: str, path: str | Path) -> str:
-    dataset = load_snapshot(path)
-    report = validate_dataset(dataset)
-    if not report.valid:
-        raise StorageError("Snapshot cannot be activated: " + "; ".join(report.errors))
+    """Explicitly import and activate the chosen validated immutable snapshot."""
+    return _import_or_initialize(database_url, path, initialize_only=False)
+
+
+def initialize_database(database_url: str, seed_path: str | Path) -> str:
+    """Seed an empty database once; preserve its existing valid active snapshot on restart."""
+    return _import_or_initialize(database_url, seed_path, initialize_only=True)
+
+
+def _import_or_initialize(database_url: str, path: str | Path, *, initialize_only: bool) -> str:
     migrate(database_url)
-    digest = hashlib.sha256(_json(dataset.manifest).encode()).hexdigest()
     engine = _engine(database_url)
-    sid = dataset.snapshot_id
     try:
         with engine.begin() as connection:
             connection.execute(text("SELECT pg_advisory_xact_lock(73490002)"))
+            if initialize_only:
+                has_snapshots = connection.execute(
+                    text("SELECT EXISTS(SELECT 1 FROM snapshots)")
+                ).scalar_one()
+                if has_snapshots:
+                    active = _load_database_connection(connection)
+                    report = validate_dataset(active)
+                    if not report.valid:
+                        raise StorageError(
+                            "Database initialization found an invalid active snapshot: "
+                            + "; ".join(report.errors)
+                        )
+                    return active.snapshot_id
+            dataset = load_snapshot(path)
+            report = validate_dataset(dataset)
+            if not report.valid:
+                raise StorageError("Snapshot cannot be activated: " + "; ".join(report.errors))
+            sid = dataset.snapshot_id
+            digest = hashlib.sha256(_json(dataset.manifest).encode()).hexdigest()
             existing = connection.execute(
                 text("SELECT content_sha256 FROM snapshots WHERE snapshot_id=:s"), {"s": sid}
             ).scalar_one_or_none()
@@ -286,36 +315,45 @@ def load_database(database_url: str, snapshot_id: str | None = None) -> Dataset:
     engine = _engine(database_url)
     try:
         with engine.connect() as connection:
-            statement = "SELECT snapshot_id,manifest FROM snapshots WHERE state='complete' AND "
-            statement += "active" if snapshot_id is None else "snapshot_id=:s"
-            snapshot = (
-                connection.execute(text(statement), {"s": snapshot_id}).mappings().one_or_none()
-            )
-            if snapshot is None:
-                raise StorageError("No complete active PostgreSQL snapshot is available.")
-            sid = snapshot["snapshot_id"]
-
-            def metadata(table: str, order: str) -> list[dict[str, Any]]:
-                # Table/order names are fixed internal constants, never user input.
-                return list(
-                    connection.execute(
-                        text(f"SELECT metadata FROM {table} WHERE snapshot_id=:s ORDER BY {order}"),
-                        {"s": sid},
-                    ).scalars()
-                )
-
-            units = pd.DataFrame(metadata("unit_versions", "unit_id"))
-            indicators = metadata("indicator_definitions", "indicator_id")
-            attributes = metadata("attribute_definitions", "attr_id")
-            observations = pd.read_sql_query(
-                text(
-                    "SELECT unit_id,year,indicator_id,raw_value,raw_attr_id,semantic_value,"
-                    "quality_status,reason_code,source_file,source_record "
-                    "FROM observations WHERE snapshot_id=:s ORDER BY unit_id,year,indicator_id"
-                ),
-                connection,
-                params={"s": sid},
-            )
-            return Dataset(snapshot["manifest"], units, observations, indicators, attributes)
+            return _load_database_connection(connection, snapshot_id)
     finally:
         engine.dispose()
+
+
+def _load_database_connection(connection: Any, snapshot_id: str | None = None) -> Dataset:
+    statement = (
+        "SELECT snapshot_id,manifest,content_sha256 FROM snapshots WHERE state='complete' AND "
+    )
+    statement += "active" if snapshot_id is None else "snapshot_id=:s"
+    snapshot = connection.execute(text(statement), {"s": snapshot_id}).mappings().one_or_none()
+    if snapshot is None:
+        raise StorageError("No complete active PostgreSQL snapshot is available.")
+    if (
+        hashlib.sha256(_json(snapshot["manifest"]).encode()).hexdigest()
+        != snapshot["content_sha256"]
+    ):
+        raise StorageError("The stored snapshot manifest failed its integrity check.")
+    sid = snapshot["snapshot_id"]
+
+    def metadata(table: str, order: str) -> list[dict[str, Any]]:
+        # Table/order names are fixed internal constants, never user input.
+        return list(
+            connection.execute(
+                text(f"SELECT metadata FROM {table} WHERE snapshot_id=:s ORDER BY {order}"),
+                {"s": sid},
+            ).scalars()
+        )
+
+    units = pd.DataFrame(metadata("unit_versions", "unit_id"))
+    indicators = metadata("indicator_definitions", "indicator_id")
+    attributes = metadata("attribute_definitions", "attr_id")
+    observations = pd.read_sql_query(
+        text(
+            "SELECT unit_id,year,indicator_id,raw_value,raw_attr_id,semantic_value,"
+            "quality_status,reason_code,source_file,source_record "
+            "FROM observations WHERE snapshot_id=:s ORDER BY unit_id,year,indicator_id"
+        ),
+        connection,
+        params={"s": sid},
+    )
+    return Dataset(snapshot["manifest"], units, observations, indicators, attributes)
